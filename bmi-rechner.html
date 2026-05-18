@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BMI-Rechner — Body-Mass-Index berechnen & auswerten | FastRechnen.de</title>
+<meta name="description" content="BMI-Rechner: Body-Mass-Index berechnen mit Auswertung nach WHO-Klassifikation. Normalgewicht, Idealgewicht und Gesundheitsrisiko sofort ermitteln. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/bmi-rechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; BMI-Rechner</div><h1>BMI-Rechner</h1><p>Berechnen Sie Ihren Body-Mass-Index mit vollständiger WHO-Auswertung und Idealgewicht-Angabe.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">WHO-Klassifikation</span><span class="calc-badge">Idealgewicht</span><span class="calc-badge">Für Erwachsene</span></div></div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Körperdaten</span></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Körpergröße</label>
+            <div class="input-wrap"><input type="number" id="groesse" value="175" min="100" max="250" oninput="calc()"><span class="input-unit">cm</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Körpergewicht</label>
+            <div class="input-wrap"><input type="number" id="gewicht" value="75" min="20" max="300" step="0.1" oninput="calc()"><span class="input-unit">kg</span></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Geschlecht</label>
+            <div class="input-wrap"><select id="geschlecht" onchange="calc()"><option value="m">M&auml;nnlich</option><option value="w">Weiblich</option></select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Alter</label>
+            <div class="input-wrap"><input type="number" id="alter" value="35" min="18" max="100" oninput="calc()"><span class="input-unit">Jahre</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Ihr BMI</div>
+        <div class="result-value" id="r-bmi">0,0</div>
+        <div class="result-sub" id="r-kat">—</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Idealgewicht (Broca)</div><div class="result-row-value pos" id="r-ideal"></div></div>
+        <div class="result-row"><div class="result-row-label">Normalgewicht-Bereich (BMI 18,5–24,9)</div><div class="result-row-value" id="r-normal"></div></div>
+        <div class="result-row"><div class="result-row-label">Ihr aktueller BMI</div><div class="result-row-value" id="r-bmi2"></div></div>
+        <div class="result-row"><div class="result-row-label">Differenz zum Idealgewicht</div><div class="result-row-value" id="r-diff"></div></div>
+      </div>
+      <p class="result-disclaimer">Der BMI ist ein grober Richtwert und gilt nur f&uuml;r Erwachsene (18+). Er ber&uuml;cksichtigt nicht Muskelmasse, Knochenbau und Alter. Nur zur Orientierung.</p>
+    </div>
+<script>
+function fmtK(n){return n.toFixed(1).replace(".",",");}
+function calc(){
+  const h=(parseFloat(document.getElementById("groesse").value)||175)/100;
+  const w=parseFloat(document.getElementById("gewicht").value)||75;
+  const g=document.getElementById("geschlecht").value;
+  const bmi=w/(h*h);
+  let kat="",cls="";
+  if(bmi<16){kat="Starkes Untergewicht (Grad III)";cls="neg";}
+  else if(bmi<17){kat="Starkes Untergewicht (Grad II)";cls="neg";}
+  else if(bmi<18.5){kat="Untergewicht";cls="neg";}
+  else if(bmi<25){kat="Normalgewicht ✔";cls="pos";}
+  else if(bmi<30){kat="Übergewicht";cls="";}
+  else if(bmi<35){kat="Adipositas Grad I";cls="neg";}
+  else if(bmi<40){kat="Adipositas Grad II";cls="neg";}
+  else{kat="Adipositas Grad III";cls="neg";}
+  const ideal=g==="m"?(h*100-100)*0.9:(h*100-100)*0.85;
+  const nmin=18.5*h*h;const nmax=24.9*h*h;
+  const diff=w-ideal;
+  document.getElementById("r-bmi").textContent=fmtK(bmi);
+  document.getElementById("r-kat").textContent=kat;
+  document.getElementById("r-ideal").textContent=fmtK(ideal)+" kg";
+  document.getElementById("r-normal").textContent=fmtK(nmin)+" – "+fmtK(nmax)+" kg";
+  document.getElementById("r-bmi2").textContent=fmtK(bmi)+" kg/m²";
+  const de=document.getElementById("r-diff");
+  de.textContent=(diff>0?"+ ":"")+fmtK(diff)+" kg";
+  de.className="result-row-value "+(Math.abs(diff)<3?"pos":diff>0?"neg":"pos");
+}
+calc();
+</script>
+  </div>
+  <section class="article-section"><div class="article-inner"><h2>Body-Mass-Index: Was sagt der BMI wirklich aus?</h2><p>Der <strong>Body-Mass-Index (BMI)</strong> ist das am weitesten verbreitete Messinstrument zur Einschätzung des Körpergewichts im Verhältnis zur Körpergröße. Er wurde im 19. Jahrhundert von Adolphe Quetelet entwickelt und von der Weltgesundheitsorganisation (WHO) zur internationalen Standardklassifikation gemacht. Die Formel lautet: BMI = Körpergewicht (kg) ÷ Körpergröße² (m²).</p>
+
+<h3>WHO-Klassifikation des BMI</h3>
+<p>Die WHO definiert folgende Gewichtsklassen: Unter 18,5 gilt als <strong>Untergewicht</strong>, 18,5 bis 24,9 als <strong>Normalgewicht</strong> (gesunder Bereich), 25,0 bis 29,9 als <strong>Übergewicht</strong>, und ab 30 als <strong>Adipositas</strong> (Grad I: 30–34,9, Grad II: 35–39,9, Grad III: 40+). Diese Grenzen gelten für Erwachsene; für Kinder und Jugendliche gelten alters- und geschlechtsspezifische Perzentilkurven.</p>
+
+<h3>Grenzen des BMI</h3>
+<p>Der BMI ist ein grober Näherungswert, der wichtige Faktoren außer Acht lässt. Sehr muskulöse Menschen (Sportler, Bodybuilder) haben oft einen erhöhten BMI, obwohl ihr Körperfettanteil niedrig ist. Umgekehrt kann jemand mit einem Normalgewicht-BMI einen zu hohen Körperfettanteil haben (sogenannte "Normal Weight Obesity"). Der BMI unterscheidet außerdem nicht nach Alter und Geschlecht; bei älteren Menschen ist ein etwas höherer BMI oft akzeptabler.</p>
+
+<h3>Bessere Kennzahlen als Ergänzung zum BMI</h3>
+<p>Für eine umfassendere Beurteilung empfehlen Gesundheitsexperten den BMI durch den <strong>Taillenumfang</strong> zu ergänzen. Ein Taillenumfang über 80 cm (Frauen) oder 94 cm (Männer) signalisiert ein erhöhtes Risiko für Herz-Kreislauf-Erkrankungen, unabhängig vom BMI. Auch das <strong>Taille-Hüft-Verhältnis</strong> und der <strong>Körperfettanteil</strong> liefern wertvollere Aussagen als der BMI allein.</p>
+
+<h3>Ab wann ist das Gewicht gesundheitsgefährdend?</h3>
+<p>Ab einem BMI von 25 steigt das statistische Risiko für Typ-2-Diabetes, Bluthochdruck und Herzerkrankungen. Ab einem BMI von 30 (Adipositas) ist das gesundheitliche Risiko deutlich erhöht und eine ärztliche Beratung wird empfohlen. Gleichzeitig ist auch starkes Untergewicht (BMI unter 17,5) mit ernsthaften Gesundheitsrisiken verbunden.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist ein gesunder BMI?</div><div class="faq-a">Nach WHO-Definition gilt ein BMI zwischen 18,5 und 24,9 als Normalgewicht. Werte darunter gelten als Untergewicht, Werte ab 25 als Übergewicht und ab 30 als Adipositas. Diese Grenzen gelten für Erwachsene ab 18 Jahren und berücksichtigen keine Faktoren wie Muskelmasse oder Alter.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ist der BMI für Sportler aussagekräftig?</div><div class="faq-a">Nein, nicht zuverlässig. Sehr muskulöse Personen haben oft einen BMI im Übergewichtsbereich, obwohl ihr Körperfettanteil gesund ist. Für Sportler sind der Körperfettanteil (gemessen per DEXA oder Hautfalten) und der Taillenumfang bessere Indikatoren für das Gesundheitsrisiko.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie berechnet sich das Idealgewicht?</div><div class="faq-a">Eine gängige Formel ist der modifizierte Broca-Index: Männer: (Körpergröße in cm − 100) × 0,9; Frauen: (Körpergröße in cm − 100) × 0,85. Dies ist ein Richtwert aus der Mitte des Normalgewichtsbereichs. Der WHO-Normalgewichtsbereich (BMI 18,5–24,9) gibt eine breitere gesunde Spanne an.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gilt der BMI auch für Kinder?</div><div class="faq-a">Nein. Dieser Rechner ist für Erwachsene ab 18 Jahren. Für Kinder und Jugendliche gelten alters- und geschlechtsspezifische BMI-Perzentilen. Kinderärzte nutzen spezielle Wachstumskurven (z.B. der Kromeyer-Hauschild-Referenzwerte). Ein BMI von 22 bedeutet bei einem 10-Jährigen etwas ganz anderes als bei einem 35-Jährigen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist Adipositas und wann ist sie behandlungsbedürftig?</div><div class="faq-a">Adipositas (Fettleibigkeit) liegt ab einem BMI von 30 vor. Grad I (30–34,9) erfordert Lebensstiländerungen (Ernährung, Bewegung). Grad II (35–39,9) und Grad III (über 40) sind ernsthaft behandlungsbedürftig; hier kommen auch medizinische Eingriffe (bariatrische Chirurgie) in Frage. Sprechen Sie unbedingt mit einem Arzt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Warum ist Untergewicht (BMI unter 18,5) gefährlich?</div><div class="faq-a">Untergewicht erhöht das Risiko für Osteoporose, geschwächtes Immunsystem, Herzrhythmusstörungen, Unfruchtbarkeit und psychische Erkrankungen wie Essstörungen. Besonders ab einem BMI unter 17,5 spricht man von ernsthafter Mangelernährung, die ärztlicher Behandlung bedarf.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was sagt der Taillenumfang zusätzlich zum BMI aus?</div><div class="faq-a">Der Taillenumfang misst das Bauchfett, das besonders mit Herz-Kreislauf-Erkrankungen und Typ-2-Diabetes verbunden ist. Grenzwerte: Frauen unter 80 cm (Warnbereich: 80–88 cm, erhöhtes Risiko: über 88 cm); Männer unter 94 cm (Warnbereich: 94–102 cm, erhöhtes Risiko: über 102 cm). Ein normaler BMI mit hohem Taillenumfang ist ein Risikofaktor.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/rentenrechner.html" class="related-link">Rentenrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+</body>
+</html>

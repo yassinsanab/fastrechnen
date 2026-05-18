@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abfindungsrechner — Abfindung & Fünftelregel berechnen | FastRechnen.de</title>
+<meta name="description" content="Abfindungsrechner: Netto-Abfindung nach der Fünftelregelung berechnen. Steuerersparnis durch Fünftelregel ermitteln. Kostenlos und sofort.">
+<link rel="canonical" href="https://fastrechnen.de/abfindungsrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Abfindungsrechner</div><h1>Abfindungsrechner</h1><p>Berechnen Sie Ihre Netto-Abfindung und die Steuerersparnis durch die Fünftelregelung.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Fünftelregel §34 EStG</span><span class="calc-badge">Steuerersparnis</span><span class="calc-badge">Aktuell gepflegt</span></div></div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Angaben</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Abfindungsbetrag (brutto)</label>
+            <div class="input-wrap"><input type="number" id="abfindung" value="25000" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Sonstiges Jahreseinkommen (brutto)</label>
+            <div class="input-wrap"><input type="number" id="einkommen" value="42000" oninput="calc()"><span class="input-unit">&euro;</span></div>
+            <div class="field-hint">Ohne Abfindung im Abfindungsjahr</div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Steuerklasse</label>
+            <div class="input-wrap"><select id="klasse" onchange="calc()">
+              <option value="1">I &mdash; ledig</option>
+              <option value="3">III &mdash; verheiratet</option>
+              <option value="4">IV &mdash; verheiratet</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Kirchensteuer</label>
+            <div class="input-wrap"><select id="kirche" onchange="calc()">
+              <option value="0">Keine</option>
+              <option value="9">9 %</option>
+              <option value="8">8 % (BY/BW)</option>
+            </select></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Netto-Abfindung (mit F&uuml;nftelregel)</div>
+        <div class="result-value" id="r-netto">&euro; 0,00</div>
+        <div class="result-sub">nach Lohnsteuer, ohne Sozialversicherung</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Abfindung brutto</div><div class="result-row-value" id="r-brutto"></div></div>
+        <div class="result-row"><div class="result-row-label">Steuer ohne F&uuml;nftelregel</div><div class="result-row-value neg" id="r-ohne"></div></div>
+        <div class="result-row"><div class="result-row-label">Steuer mit F&uuml;nftelregel</div><div class="result-row-value neg" id="r-mit"></div></div>
+        <div class="result-row"><div class="result-row-label">Steuerersparnis durch F&uuml;nftelregel</div><div class="result-row-value pos" id="r-ersparnis"></div></div>
+        <div class="result-row"><div class="result-row-label">Effektiver Steuersatz auf Abfindung</div><div class="result-row-value" id="r-quote"></div></div>
+        <div class="result-row"><div class="result-row-label">Keine Sozialversicherung</div><div class="result-row-value pos">0,00 &euro;</div></div>
+      </div>
+      <p class="result-disclaimer">Auf Abfindungen fallen keine Sozialversicherungsbeitr&auml;ge an. Nur Lohnsteuer (mit F&uuml;nftelregel), Soli und ggf. Kirchensteuer. Alle Angaben ohne Gew&auml;hr. Keine Steuerberatung.</p>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calcESt(zvE,kl){
+  const GFB=11604;
+  if(zvE<=GFB)return 0;
+  let st=0;
+  if(zvE<=17005){const y=(zvE-GFB)/10000;st=(922.98*y+1400)*y;}
+  else if(zvE<=66760){const y=(zvE-17005)/10000;st=(181.19*y+2397)*y+1025.38;}
+  else if(zvE<=277825){st=0.42*zvE-10602.13;}
+  else{st=0.45*zvE-18936.88;}
+  if(kl===3)st=Math.max(0,st*0.55);
+  return Math.max(0,st);
+}
+function calc(){
+  const A=parseFloat(document.getElementById('abfindung').value)||0;
+  const eink=parseFloat(document.getElementById('einkommen').value)||0;
+  const kl=parseInt(document.getElementById('klasse').value);
+  const kist_s=parseFloat(document.getElementById('kirche').value)/100;
+  // zvE Basis (vereinfacht: Einkommen - 1.230 WKP - ca. 20% SV)
+  const zvE_basis=Math.max(0,eink*0.79-1230);
+  // Steuer OHNE Fünftelregel: Abfindung voll zum zvE addieren
+  const st_gesamt_ohne=calcESt(zvE_basis+A,kl);
+  const st_basis=calcESt(zvE_basis,kl);
+  const steuer_ohne=st_gesamt_ohne-st_basis;
+  // Steuer MIT Fünftelregel: 5 × (ESt auf zvE + A/5) − ESt auf zvE
+  const st_fuenftel=calcESt(zvE_basis+A/5,kl);
+  const steuer_mit=(st_fuenftel-st_basis)*5;
+  const soli_mit=steuer_mit>18130?steuer_mit*0.055:0;
+  const kist=steuer_mit*kist_s;
+  const gesamt_steuer=steuer_mit+soli_mit+kist;
+  const ersparnis=Math.max(0,steuer_ohne-steuer_mit);
+  const netto=A-gesamt_steuer;
+  const quote=A>0?gesamt_steuer/A*100:0;
+  document.getElementById('r-netto').textContent='€ '+fmt(Math.max(0,netto));
+  document.getElementById('r-brutto').textContent='€ '+fmt(A);
+  document.getElementById('r-ohne').textContent='- € '+fmt(steuer_ohne);
+  document.getElementById('r-mit').textContent='- € '+fmt(gesamt_steuer);
+  document.getElementById('r-ersparnis').textContent='€ '+fmt(ersparnis);
+  document.getElementById('r-quote').textContent=quote.toFixed(1)+' %';
+}
+function reset(){document.getElementById('abfindung').value=25000;document.getElementById('einkommen').value=42000;document.getElementById('klasse').selectedIndex=0;document.getElementById('kirche').selectedIndex=0;calc();}
+calc();
+</script>
+  </div>
+  <section class="article-section"><div class="article-inner"><h2>Abfindung in Deutschland: Steuer und Fünftelregel erklärt</h2><p>Eine <strong>Abfindung</strong> ist eine einmalige Zahlung des Arbeitgebers an den Arbeitnehmer im Zusammenhang mit der Beendigung des Arbeitsverhältnisses. Sie stellt eine außerordentliche Einkunft dar und wird steuerlich nach der sogenannten Fünftelregelung begünstigt — ohne diese würde die volle Steuerprogression einsetzen und der Arbeitnehmer würde unverhältnismäßig viel Steuer zahlen.</p>
+
+<h3>Die Fünftelregel (§34 EStG) im Detail</h3>
+<p>Die Fünftelregel verhindert, dass eine hohe Einmalzahlung zu einem ungerechtfertigt hohen Steuersatz führt. Die Berechnung erfolgt in zwei Schritten: Zunächst wird die Einkommensteuer auf das reguläre Jahreseinkommen berechnet. Dann wird die Mehrsteuer ermittelt, die entstünde, wenn nur ein Fünftel der Abfindung dazukäme — und diese Mehrsteuer wird mit fünf multipliziert. Das Ergebnis ist deutlich niedriger als die Steuer bei voller Anrechnung.</p>
+
+<h3>Keine Sozialversicherungsbeiträge auf Abfindungen</h3>
+<p>Ein wichtiger Vorteil: Auf Abfindungen fallen grundsätzlich <strong>keine Sozialversicherungsbeiträge</strong> an. Weder Kranken-, Renten-, Arbeitslosen- noch Pflegeversicherungsbeiträge werden abgezogen. Es fällt lediglich Lohnsteuer (begünstigt durch die Fünftelregel), gegebenenfalls Solidaritätszuschlag und ggf. Kirchensteuer an.</p>
+
+<h3>Wie hoch ist eine typische Abfindung?</h3>
+<p>Es gibt keinen gesetzlichen Anspruch auf eine Abfindung — sie ist freiwillig oder Ergebnis von Verhandlungen. Die gängige Faustformel aus der Rechtspraxis lautet: <strong>0,5 Monatsgehälter je Beschäftigungsjahr</strong>. Bei Betriebsschließungen oder Sozialplänen können deutlich höhere Abfindungen gezahlt werden.</p>
+
+<h3>Steuertipps zur Abfindung</h3>
+<p>Die Fünftelregel wirkt am stärksten, wenn das sonstige Einkommen im Abfindungsjahr möglichst gering ist. Wer im Jahr der Abfindungsauszahlung nur ein halbes Jahr gearbeitet hat oder Arbeitslosengeld bezieht, profitiert besonders. Ein Steuerberater kann die optimale Gestaltung des Zahlungszeitpunkts berechnen.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Fünftelregel?</div><div class="faq-a">Die Fünftelregel (§34 EStG) ist eine steuerliche Begünstigung für außerordentliche Einkünfte wie Abfindungen. Statt die gesamte Abfindung dem Einkommen hinzuzurechnen, wird nur ein Fünftel angerechnet und die daraus resultierende Mehrsteuer mit fünf multipliziert. Dies verhindert, dass eine Einmalzahlung zu einem unverhältnismäßig hohen Steuersatz führt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Fallen auf die Abfindung Sozialversicherungsbeiträge an?</div><div class="faq-a">Nein. Abfindungen für den Verlust des Arbeitsplatzes sind sozialversicherungsfrei — weder Kranken-, Renten-, Arbeitslosen- noch Pflegeversicherungsbeiträge werden fällig. Es fällt ausschließlich Lohnsteuer an (begünstigt durch die Fünftelregel), plus ggf. Solidaritätszuschlag und Kirchensteuer.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Habe ich einen Anspruch auf eine Abfindung?</div><div class="faq-a">Einen gesetzlichen Anspruch auf Abfindung gibt es nur in wenigen Fällen (z.B. §1a KSchG bei betriebsbedingter Kündigung mit Verzicht auf Kündigungsschutzklage). In der Praxis werden Abfindungen meist in Aufhebungsverträgen oder Sozialplänen vereinbart. Die Faustformel lautet: 0,5 Monatsgehälter pro Beschäftigungsjahr.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wann sollte die Abfindung ausgezahlt werden?</div><div class="faq-a">Steuerlich vorteilhaft ist eine Auszahlung in einem Jahr mit niedrigem sonstigem Einkommen — etwa nach Beendigung des Arbeitsverhältnisses, wenn Sie vorübergehend ALG beziehen. Die Fünftelregel wirkt umso besser, je niedriger das sonstige Einkommen im Zahlungsjahr ist.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Beeinflusst die Abfindung das Arbeitslosengeld?</div><div class="faq-a">Eine Abfindung verlängert nicht das ALG I, kann aber zu einer Ruhensfrist führen, wenn das Arbeitsverhältnis früher endet als es bei einer regulären Kündigung mit Kündigungsfrist der Fall gewesen wäre. Die Agentur für Arbeit berechnet die eventuelle Ruhensfrist individuell.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch ist die Steuer auf meine Abfindung?</div><div class="faq-a">Der effektive Steuersatz hängt von Ihrer gesamten steuerlichen Situation ab. Unser Rechner berechnet ihn konkret. Typischerweise liegt der Steuersatz auf die Abfindung durch die Fünftelregel deutlich unter dem persönlichen Grenzsteuersatz des sonstigen Einkommens.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann die Fünftelregel versagt werden?</div><div class="faq-a">Ja. Das Finanzamt versagt die Fünftelregel, wenn keine echte Zusammenballung von Einkünften vorliegt — etwa wenn die Abfindung in Raten über mehrere Jahre gezahlt wird. Die Abfindung muss in einem Veranlagungszeitraum fließen, damit die Begünstigung gilt.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/rentenrechner.html" class="related-link">Rentenrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a><a href="/mehrwertsteuerrechner.html">MwSt-Rechner</a><a href="/kreditrechner.html">Kreditrechner</a><a href="/rentenrechner.html">Rentenrechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a><a href="/alle-rechner.html">Alle Rechner</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+</body>
+</html>

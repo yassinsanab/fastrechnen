@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Urlaubsrechner — Urlaubsanspruch & Abgeltung berechnen | FastRechnen.de</title>
+<meta name="description" content="Urlaubsrechner: Gesetzlichen Urlaubsanspruch, Resturlaub bei Kündigung und Urlaubsabgeltung berechnen. Kostenlos und aktuell 2024.">
+<link rel="canonical" href="https://fastrechnen.de/urlaubsrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Urlaubsrechner</div><h1>Urlaubsrechner</h1><p>Berechnen Sie Ihren Urlaubsanspruch, Resturlaub bei Ausscheiden und die Urlaubsabgeltung.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Bundesurlaubsgesetz</span><span class="calc-badge">Urlaubsabgeltung</span><span class="calc-badge">Anteiliger Anspruch</span></div></div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Arbeitsdaten</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Arbeitstage pro Woche</label>
+            <div class="input-wrap"><select id="arbeitstage" onchange="calc()">
+              <option value="5" selected>5 Tage (Vollzeit)</option>
+              <option value="4">4 Tage</option>
+              <option value="3">3 Tage</option>
+              <option value="2.5">2,5 Tage</option>
+              <option value="2">2 Tage</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Vertraglicher Jahresurlaub</label>
+            <div class="input-wrap"><input type="number" id="urlaub" value="30" min="0" max="60" oninput="calc()"><span class="input-unit">Tage</span></div>
+            <div class="field-hint">Gesetzliches Minimum bei 5-Tage-Woche: 20 Arbeitstage</div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Eintrittsdatum (f&uuml;r anteiligen Anspruch)</label>
+            <div class="input-wrap"><input type="date" id="eintritt" oninput="calc()"></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Tagesbrutto (f&uuml;r Abgeltung)</label>
+            <div class="input-wrap"><input type="number" id="tagesgehalt" value="150" oninput="calc()"><span class="input-unit">&euro;</span></div>
+            <div class="field-hint">Monatsbrutto &divide; 30</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">J&auml;hrlicher Urlaubsanspruch</div>
+        <div class="result-value" id="r-anspruch">0 Tage</div>
+        <div class="result-sub" id="r-gesetz"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Anteiliger Anspruch (heute)</div><div class="result-row-value" id="r-anteilig"></div></div>
+        <div class="result-row"><div class="result-row-label">Urlaubsabgeltung brutto</div><div class="result-row-value pos" id="r-abgeltung"></div></div>
+        <div class="result-row"><div class="result-row-label">Gesetzliches Minimum</div><div class="result-row-value" id="r-min"></div></div>
+        <div class="result-row"><div class="result-row-label">&Uuml;ber gesetzlichem Minimum</div><div class="result-row-value" id="r-mehr"></div></div>
+      </div>
+      <p class="result-disclaimer">Berechnung nach Bundesurlaubsgesetz (BUrlG). Anteiliger Anspruch: 1/12 pro vollem Besch&auml;ftigungsmonat. Alle Angaben ohne Gew&auml;hr. Keine Steuerberatung.</p>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calc(){
+  const tage_woche=parseFloat(document.getElementById('arbeitstage').value);
+  const urlaub=parseInt(document.getElementById('urlaub').value)||30;
+  const tagesgehalt=parseFloat(document.getElementById('tagesgehalt').value)||0;
+  const eintritt=document.getElementById('eintritt').value;
+  // Anspruch proportional zur Arbeitswoche
+  const anspruch_basis=Math.round(urlaub*(tage_woche/5));
+  const gesetz_min=Math.round(20*(tage_woche/5));
+  // Anteiliger Anspruch
+  let anteilig=anspruch_basis;
+  let monate_text='12 Monate';
+  if(eintritt){
+    const now=new Date();
+    const ein=new Date(eintritt);
+    const monate=Math.min(12,(now.getFullYear()-ein.getFullYear())*12+(now.getMonth()-ein.getMonth())+1);
+    anteilig=Math.round(anspruch_basis/12*Math.min(monate,12));
+    monate_text=Math.min(monate,12)+' Monate';
+  }
+  const abgeltung=anteilig*tagesgehalt;
+  document.getElementById('r-anspruch').textContent=anspruch_basis+' Tage/Jahr';
+  document.getElementById('r-gesetz').textContent='Gesetzliches Minimum: '+gesetz_min+' Tage | Vertraglich: '+anspruch_basis+' Tage';
+  document.getElementById('r-anteilig').textContent=anteilig+' Tage ('+monate_text+')';
+  document.getElementById('r-abgeltung').textContent='€ '+fmt(abgeltung);
+  document.getElementById('r-min').textContent=gesetz_min+' Tage/Jahr';
+  document.getElementById('r-mehr').textContent='+ '+(anspruch_basis-gesetz_min)+' Tage &uuml;ber Minimum';
+}
+function reset(){document.getElementById('arbeitstage').selectedIndex=0;document.getElementById('urlaub').value=30;document.getElementById('eintritt').value='';document.getElementById('tagesgehalt').value=150;calc();}
+const now=new Date();
+document.getElementById('eintritt').value=now.getFullYear()+'-01-01';
+calc();
+</script>
+  </div>
+  <section class="article-section"><div class="article-inner"><h2>Urlaubsrecht in Deutschland: Anspruch, Übertragung und Abgeltung</h2><p>Das Recht auf bezahlten Jahresurlaub ist im <strong>Bundesurlaubsgesetz (BUrlG)</strong> geregelt. Jeder Arbeitnehmer in Deutschland hat einen gesetzlichen Mindesturlaubsanspruch — doch in der Praxis haben viele Arbeitnehmer deutlich mehr Urlaub als das gesetzliche Minimum. Wichtig ist zu wissen, was bei Jobwechsel, Kündigung oder Krankheit mit dem Resturlaub passiert.</p>
+
+<h3>Gesetzlicher Mindesturlaub 2024</h3>
+<p>Das Bundesurlaubsgesetz schreibt bei einer Fünf-Tage-Woche einen Mindesturlaub von <strong>20 Arbeitstagen</strong> pro Jahr vor. Das entspricht 24 Werktagen (Montag bis Samstag). Die meisten Tarifverträge und Arbeitsverträge sehen 25–30 Urlaubstage vor. Bei Teilzeit wird der Urlaub proportional zur Anzahl der Arbeitstage berechnet.</p>
+
+<h3>Urlaubsanspruch bei Einstellung und Kündigung</h3>
+<p>Im ersten Halbjahr entsteht der volle Urlaubsanspruch erst nach 6-monatiger Betriebszugehörigkeit (Wartezeit). Scheidet ein Arbeitnehmer in der ersten Jahreshälfte aus (vor 30. Juni), bekommt er 1/12 des Jahresurlaubs pro vollem Beschäftigungsmonat. Scheidet er in der zweiten Jahreshälfte aus und hat er 6 Monate oder länger gearbeitet, hat er Anspruch auf den vollen Jahresurlaub.</p>
+
+<h3>Urlaubsübertragung und Verfall</h3>
+<p>Urlaub muss grundsätzlich im laufenden Kalenderjahr genommen werden. Er kann auf das Folgejahr übertragen werden, wenn betriebliche oder persönliche Gründe vorliegen — dann muss er bis zum 31. März genommen werden. Bei langanhaltender Krankheit hat der Europäische Gerichtshof entschieden, dass der Urlaub bis zu 15 Monate nach Ende des Urlaubsjahres erhalten bleibt.</p>
+
+<h3>Urlaubsabgeltung: Was ist das?</h3>
+<p>Wenn das Arbeitsverhältnis endet und Resturlaub besteht, der nicht mehr genommen werden kann, muss dieser finanziell abgegolten werden. Die Abgeltung berechnet sich: <code>Tagessatz × Resturlaubstage</code>. Als Tagessatz gilt das monatliche Bruttogehalt dividiert durch 30. Die Auszahlung unterliegt der normalen Lohnsteuer und den Sozialversicherungsbeiträgen.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie viele Urlaubstage stehen mir gesetzlich zu?</div><div class="faq-a">Das Bundesurlaubsgesetz (BUrlG) sieht bei einer Fünf-Tage-Woche mindestens 20 Arbeitstage Urlaub pro Jahr vor (24 Werktage bei einer Sechs-Tage-Woche). Die meisten Arbeitnehmer haben durch Tarifvertrag oder Arbeitsvertrag 25–30 Tage. Bei weniger Arbeitstagen pro Woche reduziert sich der Anspruch proportional.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann ich Urlaub ins nächste Jahr übertragen?</div><div class="faq-a">Ja, aber nur unter bestimmten Voraussetzungen. Urlaub kann auf das Folgejahr übertragen werden, wenn dringende betriebliche oder persönliche Gründe vorliegen. In diesem Fall verfällt er am 31. März des Folgejahres, nicht schon am 31. Dezember. Bei dauerhafter Erkrankung gilt eine 15-Monats-Frist (EuGH-Rechtsprechung).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was passiert mit dem Resturlaub bei Kündigung?</div><div class="faq-a">Urlaub, der bis zum Ende des Arbeitsverhältnisses nicht genommen werden kann, muss abgegolten werden. Die Abgeltung unterliegt der normalen Lohnsteuer und Sozialversicherung. Eine Abgeltung statt Freistellung vor Ablauf der Kündigungsfrist ist nicht möglich — die Freistellung geht vor.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie wird der anteilige Urlaubsanspruch berechnet?</div><div class="faq-a">Bei Einstellung während des Jahres oder Kündigung: 1/12 des Jahresurlaubs pro vollständigem Beschäftigungsmonat. Bei einem Jahresurlaub von 30 Tagen und 7 Monaten Betriebszugehörigkeit ergibt sich ein Anspruch von 17,5 Tagen (7/12 × 30), aufgerundet auf 18 Tage.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Darf der Arbeitgeber Urlaub ablehnen?</div><div class="faq-a">Der Arbeitgeber kann Urlaubswünsche nur aus dringenden betrieblichen Gründen oder wegen bereits bewilligten Urlaubs anderer Mitarbeiter ablehnen. Er kann Urlaubszeiträume jedoch nicht dauerhaft blockieren — der Arbeitnehmer hat das Recht, seinen Urlaub tatsächlich nehmen zu können.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Erholungsurlaub und Sonderurlaub?</div><div class="faq-a">Erholungsurlaub ist der regelmäßige bezahlte Jahresurlaub nach BUrlG. Sonderurlaub wird für besondere Anlässe gewährt (Hochzeit, Geburt, Todesfall in der Familie, Umzug). Der Anspruch auf Sonderurlaub ergibt sich aus Tarifvertrag, Betriebsvereinbarung oder Einzelvereinbarung — gesetzlich verpflichtend ist nur weniges.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gibt es auch Urlaub für Minijobber?</div><div class="faq-a">Ja. Auch geringfügig Beschäftigte (Minijobber) haben einen gesetzlichen Urlaubsanspruch, der proportional zu ihrer Arbeitszeit berechnet wird. Wer einmal pro Woche arbeitet, hat Anspruch auf 4 Urlaubstage (20 Tage × 1/5). Viele Arbeitgeber vergessen dies — bei Beendigung des Minijobs kann der Urlaub nachträglich abgegolten werden.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/abfindungsrechner.html" class="related-link">Abfindungsrechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+</body>
+</html>

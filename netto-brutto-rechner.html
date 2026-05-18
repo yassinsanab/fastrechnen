@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Netto-Brutto-Rechner — Nettogehalt sofort berechnen | FastRechnen.de</title>
+<meta name="description" content="Netto-Brutto-Rechner für Deutschland: Nettogehalt aus Bruttogehalt berechnen. Mit allen Steuerklassen, GKV/PKV, Kirchensteuer und Sozialabgaben. Kostenlos, ohne Anmeldung.">
+<link rel="canonical" href="https://fastrechnen.de/netto-brutto-rechner">
+<meta property="og:title" content="Netto-Brutto-Rechner — Nettogehalt sofort berechnen">
+<meta property="og:description" content="Netto-Brutto-Rechner für Deutschland: Nettogehalt aus Bruttogehalt berechnen. Mit allen Steuerklassen, GKV/PKV, Kirchensteuer und Sozialabgaben. Kostenlos, ohne Anmeldung.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Netto-Brutto-Rechner — Nettogehalt sofort berechnen","description":"Netto-Brutto-Rechner für Deutschland: Nettogehalt aus Bruttogehalt berechnen. Mit allen Steuerklassen, GKV/PKV, Kirchensteuer und Sozialabgaben. Kostenlos, ohne Anmeldung.","url":"https://fastrechnen.de/netto-brutto-rechner","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"de"}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html"  class="active">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Netto-Brutto-Rechner</div>
+    <h1>Netto-Brutto-Rechner</h1>
+    <p>Berechnen Sie Ihr Nettogehalt sofort — mit Lohnsteuer, Sozialabgaben, GKV/PKV und Kirchensteuer.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Alle Steuerklassen</span><span class="calc-badge">GKV & PKV</span><span class="calc-badge">Aktuell gepflegt</span></div>
+  </div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Angaben</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Bruttogehalt</label>
+            <div class="input-wrap"><input type="number" id="brutto" value="3500" min="0" oninput="calc()"><span class="input-unit">&euro;</span></div>
+            <div class="field-hint">Ihr Gehalt vor allen Abz&uuml;gen</div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Zeitraum</label>
+            <div class="input-wrap"><select id="zeitraum" onchange="calc()"><option value="monat">Monatlich</option><option value="jahr">J&auml;hrlich</option></select></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Steuerklasse</label>
+            <div class="input-wrap"><select id="klasse" onchange="calc()">
+              <option value="1">I &mdash; ledig, geschieden</option>
+              <option value="2">II &mdash; alleinerziehend</option>
+              <option value="3">III &mdash; verheiratet (h&ouml;herer Verdienst)</option>
+              <option value="4">IV &mdash; verheiratet (&auml;hnlicher Verdienst)</option>
+              <option value="5">V &mdash; verheiratet (geringerer Verdienst)</option>
+              <option value="6">VI &mdash; Zweitjob</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Bundesland</label>
+            <div class="input-wrap"><select id="bundesland" onchange="calc()">
+              <option value="9">Bayern / Baden-W&uuml;rttemberg (8% KiSt)</option>
+              <option value="8">Alle anderen Bundesl&auml;nder (9% KiSt)</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Kirchensteuer</label>
+            <div class="input-wrap"><select id="kirche" onchange="calc()"><option value="0">Keine Kirchensteuer</option><option value="ja">Kirchensteuer zahlen</option></select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Kinder (f&uuml;r Pflegeversicherung)</label>
+            <div class="input-wrap"><select id="kinder" onchange="calc()">
+              <option value="0">Keine Kinder / unter 23</option>
+              <option value="1">1 Kind</option>
+              <option value="2">2 Kinder</option>
+              <option value="3">3 oder mehr Kinder</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Krankenversicherung</label>
+            <div class="input-wrap"><select id="kv_art" onchange="calc()"><option value="gkv">Gesetzlich (GKV)</option><option value="pkv">Privat (PKV)</option></select></div>
+          </div>
+          <div class="field-group" id="pkv_group" style="display:none">
+            <label class="field-label">PKV-Beitrag (monatlich)</label>
+            <div class="input-wrap"><input type="number" id="pkv_beitrag" value="400" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Monatliches Nettogehalt</div>
+        <div class="result-value" id="r-netto">&euro; 0,00</div>
+        <div class="result-sub" id="r-sub">von &euro; 3.500 Brutto &mdash; effektiver Abgabensatz: 0%</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Bruttogehalt</div><div class="result-row-value" id="r-brutto">&euro; 3.500,00</div></div>
+        <div class="result-row"><div class="result-row-label">Lohnsteuer</div><div class="result-row-value neg" id="r-lst">&mdash;</div></div>
+        <div class="result-row"><div class="result-row-label">Solidarit&auml;tszuschlag</div><div class="result-row-value neg" id="r-soli">&mdash;</div></div>
+        <div class="result-row"><div class="result-row-label">Kirchensteuer</div><div class="result-row-value neg" id="r-kist">&mdash;</div></div>
+        <div class="result-row"><div class="result-row-label">Krankenversicherung (7,3% + 0,85%)</div><div class="result-row-value neg" id="r-kv">&mdash;</div></div>
+        <div class="result-row"><div class="result-row-label">Rentenversicherung (9,3%)</div><div class="result-row-value neg" id="r-rv">&mdash;</div></div>
+        <div class="result-row"><div class="result-row-label">Arbeitslosenversicherung (1,3%)</div><div class="result-row-value neg" id="r-alv">&mdash;</div></div>
+        <div class="result-row"><div class="result-row-label">Pflegeversicherung</div><div class="result-row-value neg" id="r-pv">&mdash;</div></div>
+      </div>
+      <p class="result-disclaimer">Sch&auml;tzung auf Basis der Steuerformeln 2024 gem&auml;&szlig; &sect;32a EStG. Individuelle Freibetr&auml;ge nicht ber&uuml;cksichtigt. Alle Angaben ohne Gew&auml;hr. Keine Steuerberatung.</p>
+    </div>
+<script>
+document.getElementById('kv_art').addEventListener('change',function(){
+  document.getElementById('pkv_group').style.display=this.value==='pkv'?'block':'none';
+  calc();
+});
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function fmtE(n){return '€ '+fmt(n);}
+
+function calcLST(zvE_jahr,klasse){
+  const GFB=11604;
+  if(zvE_jahr<=GFB)return 0;
+  let lst=0;
+  if(zvE_jahr<=17005){const y=(zvE_jahr-GFB)/10000;lst=(922.98*y+1400)*y;}
+  else if(zvE_jahr<=66760){const y=(zvE_jahr-17005)/10000;lst=(181.19*y+2397)*y+1025.38;}
+  else if(zvE_jahr<=277825){lst=0.42*zvE_jahr-10602.13;}
+  else{lst=0.45*zvE_jahr-18936.88;}
+  // Steuerklassen-Korrekturen (vereinfacht)
+  if(klasse===3)lst=Math.max(0,lst*0.55);
+  if(klasse===5)lst=lst*1.55;
+  if(klasse===6)lst=Math.max(lst*1.5,zvE_jahr*0.25);
+  if(klasse===2)lst=Math.max(0,lst-4260*0.2); // Entlastungsbetrag ~860 EUR Steuerersparnis
+  return Math.max(0,lst);
+}
+
+function calc(){
+  let brutto=parseFloat(document.getElementById('brutto').value)||0;
+  const zt=document.getElementById('zeitraum').value;
+  const klasse=parseInt(document.getElementById('klasse').value);
+  const bld=parseInt(document.getElementById('bundesland').value);
+  const kirche=document.getElementById('kirche').value==='ja';
+  const kinder=parseInt(document.getElementById('kinder').value);
+  const kv_art=document.getElementById('kv_art').value;
+  const pkv_mo=parseFloat(document.getElementById('pkv_beitrag').value)||0;
+
+  if(zt==='jahr')brutto=brutto/12;
+
+  // Beitragsbemessungsgrenzen 2024 (monatlich)
+  const BBG_KV=5175;   // 62.100/Jahr
+  const BBG_RV=7550;   // 90.600/Jahr West
+
+  // Sozialversicherung AN-Anteile
+  let kv_mo=0;
+  if(kv_art==='gkv'){kv_mo=Math.min(brutto,BBG_KV)*0.0815;} // 7,3% + 0,85% Zusatz
+  else{kv_mo=pkv_mo;} // PKV: halber Arbeitgeberzuschuss ignoriert für Vereinfachung
+
+  const rv_mo=Math.min(brutto,BBG_RV)*0.093;
+  const alv_mo=Math.min(brutto,BBG_RV)*0.013;
+  // PV 2024: 1,7% AN mit Kindern; ohne Kinder +0,6% Zuschlag; 2. Kind -0,25% etc.
+  const pv_saetze=[2.3,1.7,1.45,1.2]; // 0,1,2,3+ Kinder
+  const pv_satz=pv_saetze[Math.min(kinder,3)]/100;
+  const pv_mo=Math.min(brutto,BBG_KV)*pv_satz;
+  const sv=kv_mo+rv_mo+alv_mo+pv_mo;
+
+  // Lohnsteuer: zvE = Brutto - SV - Arbeitnehmer-Pauschbetrag (1.230/12)
+  const wkp=1230/12;
+  const zvE_mo=Math.max(0,brutto-sv-wkp);
+  const zvE_jahr=zvE_mo*12;
+  const lst_jahr=calcLST(zvE_jahr,klasse);
+  const lst=lst_jahr/12;
+
+  // Soli: 5,5% der LSt, Freigrenze 18.130 EUR LSt/Jahr
+  const soli=lst_jahr>18130?lst*0.055:0;
+
+  // Kirchensteuer
+  const kist=kirche?lst*(bld/100):0;
+
+  const gesamt=sv+lst+soli+kist;
+  const netto=brutto-gesamt;
+  const abgabesatz=brutto>0?(gesamt/brutto*100):0;
+  const mult=zt==='jahr'?12:1;
+
+  document.getElementById('r-netto').textContent=fmtE(netto*mult);
+  document.getElementById('r-sub').textContent='von '+fmtE(brutto*mult)+' Brutto — Abgabensatz: '+abgabesatz.toFixed(1)+'%';
+  document.getElementById('r-brutto').textContent=fmtE(brutto*mult);
+  document.getElementById('r-lst').textContent='- '+fmtE(lst*mult);
+  document.getElementById('r-soli').textContent=soli>0?'- '+fmtE(soli*mult):'€ 0,00';
+  document.getElementById('r-kist').textContent=kist>0?'- '+fmtE(kist*mult):'€ 0,00';
+  document.getElementById('r-kv').textContent='- '+fmtE(kv_mo*mult);
+  document.getElementById('r-rv').textContent='- '+fmtE(rv_mo*mult);
+  document.getElementById('r-alv').textContent='- '+fmtE(alv_mo*mult);
+  document.getElementById('r-pv').textContent='- '+fmtE(pv_mo*mult);
+}
+function reset(){
+  ['brutto','pkv_beitrag'].forEach(id=>{if(document.getElementById(id))document.getElementById(id).value=id==='brutto'?3500:400;});
+  ['zeitraum','klasse','bundesland','kirche','kinder','kv_art'].forEach(id=>{
+    const el=document.getElementById(id);if(el)el.selectedIndex=0;
+  });
+  document.getElementById('pkv_group').style.display='none';
+  calc();
+}
+calc();
+</script>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Brutto und Netto: Was bleibt wirklich übrig?</h2>
+      <p>Der <strong>Netto-Brutto-Rechner</strong> ist das meistgenutzte Finanzwerkzeug für Arbeitnehmer in Deutschland. Er beantwortet die entscheidende Frage: Wie viel bleibt von meinem Bruttogehalt tatsächlich übrig? Die Differenz zwischen Brutto und Netto überrascht viele — bei einem durchschnittlichen Bruttoeinkommen von 3.500 Euro monatlich verbleiben nach allen Abzügen oft nur knapp 2.200 bis 2.400 Euro netto.</p>
+
+<h3>Welche Abzüge mindern das Bruttogehalt?</h3>
+<p>Das Nettogehalt ergibt sich nach dem Abzug von vier Kostenpositionen: Lohnsteuer, Sozialversicherungsbeiträge, Solidaritätszuschlag (in seltenen Fällen) und optional die Kirchensteuer. Dabei macht die <strong>Lohnsteuer</strong> den größten Posten aus. Sie richtet sich nach dem zu versteuernden Einkommen (zvE), das um den Arbeitnehmer-Pauschbetrag von 1.230 Euro jährlich gemindert wird.</p>
+
+<h3>Sozialversicherungsbeiträge 2024 im Überblick</h3>
+<p>Die Sozialversicherung gliedert sich in vier Bereiche. Die <strong>Krankenversicherung</strong> kostet Arbeitnehmer in der gesetzlichen KV 8,15 Prozent des Bruttogehalts (7,3 % Grundbeitrag + 0,85 % halber Zusatzbeitrag), gedeckelt bei der Beitragsbemessungsgrenze von 62.100 Euro jährlich. Die <strong>Rentenversicherung</strong> beläuft sich auf 9,3 Prozent des Bruttolohns bis 90.600 Euro (West). Die <strong>Arbeitslosenversicherung</strong> kostet 1,3 Prozent, und die <strong>Pflegeversicherung</strong> beträgt 1,7 Prozent für Eltern und 2,3 Prozent für Kinderlose ab 23 Jahren.</p>
+
+<h3>Steuerklassen und ihr Einfluss auf das Nettoeinkommen</h3>
+<p>Die Steuerklasse hat erheblichen Einfluss auf die monatlich einbehaltene Lohnsteuer. Steuerklasse III ist die günstigste — sie eignet sich für den besserverdienenden Ehepartner in Kombination mit Steuerklasse V beim geringer verdienenden Partner. Steuerklasse I ist die Standardklasse für Ledige. Wichtig: Die Steuerklasse beeinflusst nur den monatlichen Vorabzug; beim Jahresausgleich in der Steuererklärung wird die tatsächliche Steuerschuld berechnet und Differenzen erstattet oder nachgefordert.</p>
+
+<h3>Solidaritätszuschlag und Kirchensteuer</h3>
+<p>Seit 2021 zahlen circa 90 Prozent der Steuerzahler keinen Solidaritätszuschlag mehr. Er fällt erst ab einer Lohnsteuer von 18.130 Euro jährlich an. Kirchensteuerpflichtige zahlen zusätzlich 8 Prozent der Lohnsteuer (Bayern, Baden-Württemberg) oder 9 Prozent (alle anderen Bundesländer).</p>
+
+<h3>Tipps zur Optimierung des Nettogehalts</h3>
+<p>Viele Arbeitnehmer zahlen mehr Lohnsteuer als notwendig. Werbungskosten über 1.230 Euro, Fahrtkostenpauschalen für Pendler, Homeoffice-Tage oder doppelte Haushaltsführung können als Freibeträge beim Finanzamt eingetragen werden — und reduzieren so die monatliche Lohnsteuer direkt. Lassen Sie sich von einem Steuerberater über Ihre individuellen Möglichkeiten beraten.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Brutto- und Nettogehalt?</div><div class="faq-a">Das Bruttogehalt ist Ihr vertraglich vereinbartes Gehalt vor sämtlichen Abzügen. Das Nettogehalt ist der Betrag, der nach Abzug von Lohnsteuer, Solidaritätszuschlag, Kirchensteuer und den vier Sozialversicherungsbeiträgen (Kranken-, Renten-, Arbeitslosen- und Pflegeversicherung) auf Ihr Konto überwiesen wird. Bei einem durchschnittlichen Bruttogehalt verbleiben typischerweise 55–68 % netto.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Welche Steuerklasse soll ich wählen?</div><div class="faq-a">Steuerklasse I gilt für Ledige, Geschiedene und dauerhaft Getrenntlebende. II für Alleinerziehende (mit Entlastungsbetrag von 4.260 Euro). III für den besserverdienenden Ehepartner. IV für Ehepaare mit ähnlichem Einkommen. V für den geringer verdienenden Ehepartner. VI für den Zweit- oder Drittjob. Die Steuerklasse beeinflusst nur den monatlichen Abzug; die Jahressteuerlast ist bei III/V und I/I identisch.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch sind die Sozialversicherungsbeiträge 2024?</div><div class="faq-a">Krankenversicherung (GKV): 8,15 % (7,3 % + 0,85 % Zusatzbeitrag). Rentenversicherung: 9,3 %. Arbeitslosenversicherung: 1,3 %. Pflegeversicherung: 1,7 % (mit Kindern) bis 2,3 % (ohne Kinder ab 23 Jahren). Alle Beiträge werden nur bis zur jeweiligen Beitragsbemessungsgrenze erhoben.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ab wann wird Solidaritätszuschlag fällig?</div><div class="faq-a">Seit 2021 zahlen nur noch gut 10 % der Steuerpflichtigen Solidaritätszuschlag. Er fällt erst an, wenn die jährliche Lohnsteuer 18.130 Euro (Einzelperson) bzw. 36.260 Euro (Zusammenveranlagung) übersteigt. Für die meisten Arbeitnehmer entfällt der Soli damit vollständig.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen GKV und PKV?</div><div class="faq-a">In der gesetzlichen Krankenversicherung (GKV) berechnet sich der Beitrag einkommensabhängig: 8,15 % des Bruttogehalts bis zur Beitragsbemessungsgrenze (5.175 Euro/Monat in 2024). Die private KV (PKV) hat einkommensunabhängige Beiträge basierend auf Alter, Gesundheitszustand und gewähltem Tarif. PKV lohnt sich oft für Gutverdiener und Beamte.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie viel verdient man netto bei 3.000 Euro brutto?</div><div class="faq-a">Bei 3.000 Euro Brutto, Steuerklasse I, keine Kirchensteuer und gesetzlicher KV verbleiben in 2024 ungefähr 1.950–2.050 Euro netto. Der genaue Betrag hängt vom Zusatzbeitrag Ihrer Krankenkasse und weiteren Faktoren ab. Nutzen Sie unseren Rechner für Ihre persönliche Berechnung.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann ich die Lohnsteuer durch Freibeträge senken?</div><div class="faq-a">Ja. Werbungskosten über 1.230 Euro (z.B. Pendlerpauschale, Arbeitsmittel), Sonderausgaben, Unterhaltszahlungen oder Behinderungskosten können beim Finanzamt als Lohnsteuerfreibetrag eingetragen werden. Dies senkt das zu versteuernde Einkommen und damit die monatliche Lohnsteuer direkt auf der Gehaltsabrechnung.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a><a href="/abfindungsrechner.html" class="related-link">Abfindungsrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span>Fast</span>Rechnen.de</div>
+        <p>Kostenlose Online-Rechner f&uuml;r Deutschland. Schnell, korrekt und ohne Anmeldung. Zuletzt aktualisiert.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Rechner</h4>
+        <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+        <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+        <a href="/mehrwertsteuerrechner.html">MwSt-Rechner</a>
+        <a href="/kreditrechner.html">Kreditrechner</a>
+        <a href="/rentenrechner.html">Rentenrechner</a>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/alle-rechner.html">Alle Rechner</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span>
+      <span>Berechnung nach &sect;32a EStG &middot; Zuletzt aktualisiert</span>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

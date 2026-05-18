@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pendlerpauschale Rechner — Fahrtkosten steuerlich absetzen | FastRechnen.de</title>
+<meta name="description" content="Pendlerpauschale berechnen 2024: Werbungskosten für Fahrten zur Arbeit ermitteln. 0,30 Euro bis 20 km, 0,38 Euro ab 21 km. Kostenlos und sofort.">
+<link rel="canonical" href="https://fastrechnen.de/pendlerpauschale">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Pendlerpauschale Rechner</div><h1>Pendlerpauschale Rechner</h1><p>Berechnen Sie Ihre absetzbaren Fahrtkosten zur Arbeit — 0,30 €/km (bis 20 km) und 0,38 €/km (ab 21 km).</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">0,38 € ab 21. km</span><span class="calc-badge">Steuerersparnis</span><span class="calc-badge">Aktuell gepflegt</span></div></div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Pendlerdaten</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Einfache Entfernung (k&uuml;rzester Weg)</label>
+            <div class="input-wrap"><input type="number" id="km" value="35" min="1" max="500" oninput="calc()"><span class="input-unit">km</span></div>
+            <div class="field-hint">Nur die einfache Strecke — nicht Hin- und R&uuml;ckfahrt</div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Arbeitstage pro Jahr</label>
+            <div class="input-wrap"><input type="number" id="tage" value="220" min="1" max="365" oninput="calc()"></div>
+            <div class="field-hint">Richtwert: 220 Tage (5-Tage-Woche minus Urlaub/Feiertage)</div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Verkehrsmittel</label>
+            <div class="input-wrap"><select id="mittel" onchange="calc()">
+              <option value="pkw">Pkw, Motorrad oder Mitfahrer</option>
+              <option value="opnv">ÖPNV (tats&auml;chliche Kosten h&ouml;her)</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Pers&ouml;nlicher Steuersatz (ca.)</label>
+            <div class="input-wrap"><select id="steuersatz" onchange="calc()">
+              <option value="0.14">14 %</option>
+              <option value="0.24">24 %</option>
+              <option value="0.32" selected>32 %</option>
+              <option value="0.42">42 %</option>
+            </select></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">J&auml;hrliche Entfernungspauschale</div>
+        <div class="result-value" id="r-pauschale">&euro; 0,00</div>
+        <div class="result-sub" id="r-sub">davon &uuml;ber Arbeitnehmer-Pauschbetrag: &euro; 0,00</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Entfernung</div><div class="result-row-value" id="r-km"></div></div>
+        <div class="result-row"><div class="result-row-label">Arbeitstage</div><div class="result-row-value" id="r-tage"></div></div>
+        <div class="result-row"><div class="result-row-label">Pauschale (1.–20. km)</div><div class="result-row-value">0,30 &euro;/km</div></div>
+        <div class="result-row"><div class="result-row-label">Pauschale (ab 21. km)</div><div class="result-row-value">0,38 &euro;/km</div></div>
+        <div class="result-row"><div class="result-row-label">Steuerersparnis (ca.)</div><div class="result-row-value pos" id="r-ersparnis"></div></div>
+        <div class="result-row"><div class="result-row-label">Monatliche Ersparnis (ca.)</div><div class="result-row-value pos" id="r-monat"></div></div>
+      </div>
+      <p class="result-disclaimer">Die Steuerersparnis entsteht nur, soweit die Entfernungspauschale den Arbeitnehmer-Pauschbetrag (1.230 &euro;) &uuml;bersteigt.</p>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calc(){
+  const km=parseFloat(document.getElementById('km').value)||0;
+  const tage=parseFloat(document.getElementById('tage').value)||0;
+  const steuersatz=parseFloat(document.getElementById('steuersatz').value);
+  const WKP=1230;
+  let pauschale=0;
+  if(km<=20){pauschale=km*0.30*tage;}
+  else{pauschale=(20*0.30+(km-20)*0.38)*tage;}
+  const ueber_wkp=Math.max(0,pauschale-WKP);
+  const ersparnis=ueber_wkp*steuersatz;
+  document.getElementById('r-pauschale').textContent='€ '+fmt(pauschale);
+  document.getElementById('r-sub').textContent='davon über Arbeitnehmer-Pauschbetrag (1.230 €): € '+fmt(ueber_wkp);
+  document.getElementById('r-km').textContent=km+' km (einfach)';
+  document.getElementById('r-tage').textContent=tage+' Tage/Jahr';
+  document.getElementById('r-ersparnis').textContent='€ '+fmt(ersparnis)+' / Jahr';
+  document.getElementById('r-monat').textContent='€ '+fmt(ersparnis/12)+' / Monat';
+}
+function reset(){document.getElementById('km').value=35;document.getElementById('tage').value=220;document.getElementById('steuersatz').selectedIndex=2;calc();}
+calc();
+</script>
+  </div>
+  <section class="article-section"><div class="article-inner"><h2>Pendlerpauschale: Fahrtkosten optimal absetzen</h2><p>Die <strong>Pendlerpauschale</strong> — offiziell Entfernungspauschale — ermöglicht Arbeitnehmern, die Fahrtkosten zwischen Wohnung und erster Tätigkeitsstätte als Werbungskosten steuerlich abzusetzen. Sie gilt unabhängig vom Verkehrsmittel und ist für viele Pendler die wichtigste Möglichkeit, die Steuerlast zu senken.</p>
+
+<h3>Aktuelle Sätze 2024</h3>
+<p>Die Entfernungspauschale beträgt <strong>0,30 Euro je Entfernungskilometer</strong> für die ersten 20 Kilometer und <strong>0,38 Euro ab dem 21. Kilometer</strong>. Die erhöhte Fernpendlerpauschale von 0,38 Euro gilt befristet bis Ende 2026 und soll Fernpendler entlasten. Maßgeblich ist immer nur die <em>einfache</em> Entfernung (nicht Hin- und Rückfahrt).</p>
+
+<h3>Wann lohnt sich die Pendlerpauschale?</h3>
+<p>Steuerlich wirksam ist die Pendlerpauschale erst, wenn sie zusammen mit anderen Werbungskosten den <strong>Arbeitnehmer-Pauschbetrag von 1.230 Euro</strong> übersteigt. Bei 30 km Entfernung und 220 Arbeitstagen ergibt sich eine Pauschale von rund 3.500 Euro — deutlich über dem Pauschbetrag. Ab ca. 10 km Entfernung bei 220 Arbeitstagen rentiert sich die Einzelaufstellung.</p>
+
+<h3>Homeoffice und Pendlerpauschale</h3>
+<p>Für Tage im Homeoffice kann keine Pendlerpauschale beansprucht werden. Stattdessen gilt seit 2023 die <strong>Homeoffice-Pauschale von 6 Euro pro Tag</strong> (max. 210 Tage = max. 1.260 Euro jährlich). Sie ergänzt die Pendlerpauschale für Arbeitstage im Büro.</p>
+
+<h3>Pendlerpauschale in der Steuererklärung eintragen</h3>
+<p>Die Entfernungspauschale wird in der <strong>Anlage N</strong> der Einkommensteuererklärung unter "Werbungskosten" eingetragen. Erforderlich sind: Anzahl der Arbeitstage, einfache Entfernung und das genutzte Verkehrsmittel. Für öffentliche Verkehrsmittel können alternativ die tatsächlichen Kosten angesetzt werden, falls diese höher sind.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch ist die Pendlerpauschale?</div><div class="faq-a">Die Entfernungspauschale beträgt 0,30 Euro je Kilometer für die ersten 20 Kilometer und 0,38 Euro ab dem 21. Kilometer. Nur die einfache Entfernung (nicht hin und zurück) wird berücksichtigt. Die erhöhte Pauschale ab 21 km gilt befristet bis Ende 2026.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gilt die Pendlerpauschale auch für ÖPNV-Nutzer?</div><div class="faq-a">Ja. Die Entfernungspauschale gilt unabhängig vom Verkehrsmittel. ÖPNV-Nutzer können alternativ ihre tatsächlichen Kosten absetzen, wenn diese höher sind als die Entfernungspauschale. Das ist z.B. bei teuren Bahntickets in Ballungsräumen relevant.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was gilt für Homeoffice-Tage?</div><div class="faq-a">Für Homeoffice-Tage kann keine Entfernungspauschale beansprucht werden. Stattdessen gibt es die Homeoffice-Pauschale von 6 Euro pro Tag (ab 2023), maximal 1.260 Euro jährlich (210 Tage). Sie wird automatisch in der Steuererklärung zusammen mit der Pendlerpauschale für Bürotage berücksichtigt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ab wann lohnt sich die Steuererklärung für Pendler?</div><div class="faq-a">Werbungskosten (inkl. Pendlerpauschale) müssen den Arbeitnehmer-Pauschbetrag von 1.230 Euro übersteigen, damit sich die Einzelaufführung lohnt. Bei 10 km Entfernung und 220 Arbeitstagen beträgt die Pendlerpauschale bereits 660 Euro — erst in Kombination mit anderen Werbungskosten ergibt sich ein steuerlicher Vorteil.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann ich die Pendlerpauschale als Freibetrag eintragen lassen?</div><div class="faq-a">Ja. Sie können beim Finanzamt einen Lohnsteuerfreibetrag beantragen (Antrag auf Lohnsteuerermäßigung). Wenn Ihre voraussichtlichen Werbungskosten 1.230 Euro übersteigen, wird der Überschuss als Freibetrag eingetragen und die monatliche Lohnsteuer direkt reduziert.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die erste Tätigkeitsstätte?</div><div class="faq-a">Die erste Tätigkeitsstätte ist der Ort, dem ein Arbeitnehmer dauerhaft zugeordnet ist — in der Regel der Betrieb des Arbeitgebers. Nur für Fahrten dorthin gilt die Pendlerpauschale. Für Fahrten zu anderen Einsatzorten gelten die tatsächlichen Fahrtkosten (0,30 Euro/km für alle gefahrenen Kilometer hin und zurück).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wird die Pendlerpauschale 2025 erhöht?</div><div class="faq-a">Die erhöhte Fernpendlerpauschale von 0,38 Euro ab dem 21. Kilometer gilt befristet bis Ende 2026. Nach aktuellem Stand ist keine weitere Erhöhung geplant. Der Grundsatz von 0,30 Euro für die ersten 20 Kilometer bleibt voraussichtlich unverändert.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/urlaubsrechner.html" class="related-link">Urlaubsrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+</body>
+</html>

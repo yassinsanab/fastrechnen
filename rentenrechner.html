@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rentenrechner — Gesetzliche Rente berechnen | FastRechnen.de</title>
+<meta name="description" content="Rentenrechner: Voraussichtliche Rente berechnen anhand von Rentenpunkten und Beitragsjahren. Rentenwert 37,60 Euro (West+Ost seit Juli 2024). Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/rentenrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Rentenrechner</div><h1>Rentenrechner</h1><p>Berechnen Sie Ihre voraussichtliche gesetzliche Rente anhand Ihrer Entgeltpunkte und Beitragsjahre.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Rentenwert 2024</span><span class="calc-badge">Entgeltpunkte</span><span class="calc-badge">Regelaltersrente</span></div></div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Rentendaten</span></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Bisher gesammelte Entgeltpunkte (EP)</label>
+            <div class="input-wrap"><input type="number" id="ep" value="25" step="0.01" min="0" oninput="calc()"></div>
+            <div class="field-hint">Aus Ihrer j&auml;hrlichen Renteninformation (Deutsche Rentenversicherung)</div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Noch verbleibende Arbeitsjahre</label>
+            <div class="input-wrap"><input type="number" id="jahre" value="25" min="0" max="50" oninput="calc()"></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Voraussichtliches Jahresbrutto (k&uuml;nftig)</label>
+            <div class="input-wrap"><input type="number" id="brutto" value="42000" oninput="calc()"><span class="input-unit">&euro;</span></div>
+            <div class="field-hint">Durchschnittsentgelt 2024: 45.358 &euro;</div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Zugangsfaktor</label>
+            <div class="input-wrap"><select id="zugangsfaktor" onchange="calc()">
+              <option value="1.0">1,000 (Regelaltersrente mit 67)</option>
+              <option value="0.928">0,928 (2 Jahre fr&uuml;her, 7,2% Abschlag)</option>
+              <option value="0.964">0,964 (1 Jahr fr&uuml;her, 3,6% Abschlag)</option>
+              <option value="1.06">1,060 (1 Jahr sp&auml;ter, 6% Zuschlag)</option>
+            </select></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Voraussichtliche Monatsrente (brutto)</div>
+        <div class="result-value" id="r-rente">&euro; 0,00</div>
+        <div class="result-sub" id="r-netto-hint">Netto ca. &euro; 0,00 (nach KV/PV-Beitrag)</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Bisherige Entgeltpunkte</div><div class="result-row-value" id="r-ep-alt"></div></div>
+        <div class="result-row"><div class="result-row-label">K&uuml;nftige Entgeltpunkte</div><div class="result-row-value pos" id="r-ep-neu"></div></div>
+        <div class="result-row"><div class="result-row-label">Entgeltpunkte gesamt</div><div class="result-row-value pos" id="r-ep-ges"></div></div>
+        <div class="result-row"><div class="result-row-label">Rentenwert (Juli 2024)</div><div class="result-row-value" id="r-rw"></div></div>
+        <div class="result-row"><div class="result-row-label">Zugangsfaktor</div><div class="result-row-value" id="r-zf"></div></div>
+        <div class="result-row"><div class="result-row-label">Jahresrente (brutto)</div><div class="result-row-value pos" id="r-jahr"></div></div>
+      </div>
+      <p class="result-disclaimer">Rente = EP gesamt &times; Rentenwert &times; Zugangsfaktor. Rentenwert: 37,60 &euro; (West+Ost seit Juli 2024). Ohne Rentenanpassungen. Nur zur Orientierung.</p>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calc(){
+  const ep_alt=parseFloat(document.getElementById('ep').value)||0;
+  const jahre=parseFloat(document.getElementById('jahre').value)||0;
+  const brutto=parseFloat(document.getElementById('brutto').value)||0;
+  const zf=parseFloat(document.getElementById('zugangsfaktor').value);
+  const rentenwert=37.60;
+  const durchschnittsentgelt=45358;
+  // Max 2,0 EP pro Jahr (Beitragsbemessungsgrenze = 2,0 EP)
+  const ep_pro_jahr=Math.min(2.0, brutto/durchschnittsentgelt);
+  const ep_neu=ep_pro_jahr*jahre;
+  const ep_ges=ep_alt+ep_neu;
+  const rente_brutto=ep_ges*rentenwert*zf;
+  // Netto: nach KV (7,3%+0,85%=8,15%) und PV (1,7%) Eigenanteil
+  const netto=rente_brutto*(1-0.0815-0.017);
+  document.getElementById('r-rente').textContent='€ '+fmt(rente_brutto);
+  document.getElementById('r-netto-hint').textContent='Netto ca. € '+fmt(netto)+' (nach KV- und PV-Eigenanteil)';
+  document.getElementById('r-ep-alt').textContent=ep_alt.toFixed(2)+' EP';
+  document.getElementById('r-ep-neu').textContent='+ '+ep_neu.toFixed(2)+' EP';
+  document.getElementById('r-ep-ges').textContent=ep_ges.toFixed(2)+' EP';
+  document.getElementById('r-rw').textContent='€ '+fmt(rentenwert)+' / EP';
+  document.getElementById('r-zf').textContent=zf.toFixed(3);
+  document.getElementById('r-jahr').textContent='€ '+fmt(rente_brutto*12);
+}
+calc();
+</script>
+  </div>
+  <section class="article-section"><div class="article-inner"><h2>Gesetzliche Rente in Deutschland: Wie entsteht Ihre Rente?</h2><p>Die <strong>gesetzliche Rentenversicherung</strong> ist die wichtigste Säule der Altersvorsorge in Deutschland. Über 57 Millionen Pflichtversicherte zahlen monatlich Beiträge ein und erwerben dadurch Anwartschaften auf eine spätere Rente. Doch wie hoch wird Ihre Rente tatsächlich sein?</p>
+
+<h3>Das Prinzip der Entgeltpunkte</h3>
+<p>Die Grundlage der Rentenberechnung sind <strong>Entgeltpunkte (EP)</strong>. Jedes Jahr, in dem Sie genau das Durchschnittsentgelt aller Versicherten verdienen (2024: 45.358 Euro brutto), erhalten Sie genau 1,0 Entgeltpunkt. Verdienen Sie mehr, bekommen Sie proportional mehr Punkte — maximal 2,0 Punkte pro Jahr. Bei niedrigerem Einkommen entsprechend weniger. Zeiten der Kindererziehung (Mütterrente) und Krankheit werden ebenfalls mit Entgeltpunkten angerechnet.</p>
+
+<h3>Der Rentenwert 2024: 37,60 Euro</h3>
+<p>Der aktuelle Rentenwert beträgt seit Juli 2024 exakt <strong>37,60 Euro</strong> — und gilt erstmals einheitlich für West und Ost Deutschland. Die jahrzehntelange Angleichung der Ost-Renten an das West-Niveau wurde damit abgeschlossen. Der Rentenwert wird jährlich entsprechend der Lohnentwicklung angepasst.</p>
+
+<h3>Rentenformel: So berechnet sich Ihre Rente</h3>
+<p>Die monatliche Rente berechnet sich nach der Rentenformel: <code>Rente = Entgeltpunkte × Rentenwert × Zugangsfaktor × Rentenartfaktor</code>. Der Zugangsfaktor ist 1,0 bei regulärem Renteneintritt mit 67 Jahren, sinkt um 0,003 pro Monat bei Frühverrentung (max. −7,2 %) und steigt um 0,005 pro Monat bei späterem Renteneintritt (+6 % je Jahr).</p>
+
+<h3>Regelaltersgrenze: 67 Jahre</h3>
+<p>Für alle Jahrgänge ab 1964 gilt die Regelaltersgrenze von 67 Jahren. Wer früher in Rente gehen möchte, muss entweder 35 Beitragsjahre (Frühverrentung ab 63 mit Abschlägen) oder 45 Beitragsjahre vorweisen (abschlagsfreie Rente für besonders langjährig Versicherte).</p>
+
+<h3>Wie viel Rente erhalten Sie im Schnitt?</h3>
+<p>Die durchschnittliche Altersrente liegt bei ca. 1.200–1.400 Euro monatlich brutto. Nach Abzug des KV-Eigenanteils (8,15 %) und der Pflegeversicherung (1,7 %) sowie der Einkommensteuer (je nach Rentenhöhe) verbleiben im Schnitt rund 1.000–1.200 Euro netto.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie kann ich meine Entgeltpunkte herausfinden?</div><div class="faq-a">Jährlich erhalten Versicherte ab 27 Jahren eine Renteninformation der Deutschen Rentenversicherung. Dort sind Ihre bisher erworbenen Entgeltpunkte aufgeführt. Online können Sie Ihre Daten im Rentenservice-Portal (www.deutsche-rentenversicherung.de) einsehen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der aktuelle Rentenwert 2024?</div><div class="faq-a">Der aktuelle Rentenwert (West und Ost) beträgt seit Juli 2024 einheitlich 37,60 Euro pro Entgeltpunkt. Damit wurde die langjährige Angleichung der Ost-Renten an das West-Niveau abgeschlossen. Der Rentenwert wird jährlich entsprechend der Lohnentwicklung angepasst.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wann kann ich in Rente gehen?</div><div class="faq-a">Die Regelaltersgrenze beträgt für Jahrgänge ab 1964 genau 67 Jahre. Mit 63 Jahren und mindestens 35 Beitragsjahren ist eine Frühverrentung möglich (mit dauerhaftem Abschlag von bis zu 7,2 %). Bei mindestens 45 Beitragsjahren kann man mit 63 Jahren abschlagsfrei in Rente (Rente für besonders langjährig Versicherte).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Muss ich auf die Rente Steuern zahlen?</div><div class="faq-a">Ja. Seit 2005 wird die gesetzliche Rente schrittweise vollständig steuerpflichtig. Wer 2024 in Rente geht, muss 83 % seiner Rente versteuern. Ab 2058 sind 100 % der Rente steuerpflichtig. Der steuerpflichtige Anteil kann jedoch unter dem Grundfreibetrag liegen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Mütterrente?</div><div class="faq-a">Für Kinder, die vor 1992 geboren wurden, erhalten Mütter (und Väter) 2,5 Entgeltpunkte, für Kinder ab 1992 insgesamt 3,0 Entgeltpunkte. Diese Punkte werden automatisch gutgeschrieben und nicht separat beantragt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie sicher ist die gesetzliche Rente?</div><div class="faq-a">Das Rentenversicherungssystem ist ein gesetzlich verpflichtendes Umlageverfahren: Die heutigen Beitragszahler finanzieren die heutigen Renten. Durch den demografischen Wandel (weniger Beitragszahler, mehr Rentner) wird das Rentenniveau unter Druck gesetzt. Experten empfehlen, die gesetzliche Rente durch private oder betriebliche Altersvorsorge zu ergänzen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Rentenauskunft?</div><div class="faq-a">Die Rentenauskunft ist eine detaillierte Prognose Ihrer voraussichtlichen Rente, die auf Antrag von der Deutschen Rentenversicherung ausgestellt wird. Sie enthält die bisherigen Rentenanwartschaften, eine Hochrechnung und Informationen über den frühestmöglichen Renteneintritt.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/abfindungsrechner.html" class="related-link">Abfindungsrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a><a href="/mehrwertsteuerrechner.html">MwSt-Rechner</a><a href="/kreditrechner.html">Kreditrechner</a><a href="/rentenrechner.html">Rentenrechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a><a href="/alle-rechner.html">Alle Rechner</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+</body>
+</html>

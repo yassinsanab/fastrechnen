@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kindergeldrechner 2024 — Kindergeld berechnen | FastRechnen.de</title>
+<meta name="description" content="Kindergeldrechner 2024: Wie viel Kindergeld steht Ihnen zu? Seit 2023 einheitlich 250 Euro pro Kind und Monat. Berechnen Sie Ihren Anspruch kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/kindergeldrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Kindergeldrechner 2024</div><h1>Kindergeldrechner 2024</h1><p>Berechnen Sie Ihr monatliches Kindergeld 2024 — einheitlich 250 Euro pro Kind.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">250 € pro Kind</span><span class="calc-badge">Aktuell gepflegt</span><span class="calc-badge">Sofort</span></div></div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Kinder</span></div>
+      <div class="calc-body">
+        <div class="field-group">
+          <label class="field-label">Anzahl kindergeldberechtigter Kinder</label>
+          <div class="input-wrap"><select id="anzahl" onchange="calc()">
+            <option value="1">1 Kind</option>
+            <option value="2">2 Kinder</option>
+            <option value="3">3 Kinder</option>
+            <option value="4">4 Kinder</option>
+            <option value="5">5 Kinder</option>
+          </select></div>
+          <div class="field-hint">Kindergeld: 250 &euro; pro Kind/Monat (seit Januar 2023 einheitlich)</div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Beantragte Monate im Jahr</label>
+          <div class="input-wrap"><select id="monate" onchange="calc()">
+            <option value="12">12 Monate (volles Jahr)</option>
+            <option value="6">6 Monate (halbes Jahr)</option>
+            <option value="3">3 Monate (Quartal)</option>
+            <option value="1">1 Monat</option>
+          </select></div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Monatliches Kindergeld</div>
+        <div class="result-value" id="r-monat">&euro; 0,00</div>
+        <div class="result-sub" id="r-jahr">(&euro; 0,00 j&auml;hrlich)</div>
+      </div>
+      <div class="result-grid" id="r-grid"></div>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calc(){
+  const n=parseInt(document.getElementById('anzahl').value);
+  const m=parseInt(document.getElementById('monate').value);
+  const kg=250;
+  const gesamt=n*kg;
+  document.getElementById('r-monat').textContent='€ '+fmt(gesamt);
+  document.getElementById('r-jahr').textContent='(€ '+fmt(gesamt*m)+' für '+m+' Monate)';
+  let html='';
+  for(let i=1;i<=n;i++) html+='<div class="result-row"><div class="result-row-label">'+i+'. Kind</div><div class="result-row-value pos">€ '+fmt(kg)+'</div></div>';
+  html+='<div class="result-row"><div class="result-row-label">Gesamt monatlich</div><div class="result-row-value pos">€ '+fmt(gesamt)+'</div></div>';
+  html+='<div class="result-row"><div class="result-row-label">Gesamt jährlich</div><div class="result-row-value pos">€ '+fmt(gesamt*12)+'</div></div>';
+  document.getElementById('r-grid').innerHTML=html;
+}
+calc();
+</script>
+  </div>
+  <section class="article-section"><div class="article-inner"><h2>Kindergeld 2024: Anspruch, Höhe und Antragstellung</h2><p>Das <strong>Kindergeld</strong> ist eine staatliche Leistung zur finanziellen Unterstützung von Familien. Seit Januar 2023 gilt ein einheitlicher Betrag von <strong>250 Euro pro Kind und Monat</strong> — unabhängig davon, das wievielte Kind es ist. Die frühere Staffelung (mehr Geld ab dem dritten Kind) wurde damit abgeschafft.</p>
+
+<h3>Wer hat Anspruch auf Kindergeld?</h3>
+<p>Anspruchsberechtigt sind Eltern, die ihren Wohnsitz oder gewöhnlichen Aufenthalt in Deutschland haben. Das Kindergeld wird für jedes Kind gezahlt, das unter 18 Jahre alt ist oder unter bestimmten Voraussetzungen bis zu 25 Jahre — nämlich wenn es sich in Schule, Berufsausbildung oder Studium befindet, ein freiwilliges soziales Jahr ableistet oder als arbeitslos gemeldet ist.</p>
+
+<h3>Kindergeld oder Kinderfreibetrag — was ist günstiger?</h3>
+<p>Das Finanzamt führt im Rahmen der Einkommensteuererklärung automatisch eine <strong>Günstigerprüfung</strong> durch: Es wird verglichen, ob das Kindergeld oder der Kinderfreibetrag (2024: 8.532 Euro pro Kind) zu einer niedrigeren Steuerlast führt. Bei höherem Einkommen ist der Kinderfreibetrag meist vorteilhafter — das erhaltene Kindergeld wird dann auf die Steuerschuld angerechnet.</p>
+
+<h3>Wo wird Kindergeld beantragt?</h3>
+<p>Kindergeld wird bei der <strong>Familienkasse der Bundesagentur für Arbeit</strong> beantragt. Beamte stellen den Antrag bei ihrer Dienstbehörde. Der Antrag kann online über das Kindergeldportal der Bundesagentur für Arbeit, schriftlich oder persönlich gestellt werden. Achtung: Kindergeld wird rückwirkend maximal für 6 Monate vor Antragstellung gezahlt.</p>
+
+<h3>Kindergeld für Kinder im Ausland</h3>
+<p>Für Kinder, die in einem EU- oder EWR-Staat oder der Schweiz leben, besteht in der Regel ebenfalls Kindergeldanspruch. Bei Kindern in anderen Ländern hängt es vom jeweiligen Doppelbesteuerungsabkommen ab. Die Familienkasse prüft den Einzelfall anhand der eingereichten Dokumente.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch ist das Kindergeld 2024?</div><div class="faq-a">Seit dem 1. Januar 2023 beträgt das Kindergeld einheitlich 250 Euro pro Kind und Monat — unabhängig von der Reihenfolge der Kinder. Die bisherige Staffelung (184 EUR für das 1. und 2. Kind, 190 EUR für das 3. und 215 EUR ab dem 4. Kind) wurde abgeschafft.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Bis zu welchem Alter wird Kindergeld gezahlt?</div><div class="faq-a">Kindergeld wird grundsätzlich bis zur Vollendung des 18. Lebensjahres gezahlt. Danach bis zur Vollendung des 25. Lebensjahres, wenn das Kind: in Berufsausbildung oder Studium ist, ein Freiwilliges Soziales/Ökologisches Jahr ableistet, bei der Agentur für Arbeit als arbeitsuchend gemeldet ist, oder einen gesetzlichen Wehr-/Bundesfreiwilligendienst leistet.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie beantrage ich Kindergeld?</div><div class="faq-a">Zuständig ist die Familienkasse der Bundesagentur für Arbeit. Der Antrag kann online unter www.arbeitsagentur.de/familie-und-kinder/kindergeld, schriftlich per Post oder persönlich in einer Familienkasse gestellt werden. Wichtig: Kindergeld wird nur rückwirkend für bis zu 6 Monate vor Antragstellung gezahlt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Günstigerprüfung?</div><div class="faq-a">Das Finanzamt prüft automatisch in der Einkommensteuererklärung, was günstiger ist: das erhaltene Kindergeld oder der Kinderfreibetrag von 8.532 Euro (2024). Bei höheren Einkommen ist der Kinderfreibetrag meist vorteilhafter. In diesem Fall wird das Kindergeld auf die Steuerersparnis durch den Kinderfreibetrag angerechnet.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Erhalten beide Elternteile Kindergeld?</div><div class="faq-a">Kindergeld wird nur an einen Berechtigten gezahlt — in der Regel an den Elternteil, bei dem das Kind lebt. Bei gemeinsamer Betreuung können die Eltern vereinbaren, wer das Kindergeld erhält. Bei Trennung zahlt die Familienkasse automatisch an den Elternteil, bei dem das Kind gemeldet ist.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gibt es Kindergeld zusätzlich zum Kinderzuschlag?</div><div class="faq-a">Ja. Neben dem Kindergeld können einkommensschwache Familien den Kinderzuschlag (bis zu 292 Euro pro Kind/Monat in 2024) beim Familienkasse beantragen. Er ist für Familien gedacht, die zwar ihren eigenen Unterhalt, aber nicht den der Kinder selbst bestreiten können.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie wird das Kindergeld für Kinder in Ausbildung beantragt?</div><div class="faq-a">Bei Kindern über 18 muss die Ausbildungssituation der Familienkasse jährlich nachgewiesen werden. Dafür reicht in der Regel eine Schulbescheinigung, Ausbildungsbescheinigung oder Immatrikulationsbescheinigung. Viele Familienkassen bitten nicht automatisch um Nachweise — bleiben Sie aktiv und melden Sie relevante Änderungen.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+</body>
+</html>

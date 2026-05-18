@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mehrwertsteuerrechner — MwSt online berechnen (19% & 7%) | FastRechnen.de</title>
+<meta name="description" content="Mehrwertsteuerrechner: MwSt schnell berechnen. Netto zu Brutto oder Brutto zu Netto. 19% Regelsteuersatz und 7% ermäßigter Satz. Kostenlos, sofort, ohne Anmeldung.">
+<link rel="canonical" href="https://fastrechnen.de/mehrwertsteuerrechner">
+<meta property="og:title" content="Mehrwertsteuerrechner — MwSt online berechnen (19% & 7%)">
+<meta property="og:description" content="Mehrwertsteuerrechner: MwSt schnell berechnen. Netto zu Brutto oder Brutto zu Netto. 19% Regelsteuersatz und 7% ermäßigter Satz. Kostenlos, sofort, ohne Anmeldung.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Mehrwertsteuerrechner — MwSt online berechnen (19% & 7%)","description":"Mehrwertsteuerrechner: MwSt schnell berechnen. Netto zu Brutto oder Brutto zu Netto. 19% Regelsteuersatz und 7% ermäßigter Satz. Kostenlos, sofort, ohne Anmeldung.","url":"https://fastrechnen.de/mehrwertsteuerrechner","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"de"}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html"  class="active">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Mehrwertsteuerrechner</div>
+    <h1>Mehrwertsteuerrechner</h1>
+    <p>MwSt einfach berechnen: Netto zu Brutto oder Brutto zu Netto — mit 19 % und 7 % Steuersatz.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">19% & 7%</span><span class="calc-badge">Netto↔Brutto</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Angaben</span></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Betrag eingeben</label>
+            <div class="input-wrap"><input type="number" id="betrag" value="100" min="0" step="0.01" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Mehrwertsteuersatz</label>
+            <div class="input-wrap"><select id="satz" onchange="calc()">
+              <option value="19">19 % (Regelsteuersatz)</option>
+              <option value="7">7 % (erm&auml;&szlig;igter Satz)</option>
+              <option value="0">0 % (steuerfrei)</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Berechnungsrichtung</label>
+          <div class="input-wrap"><select id="richtung" onchange="calc()">
+            <option value="netto">Nettobetrag &rarr; Bruttobetrag (MwSt hinzurechnen)</option>
+            <option value="brutto">Bruttobetrag &rarr; Nettobetrag (MwSt herausrechnen)</option>
+          </select></div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label" id="r-label">Bruttobetrag (inkl. MwSt)</div>
+        <div class="result-value" id="r-main">&euro; 119,00</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Nettobetrag (ohne MwSt)</div><div class="result-row-value" id="r-netto"></div></div>
+        <div class="result-row"><div class="result-row-label">MwSt-Betrag</div><div class="result-row-value pos" id="r-mwst"></div></div>
+        <div class="result-row"><div class="result-row-label">Bruttobetrag (inkl. MwSt)</div><div class="result-row-value" id="r-brutto"></div></div>
+        <div class="result-row"><div class="result-row-label">Steuersatz</div><div class="result-row-value" id="r-satz"></div></div>
+      </div>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calc(){
+  const b=parseFloat(document.getElementById('betrag').value)||0;
+  const s=parseFloat(document.getElementById('satz').value)/100;
+  const r=document.getElementById('richtung').value;
+  let netto,brutto,mwst;
+  if(r==='netto'){netto=b;brutto=netto*(1+s);mwst=brutto-netto;document.getElementById('r-label').textContent='Bruttobetrag (inkl. MwSt)';}
+  else{brutto=b;netto=brutto/(1+s);mwst=brutto-netto;document.getElementById('r-label').textContent='Nettobetrag (ohne MwSt)';}
+  document.getElementById('r-main').textContent='€ '+(r==='netto'?fmt(brutto):fmt(netto));
+  document.getElementById('r-netto').textContent='€ '+fmt(netto);
+  document.getElementById('r-mwst').textContent='€ '+fmt(mwst);
+  document.getElementById('r-brutto').textContent='€ '+fmt(brutto);
+  document.getElementById('r-satz').textContent=(s*100).toFixed(0)+' %';
+}
+calc();
+</script>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Mehrwertsteuer in Deutschland: Alles Wichtige erklärt</h2>
+      <p>Der <strong>Mehrwertsteuerrechner</strong> löst eine der häufigsten Rechenaufgaben im deutschen Geschäftsalltag: die schnelle Umrechnung zwischen Netto- und Bruttobeträgen. Ob Selbstständige, Unternehmer oder Privatpersonen — die Mehrwertsteuer begegnet uns täglich auf Rechnungen, in Preisangaben und bei Steuererklärungen.</p>
+
+<h3>Was ist die Mehrwertsteuer (MwSt)?</h3>
+<p>Die Mehrwertsteuer — offiziell als Umsatzsteuer bezeichnet — ist eine Verbrauchsteuer, die auf den Verkauf von Waren und Dienstleistungen erhoben wird. In Deutschland gibt es zwei Steuersätze: den <strong>Regelsteuersatz von 19 Prozent</strong> und den <strong>ermäßigten Satz von 7 Prozent</strong>. Der Unterschied, wann welcher Satz gilt, ist häufig Quelle von Verwirrung.</p>
+
+<h3>19 Prozent oder 7 Prozent — wann gilt was?</h3>
+<p>Der Regelsteuersatz von 19 Prozent gilt für die meisten Waren und Dienstleistungen: Elektronik, Kleidung, Dienstleistungen jeder Art, Restaurantbesuche. Der ermäßigte Satz von 7 Prozent gilt für <strong>Grundnahrungsmittel</strong> (außer Restaurantessen), Bücher und Zeitschriften, Tickets für Kulturveranstaltungen, Übernachtungen in Hotels sowie bestimmte landwirtschaftliche Produkte.</p>
+
+<h3>Brutto zu Netto — MwSt herausrechnen</h3>
+<p>Eine häufige Aufgabe: Aus einem Bruttopreis die enthaltene Mehrwertsteuer herausrechnen. Die Formel lautet: <code>Netto = Brutto ÷ 1,19</code> (bei 19 %) oder <code>Netto = Brutto ÷ 1,07</code> (bei 7 %). Den MwSt-Betrag erhalten Sie durch: <code>MwSt = Brutto − Netto</code>. Unser Rechner erledigt das automatisch.</p>
+
+<h3>Netto zu Brutto — MwSt aufschlagen</h3>
+<p>Umgekehrt: Sie haben einen Nettopreis und möchten wissen, was der Kunde inklusive MwSt zahlt. Formel: <code>Brutto = Netto × 1,19</code> (bei 19 %) oder <code>Brutto = Netto × 1,07</code> (bei 7 %). Dies ist besonders relevant für Selbstständige und Unternehmer bei der Rechnungsstellung.</p>
+
+<h3>Vorsteuerabzug für Unternehmen</h3>
+<p>Unternehmen können die gezahlte Umsatzsteuer als Vorsteuer vom Finanzamt zurückfordern. Das bedeutet: Ein Unternehmer, der 119 Euro für einen Artikel bezahlt, kann sich die enthaltenen 19 Euro Mehrwertsteuer erstatten lassen — er zahlt wirtschaftlich nur 100 Euro. Privatpersonen hingegen tragen die Mehrwertsteuer als Endverbraucher vollständig selbst.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie rechne ich MwSt aus einem Bruttobetrag heraus?</div><div class="faq-a">Teilen Sie den Bruttobetrag durch 1,19 (bei 19 %) oder durch 1,07 (bei 7 %), um den Nettobetrag zu erhalten. Den Mehrwertsteuerbetrag berechnen Sie durch Brutto minus Netto. Beispiel: 119 Euro ÷ 1,19 = 100 Euro netto, enthaltene MwSt = 19 Euro.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Welche Waren und Dienstleistungen unterliegen 7% MwSt?</div><div class="faq-a">7 % gelten für: Lebensmittel (ohne Restaurant), Bücher und Zeitschriften, Kunst und Sammlerstücke, Tickets für Theater/Kino/Konzerte, Hotelübernachtungen, Personennahverkehr und bestimmte landwirtschaftliche Erzeugnisse. Alle anderen Umsätze unterliegen in der Regel 19 %.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Mehrwertsteuer und Umsatzsteuer?</div><div class="faq-a">Mehrwertsteuer und Umsatzsteuer bezeichnen dasselbe. Im deutschen Steuerrecht heißt die Steuer offiziell "Umsatzsteuer". Umgangssprachlich und im internationalen Kontext (VAT — Value Added Tax) spricht man von Mehrwertsteuer. Beide Begriffe sind synonym.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist Vorsteuer?</div><div class="faq-a">Vorsteuer ist die Umsatzsteuer, die ein Unternehmer beim Einkauf von Waren oder Dienstleistungen bezahlt und vom Finanzamt zurückfordern kann. Die Differenz zwischen eingenommener Umsatzsteuer und abzugsfähiger Vorsteuer wird monatlich oder vierteljährlich ans Finanzamt abgeführt (Umsatzsteuervoranmeldung).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Bin ich als Kleinunternehmer von der MwSt befreit?</div><div class="faq-a">Kleinunternehmer mit einem Jahresumsatz unter 22.000 Euro (bis 2024) bzw. 25.000 Euro (ab 2025) können die Kleinunternehmerregelung nach §19 UStG in Anspruch nehmen. Sie erheben keine MwSt auf ihren Rechnungen, können dafür aber auch keine Vorsteuer abziehen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gilt für Restaurantessen immer 19 %?</div><div class="faq-a">Seit dem 1. Januar 2024 gilt für Restaurant- und Gastronomieumsätze wieder der Regelsteuersatz von 19 %. Die temporäre Absenkung auf 7 % während und nach der Corona-Pandemie (2020–2023) ist ausgelaufen. Außer-Haus-Verkauf (Takeaway) unterliegt weiterhin 7 % für Grundnahrungsmittel.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch war die MwSt-Absenkung 2020?</div><div class="faq-a">Im Zuge des Corona-Konjunkturpakets wurde die Mehrwertsteuer temporär von Juli bis Dezember 2020 gesenkt: von 19 % auf 16 % (Regelsteuersatz) und von 7 % auf 5 % (ermäßigter Satz). Seit dem 1. Januar 2021 gelten wieder die regulären Sätze.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a><a href="/urlaubsrechner.html" class="related-link">Urlaubsrechner</a></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span>Fast</span>Rechnen.de</div>
+        <p>Kostenlose Online-Rechner f&uuml;r Deutschland. Schnell, korrekt und ohne Anmeldung. Zuletzt aktualisiert.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Rechner</h4>
+        <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+        <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+        <a href="/mehrwertsteuerrechner.html">MwSt-Rechner</a>
+        <a href="/kreditrechner.html">Kreditrechner</a>
+        <a href="/rentenrechner.html">Rentenrechner</a>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/alle-rechner.html">Alle Rechner</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span>
+      <span>Berechnung nach &sect;32a EStG &middot; Zuletzt aktualisiert</span>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

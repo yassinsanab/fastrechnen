@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-XXXXXXXXXX");</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lohnsteuerrechner — Lohnsteuer schnell berechnen | FastRechnen.de</title>
+<meta name="description" content="Lohnsteuerrechner: Jährliche und monatliche Lohnsteuer berechnen nach Steuerklasse, Grundfreibetrag, Kinderfreibeträgen und Kirchensteuer. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/lohnsteuerrechner">
+<meta property="og:title" content="Lohnsteuerrechner — Lohnsteuer schnell berechnen">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Lohnsteuerrechner</div>
+    <h1>Lohnsteuerrechner</h1>
+    <p>Berechnen Sie Ihre jährliche Lohnsteuer nach Steuerklasse, Freibeträgen und Kirchensteuer.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">§32a EStG</span><span class="calc-badge">Alle Steuerklassen</span><span class="calc-badge">Kinderfreibetrag</span></div>
+  </div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
+    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
+      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
+  </div>
+  <div class="calc-section" style="padding-top:16px">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Steuerdaten</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">J&auml;hrliches Bruttoeinkommen</label>
+            <div class="input-wrap"><input type="number" id="einkommen" value="42000" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Steuerklasse</label>
+            <div class="input-wrap"><select id="klasse" onchange="calc()">
+              <option value="1">I &mdash; ledig, geschieden</option>
+              <option value="2">II &mdash; alleinerziehend</option>
+              <option value="3">III &mdash; verheiratet (h&ouml;herer Verdienst)</option>
+              <option value="4">IV &mdash; verheiratet (&auml;hnlicher Verdienst)</option>
+              <option value="5">V &mdash; verheiratet (geringerer Verdienst)</option>
+              <option value="6">VI &mdash; Zweitjob</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Kirchensteuer</label>
+            <div class="input-wrap"><select id="kirche" onchange="calc()">
+              <option value="0">Keine Kirchensteuer</option>
+              <option value="9">9 % (alle Bundesl&auml;nder au&szlig;er BY/BW)</option>
+              <option value="8">8 % (Bayern &amp; Baden-W&uuml;rttemberg)</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Kinderfreibetr&auml;ge</label>
+            <div class="input-wrap"><select id="kfb" onchange="calc()">
+              <option value="0">0</option>
+              <option value="0.5">0,5 (1 Kind)</option>
+              <option value="1">1,0 (2 Kinder)</option>
+              <option value="1.5">1,5 (3 Kinder)</option>
+              <option value="2">2,0 (4+ Kinder)</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Werbungskosten (tats&auml;chlich)</label>
+            <div class="input-wrap"><input type="number" id="wk" value="1230" oninput="calc()"><span class="input-unit">&euro;</span></div>
+            <div class="field-hint">Mindestens 1.230 &euro; (Pauschbetrag 2024)</div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Sonstige Freibetr&auml;ge</label>
+            <div class="input-wrap"><input type="number" id="fb" value="0" oninput="calc()"><span class="input-unit">&euro;</span></div>
+            <div class="field-hint">Z.B. Sparerpauschbetrag, Sonderausgaben</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">J&auml;hrliche Lohnsteuer</div>
+        <div class="result-value" id="r-lst">&euro; 0,00</div>
+        <div class="result-sub" id="r-monat">(&euro; 0,00 monatlich)</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Bruttoeinkommen</div><div class="result-row-value" id="r-brutto"></div></div>
+        <div class="result-row"><div class="result-row-label">Zu versteuerndes Einkommen</div><div class="result-row-value" id="r-zve"></div></div>
+        <div class="result-row"><div class="result-row-label">Lohnsteuer (rein)</div><div class="result-row-value neg" id="r-lst2"></div></div>
+        <div class="result-row"><div class="result-row-label">Solidarit&auml;tszuschlag</div><div class="result-row-value neg" id="r-soli"></div></div>
+        <div class="result-row"><div class="result-row-label">Kirchensteuer</div><div class="result-row-value neg" id="r-kist"></div></div>
+        <div class="result-row"><div class="result-row-label">Effektiver Steuersatz</div><div class="result-row-value" id="r-quote"></div></div>
+      </div>
+      <p class="result-disclaimer">Berechnung gem&auml;&szlig; &sect;32a EStG 2024. Grundfreibetrag: 11.604 &euro;. Arbeitnehmer-Pauschbetrag: 1.230 &euro;. Nur zur Orientierung.</p>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calcLST(zvE,kl){
+  const GFB=11604;
+  if(zvE<=GFB)return 0;
+  let lst=0;
+  if(zvE<=17005){const y=(zvE-GFB)/10000;lst=(922.98*y+1400)*y;}
+  else if(zvE<=66760){const y=(zvE-17005)/10000;lst=(181.19*y+2397)*y+1025.38;}
+  else if(zvE<=277825){lst=0.42*zvE-10602.13;}
+  else{lst=0.45*zvE-18936.88;}
+  if(kl===3)lst=Math.max(0,lst*0.55);
+  if(kl===5)lst=lst*1.55;
+  if(kl===6)lst=Math.max(lst*1.5,zvE*0.25);
+  if(kl===2)lst=Math.max(0,lst-860);
+  return Math.max(0,lst);
+}
+function calc(){
+  const brutto=parseFloat(document.getElementById('einkommen').value)||0;
+  const kl=parseInt(document.getElementById('klasse').value);
+  const kist_satz=parseFloat(document.getElementById('kirche').value)/100;
+  const kfb=parseFloat(document.getElementById('kfb').value);
+  const wk=Math.max(1230,parseFloat(document.getElementById('wk').value)||1230);
+  const fb=parseFloat(document.getElementById('fb').value)||0;
+  const kfb_betrag=kfb*8532; // 2024: 8.532 EUR pro KFB
+  const zvE=Math.max(0,brutto-wk-fb-kfb_betrag);
+  const lst=calcLST(zvE,kl);
+  const soli=lst>18130?lst*0.055:0;
+  const kist=lst*kist_satz;
+  const gesamt=lst+soli+kist;
+  const quote=brutto>0?gesamt/brutto*100:0;
+  document.getElementById('r-lst').textContent='€ '+fmt(gesamt);
+  document.getElementById('r-monat').textContent='(€ '+fmt(gesamt/12)+' monatlich)';
+  document.getElementById('r-brutto').textContent='€ '+fmt(brutto);
+  document.getElementById('r-zve').textContent='€ '+fmt(zvE);
+  document.getElementById('r-lst2').textContent='- € '+fmt(lst);
+  document.getElementById('r-soli').textContent=soli>0?'- € '+fmt(soli):'€ 0,00';
+  document.getElementById('r-kist').textContent=kist>0?'- € '+fmt(kist):'€ 0,00';
+  document.getElementById('r-quote').textContent=quote.toFixed(1)+' %';
+}
+function reset(){document.getElementById('einkommen').value=42000;document.getElementById('klasse').selectedIndex=0;document.getElementById('kirche').selectedIndex=0;document.getElementById('kfb').selectedIndex=0;document.getElementById('wk').value=1230;document.getElementById('fb').value=0;calc();}
+calc();
+</script>
+  </div>
+  <section class="article-section"><div class="article-inner"><h2>Lohnsteuer in Deutschland: Berechnung und Optimierung</h2><p>Die <strong>Lohnsteuer</strong> ist die wichtigste direkte Steuer für Arbeitnehmer in Deutschland. Sie wird monatlich direkt vom Arbeitgeber vom Bruttogehalt einbehalten und an das Finanzamt abgeführt — der Arbeitnehmer muss sich damit nicht selbst befassen. Wie hoch die Lohnsteuer ausfällt, hängt von verschiedenen Faktoren ab.</p>
+
+<h3>Grundfreibetrag 2024: 11.604 Euro</h3>
+<p>Der Grundfreibetrag stellt das steuerfreie Existenzminimum sicher. Einkommen bis 11.604 Euro im Jahr 2024 ist vollständig steuerfrei. Erst darüber beginnt die progressive Besteuerung. Ab 2025 steigt der Grundfreibetrag auf 12.096 Euro.</p>
+
+<h3>Progressiver Steuertarif nach §32a EStG</h3>
+<p>Deutschland hat einen progressiven Einkommensteuertarif: Je höher das Einkommen, desto höher der Steuersatz — aber immer nur auf den jeweiligen Einkommensteil. Bei einem zvE von 42.000 Euro liegt der Grenzsteuersatz bei etwa 37 %, der Durchschnittssteuersatz aber nur bei rund 22 %. Unser Rechner berechnet die exakte Lohnsteuer nach den offiziellen Formeln des §32a EStG.</p>
+
+<h3>Arbeitnehmer-Pauschbetrag 2024: 1.230 Euro</h3>
+<p>Jeder Arbeitnehmer erhält automatisch den Arbeitnehmer-Pauschbetrag von 1.230 Euro abgezogen, ohne Belege einreichen zu müssen. Tatsächliche Werbungskosten über 1.230 Euro (z.B. Pendlerpauschale, Arbeitsmittel) können in der Steuererklärung geltend gemacht werden.</p>
+
+<h3>Kinderfreibetrag 2024: 8.532 Euro pro Kind</h3>
+<p>Der Kinderfreibetrag beträgt 2024 je 8.532 Euro (4.512 Euro Kinderfreibetrag + 4.020 Euro Betreuungs-/Erziehungs-/Ausbildungsfreibetrag). Das Finanzamt prüft automatisch im Rahmen der Steuererklärung, was günstiger ist: Kindergeld oder Kinderfreibetrag.</p>
+
+<h3>Lohnsteuer minimieren — legale Möglichkeiten</h3>
+<p>Durch Eintragung von Lohnsteuerfreibeträgen beim Finanzamt (Antrag auf Lohnsteuerermäßigung) können Sie die monatliche Lohnsteuer reduzieren. Anerkannt werden u.a. Werbungskosten über 1.230 Euro, Sonderausgaben, haushaltsnahe Dienstleistungen und außergewöhnliche Belastungen.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie wird die Lohnsteuer berechnet?</div><div class="faq-a">Grundlage ist das zu versteuernde Einkommen (zvE). Es ergibt sich aus dem Bruttolohn abzüglich Werbungskosten (min. 1.230 EUR), Sonderausgaben und Freibeträgen. Auf das zvE wird der Steuertarif nach §32a EStG angewendet. Die Tabellen werden jährlich an die Inflation angepasst.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Grundfreibetrag 2024?</div><div class="faq-a">Der Grundfreibetrag beträgt 2024 genau 11.604 Euro. Einkommen bis zu diesem Betrag ist vollständig steuerfrei. 2025 steigt er auf 12.096 Euro. Der Grundfreibetrag stellt das steuerliche Existenzminimum sicher und wird regelmäßig angepasst.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Arbeitnehmer-Pauschbetrag?</div><div class="faq-a">Der Arbeitnehmer-Pauschbetrag (früher: Werbungskosten-Pauschbetrag) beträgt 2024 genau 1.230 Euro jährlich. Er wird automatisch ohne Nachweis von der Lohnsteuer abgezogen. Erst wenn Ihre tatsächlichen Werbungskosten (Fahrtkosten, Arbeitsmittel etc.) diesen Betrag übersteigen, lohnt sich die Einzelaufstellung in der Steuererklärung.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Zahlen verheiratete Paare weniger Lohnsteuer?</div><div class="faq-a">Bei Ehepaaren hängt es stark von der Einkommensverteilung ab. Bei sehr unterschiedlichen Einkommen ist die Kombination III/V steuerlich vorteilhaft: Der höher verdienende Partner in Klasse III zahlt weniger Lohnsteuer, der geringer verdienende in Klasse V mehr. Insgesamt bleibt die Jahressteuerlast gleich.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Kinderfreibetrag?</div><div class="faq-a">Der Kinderfreibetrag 2024 beträgt je 8.532 Euro pro Kind (4.512 EUR + 4.020 EUR BEA). Das Finanzamt prüft automatisch, was günstiger ist: Kindergeld (250 EUR/Monat/Kind) oder Kinderfreibetrag. Bei höherem Einkommen ist der Kinderfreibetrag meist vorteilhafter.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ab wann gilt der Spitzensteuersatz?</div><div class="faq-a">Der Spitzensteuersatz von 42 % gilt für zu versteuernde Einkommen über 66.760 Euro (2024). Für Einkommen über 277.825 Euro gilt der sogenannte Reichensteuersatz von 45 %. Diese Sätze gelten immer nur für den Teil des Einkommens, der die jeweiligen Grenzen überschreitet.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Günstigerprüfung?</div><div class="faq-a">Die Günstigerprüfung vergleicht automatisch im Rahmen der Steuererklärung, ob der Abzug des Kinderfreibetrags oder das bereits erhaltene Kindergeld zu einer niedrigeren Steuer führt. Ist der Kinderfreibetrag günstiger, wird er angerechnet und das Kindergeld entsprechend aufgerechnet.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a><a href="/abfindungsrechner.html" class="related-link">Abfindungsrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Schnell, korrekt und ohne Anmeldung. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a><a href="/mehrwertsteuerrechner.html">MwSt-Rechner</a><a href="/kreditrechner.html">Kreditrechner</a><a href="/rentenrechner.html">Rentenrechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a><a href="/alle-rechner.html">Alle Rechner</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Berechnung nach &sect;32a EStG &middot; Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>
