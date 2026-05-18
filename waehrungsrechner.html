@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Währungsrechner — Live-Wechselkurse umrechnen | FastRechnen.de</title>
+<meta name="description" content="Währungsrechner mit aktuellen Wechselkursen: Euro, Dollar, Pfund, Schweizer Franken, Yen und mehr. Echtzeit-Kurse von der EZB. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/waehrungsrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Währungsrechner</div>
+    <h1>Währungsrechner</h1>
+    <p>Aktuelle Wechselkurse live abrufen und Währungen umrechnen — Kurse von der Europäischen Zentralbank.</p>
+    <div class="calc-badges"><span class="calc-badge">Live-Kurse</span><span class="calc-badge">EZB-Daten</span><span class="calc-badge">20+ Währungen</span><span class="calc-badge">Automatisch aktuell</span></div>
+  </div>
+  <div class="calc-section">
+<style>
+.currency-status{font-size:12px;padding:6px 12px;border-radius:6px;display:inline-flex;align-items:center;gap:6px}
+.currency-status.loading{background:#f0f9ff;color:#0369a1}
+.currency-status.ok{background:#f0fdf4;color:#15803d}
+.currency-status.err{background:#fef2f2;color:#b91c1c}
+.rate-badge{background:var(--primary-xlight);border:1px solid rgba(0,143,122,.2);border-radius:8px;padding:10px 16px;font-size:14px;color:var(--primary-dark);text-align:center;margin-bottom:16px}
+</style>
+    <div class="calc-card">
+      <div class="calc-card-header">
+        <span class="calc-card-title">Währungsumrechner</span>
+        <span class="currency-status loading" id="api-status">Kurse werden geladen...</span>
+      </div>
+      <div class="calc-body">
+        <div id="rate-badge" class="rate-badge" style="display:none"></div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Betrag</label>
+            <div class="input-wrap"><input type="number" id="betrag" value="100" min="0" step="any" oninput="convert()"></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Von Währung</label>
+            <div class="input-wrap"><select id="von" onchange="convert()"></select></div>
+          </div>
+        </div>
+        <div style="text-align:center;margin:8px 0">
+          <button class="btn btn-secondary btn-sm" onclick="swap()" style="border-radius:50%;width:36px;height:36px;padding:0;font-size:18px" title="Tauschen">⇄</button>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Ergebnis</label>
+            <div class="input-wrap"><input type="number" id="ergebnis" readonly style="background:var(--bg-secondary);font-weight:600;color:var(--primary)"></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">In Währung</label>
+            <div class="input-wrap"><select id="nach" onchange="convert()"></select></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label" id="r-label">Umrechnungsergebnis</div>
+        <div class="result-value" id="r-main">—</div>
+        <div class="result-sub" id="r-kurs">Kurse werden geladen...</div>
+      </div>
+      <div class="result-grid" id="r-grid"></div>
+      <p class="result-disclaimer" id="r-update">Kurse von der Europäischen Zentralbank (EZB) via frankfurter.app. Kein Echtzeitkurs für Handelsgeschäfte.</p>
+    </div>
+
+<script>
+const CURRENCIES = {
+  EUR:'Euro (EUR)',USD:'US-Dollar (USD)',GBP:'Brit. Pfund (GBP)',CHF:'Schweizer Franken (CHF)',
+  JPY:'Japanischer Yen (JPY)',CNY:'Chinesischer Yuan (CNY)',CAD:'Kanadischer Dollar (CAD)',
+  AUD:'Australischer Dollar (AUD)',NOK:'Norweg. Krone (NOK)',SEK:'Schwedische Krone (SEK)',
+  DKK:'Dänische Krone (DKK)',PLN:'Poln. Zloty (PLN)',CZK:'Tschech. Krone (CZK)',
+  HUF:'Ungar. Forint (HUF)',TRY:'Türkische Lira (TRY)',BRL:'Brasil. Real (BRL)',
+  INR:'Ind. Rupie (INR)',KRW:'Südkor. Won (KRW)',MXN:'Mex. Peso (MXN)',SGD:'Singapur-Dollar (SGD)',
+  ZAR:'Südafrik. Rand (ZAR)',MAD:'Marokkan. Dirham (MAD)'
+};
+
+let rates = {};
+let updateTime = '';
+
+async function loadRates() {
+  const status = document.getElementById('api-status');
+  try {
+    status.textContent = 'Kurse werden geladen...';
+    status.className = 'currency-status loading';
+    // Use frankfurter.app — free EZB data, no API key needed
+    const res = await fetch('https://api.frankfurter.app/latest?base=EUR&symbols=' +
+      Object.keys(CURRENCIES).filter(c=>c!=='EUR').join(','));
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+    rates = {...data.rates, EUR: 1};
+    updateTime = data.date;
+    status.textContent = '✓ Kurse aktuell (' + data.date + ')';
+    status.className = 'currency-status ok';
+    document.getElementById('r-update').textContent =
+      'Kurse der Europäischen Zentralbank (EZB) via Frankfurter API. Stand: ' + data.date + '. Indikativ, kein Handelskurs.';
+    convert();
+  } catch(e) {
+    status.textContent = '⚠ Offline — Beispielkurse';
+    status.className = 'currency-status err';
+    // Fallback rates (approximate, clearly marked as example)
+    rates = {EUR:1,USD:1.09,GBP:0.86,CHF:0.97,JPY:162,CNY:7.9,CAD:1.48,AUD:1.64,
+             NOK:11.5,SEK:11.3,DKK:7.46,PLN:4.32,CZK:25.1,HUF:395,TRY:35,BRL:5.5,
+             INR:91,KRW:1450,MXN:18.5,SGD:1.46,ZAR:20.3,MAD:10.9};
+    document.getElementById('r-update').textContent = 'Verbindungsfehler — Beispielkurse angezeigt. Bitte Seite neu laden.';
+    convert();
+  }
+}
+
+function buildSelects() {
+  const vonSel = document.getElementById('von');
+  const nachSel = document.getElementById('nach');
+  Object.entries(CURRENCIES).forEach(([code, name]) => {
+    const o1 = new Option(name, code);
+    const o2 = new Option(name, code);
+    vonSel.appendChild(o1);
+    nachSel.appendChild(o2);
+  });
+  vonSel.value = 'EUR';
+  nachSel.value = 'USD';
+}
+
+function convert() {
+  if(Object.keys(rates).length === 0) return;
+  const betrag = parseFloat(document.getElementById('betrag').value) || 0;
+  const von = document.getElementById('von').value;
+  const nach = document.getElementById('nach').value;
+  // Convert via EUR as base
+  const inEUR = betrag / rates[von];
+  const ergebnis = inEUR * rates[nach];
+  const kurs = rates[nach] / rates[von];
+  const kursRueck = rates[von] / rates[nach];
+
+  document.getElementById('ergebnis').value = ergebnis.toFixed(4);
+  document.getElementById('r-label').textContent = betrag.toLocaleString('de-DE') + ' ' + von + ' in ' + nach;
+  document.getElementById('r-main').textContent = ergebnis.toLocaleString('de-DE', {maximumFractionDigits: 4}) + ' ' + nach;
+  document.getElementById('r-kurs').textContent = '1 ' + von + ' = ' + kurs.toFixed(5) + ' ' + nach + '  |  1 ' + nach + ' = ' + kursRueck.toFixed(5) + ' ' + von;
+
+  document.getElementById('r-grid').innerHTML = `
+    <div class="result-row"><div class="result-row-label">1 ${von}</div><div class="result-row-value">${kurs.toFixed(5)} ${nach}</div></div>
+    <div class="result-row"><div class="result-row-label">1 ${nach}</div><div class="result-row-value">${kursRueck.toFixed(5)} ${von}</div></div>
+    <div class="result-row"><div class="result-row-label">${betrag.toLocaleString('de-DE')} ${von}</div><div class="result-row-value pos">${ergebnis.toLocaleString('de-DE',{maximumFractionDigits:2})} ${nach}</div></div>
+    <div class="result-row"><div class="result-row-label">Kursquelle</div><div class="result-row-value">EZB / Frankfurter API</div></div>`;
+
+  const badge = document.getElementById('rate-badge');
+  badge.style.display = 'block';
+  badge.textContent = '1 ' + von + ' = ' + kurs.toFixed(5) + ' ' + nach + (updateTime ? ' (Stand: ' + updateTime + ')' : '');
+}
+
+function swap() {
+  const von = document.getElementById('von');
+  const nach = document.getElementById('nach');
+  [von.value, nach.value] = [nach.value, von.value];
+  convert();
+}
+
+buildSelects();
+loadRates();
+</script>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:0 24px 24px">
+    <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start">
+      <span style="color:#b45309;font-size:18px;flex-shrink:0;line-height:1.3">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:3px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.65">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Finanzberatung.</p>
+      </div>
+    </div>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Wechselkurse und Währungsumrechnung: Was Sie wissen müssen</h2>
+      <p>Der <strong>Währungsrechner</strong> ruft aktuelle Wechselkurse von der Europäischen Zentralbank (EZB) ab und rechnet Beträge zwischen über 20 Währungen in Echtzeit um. Die Kurse werden täglich aktualisiert und kommen direkt von der offiziellen EZB-Quelle über die Frankfurter API.</p>
+
+<h3>Wie entstehen Wechselkurse?</h3>
+<p>Wechselkurse bestimmen, wie viel eine Währung im Verhältnis zu einer anderen wert ist. Sie werden an internationalen Devisenmärkten (Forex) durch Angebot und Nachfrage bestimmt. Täglich werden Billionen Euro equivalent gehandelt. Die Kurse schwanken kontinuierlich, abhängig von Zinsentscheidungen der Zentralbanken, Inflationsraten, Wirtschaftsdaten und geopolitischen Ereignissen.</p>
+
+<h3>EZB-Referenzkurse vs. Bankwechselkurse</h3>
+<p>Dieser Rechner nutzt die offiziellen EZB-Referenzkurse. Diese sind der Mittelkurs und entsprechen nicht dem Kurs, den Sie bei Ihrer Bank oder am Flughafen erhalten. Banken und Wechselstuben addieren eine Marge (Spread) von typischerweise 1–3 % bei Banken und bis zu 10 % an Flughafenwechselstuben. Online-Reisegeldkarten und Neobanken wie Revolut oder Wise bieten oft deutlich günstigere Kurse nahe am EZB-Mittelkurs.</p>
+
+<h3>Euro und wichtige Währungspaare</h3>
+<p>Das wichtigste Währungspaar der Welt ist EUR/USD (Euro/US-Dollar). Der Euro ist seit seiner Einführung 1999 die gemeinsame Währung der Eurozone. Wichtige Währungen für Deutsche: CHF (Schweiz) wegen starker Wirtschaftsverflechtung, GBP (Großbritannien) nach dem Brexit, USD als Weltreservewährung. Der Schweizer Franken gilt als "sicherer Hafen" und wertet in Krisenzeiten oft auf.</p>
+
+<h3>Währungsrisiken bei Auslandsreisen und Online-Käufen</h3>
+<p>Beim Bezahlen in Fremdwährung entstehen Kosten durch den Wechselkurs und mögliche Fremdwährungsgebühren der Kreditkarte. Tipp: Wählen Sie immer "In Landeswährung bezahlen" (statt Euro, DCC — Dynamic Currency Conversion), da die angebotene Euro-Umrechnung fast immer ungünstigere Kurse hat.</p>
+
+<h3>Währungsabsicherung für Unternehmen</h3>
+<p>Unternehmen, die international tätig sind, sichern Währungsrisiken durch Termingeschäfte (Forwards) und Optionen ab. Dabei wird ein zukünftiger Wechselkurs heute festgelegt, um Planungssicherheit zu gewährleisten. Unser Rechner dient der Orientierung — für Handelsgeschäfte empfehlen sich spezialisierte Devisen-Dienstleister.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Warum unterscheidet sich der Kurs in meiner Bank vom Rechner?</div><div class="faq-a">Unser Rechner zeigt den EZB-Referenzkurs (Mittelkurs). Banken, Wechselstuben und Kreditkartenanbieter berechnen einen Aufschlag (Spread) — typischerweise 1–3 % bei Banken, bis zu 10 % an Flughäfen. Online-Dienste wie Wise oder Revolut liegen oft näher am EZB-Kurs.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie oft werden die Kurse aktualisiert?</div><div class="faq-a">Die EZB veröffentlicht Referenzkurse an Werktagen einmal täglich gegen 16:00 Uhr MEZ. Unser Rechner ruft diese Daten über die kostenlose Frankfurter API ab. An Wochenenden und Feiertagen bleiben die zuletzt veröffentlichten Kurse gültig.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie rechne ich Dollar in Euro um?</div><div class="faq-a">Dividieren Sie den Dollar-Betrag durch den aktuellen EUR/USD-Kurs. Beispiel: 100 USD ÷ 1,09 (Kurs) = 91,74 EUR. Unser Rechner übernimmt diese Umrechnung automatisch für alle Währungspaare.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Geld- und Briefkurs?</div><div class="faq-a">Der Geldkurs (Bid) ist der Kurs, zu dem eine Bank Fremdwährung kauft. Der Briefkurs (Ask) ist der Kurs, zu dem sie verkauft. Der EZB-Referenzkurs liegt dazwischen (Mittelkurs). Die Differenz zwischen Geld- und Briefkurs ist der Spread — der Gewinn des Währungshändlers.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist das günstigste Zahlungsmittel im Ausland?</div><div class="faq-a">Reisekreditkarten ohne Fremdwährungsgebühren oder Konten von Neobanken (Revolut, Wise, N26) bieten oft die günstigsten Kurse nahe am EZB-Mittelkurs. Bargeld am Geldautomaten ist günstiger als Wechselstuben. Vermeiden Sie Geldautomaten mit fest angebotener Wechseloption (DCC).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie beeinflusst die EZB den Eurokurs?</div><div class="faq-a">Die EZB beeinflusst den Euro-Wechselkurs hauptsächlich über Zinsentscheidungen. Höhere Zinsen machen den Euro attraktiver für ausländische Investoren, was den Kurs stärkt. Niedrige Zinsen schwächen tendenziell den Euro. Auch EZB-Prognosen und Statements des Präsidenten bewegen die Märkte.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Welche Währungen sind an den Euro gebunden?</div><div class="faq-a">Einige Länder haben ihre Währung fest an den Euro gekoppelt (Pegging): der Dänische Krone (DKK) schwankt kaum um 7,46 DKK/EUR. Bosnien, Bulgarien und einige weitere Länder haben ebenfalls Eurobindungen. Viele ehemalige Franc-CFA-Länder in Afrika haben feste Wechselkurse zum Euro.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/mehrwertsteuerrechner.html" class="related-link">Mehrwertsteuerrechner</a><a href="/prozentrechner.html" class="related-link">Prozentrechner</a><a href="/rabattrechner.html" class="related-link">Rabattrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

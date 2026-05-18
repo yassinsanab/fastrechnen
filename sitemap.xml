@@ -12,4 +12,10 @@
   <url><loc>https://fastrechnen.de/urlaubsrechner</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://fastrechnen.de/bmi-rechner</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://fastrechnen.de/alle-rechner</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastrechnen.de/rabattrechner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastrechnen.de/prozentrechner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastrechnen.de/zinsrechner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastrechnen.de/zinseszinsrechner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastrechnen.de/sparplanrechner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastrechnen.de/waehrungsrechner</loc><changefreq>daily</changefreq><priority>0.8</priority></url>
 </urlset>

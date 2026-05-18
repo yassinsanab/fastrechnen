@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sparplan-Rechner — Vermögensaufbau mit monatlichem Sparen | FastRechnen.de</title>
+<meta name="description" content="Sparplan-Rechner: Wie viel Vermögen bauen Sie mit monatlichen Sparraten auf? Mit Zinseszinseffekt, Jahrestabelle und Inflationsbereinigung. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/sparplanrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Sparplan-Rechner</div>
+    <h1>Sparplan-Rechner</h1>
+    <p>Berechnen Sie Ihr Endvermögen durch regelmäßiges Sparen — mit Zinseszinseffekt und detaillierter Jahrestabelle.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Zinseszins</span><span class="calc-badge">Monatlich sparen</span><span class="calc-badge">Jahrestabelle</span></div>
+  </div>
+  <div class="calc-section">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Sparplan-Details</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Monatliche Sparrate</label>
+            <div class="input-wrap"><input type="number" id="rate" value="200" min="0" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Startkapital (optional)</label>
+            <div class="input-wrap"><input type="number" id="start" value="0" min="0" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">J&auml;hrliche Rendite</label>
+            <div class="input-wrap"><input type="number" id="rendite" value="7" step="0.1" min="0" oninput="calc()"><span class="input-unit">%</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Anlagedauer</label>
+            <div class="input-wrap"><input type="number" id="jahre" value="25" min="1" max="60" oninput="calc()"><span class="input-unit">Jahre</span></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Inflationsrate (f&uuml;r Realwert)</label>
+            <div class="input-wrap"><input type="number" id="inflation" value="2.5" step="0.1" min="0" oninput="calc()"><span class="input-unit">%</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">J&auml;hrliche Raten-Erh&ouml;hung</label>
+            <div class="input-wrap"><input type="number" id="erhoehung" value="0" step="0.5" min="0" oninput="calc()"><span class="input-unit">%</span></div>
+            <div class="field-hint">0% = konstante Rate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Endverm&ouml;gen (nominal)</div>
+        <div class="result-value" id="r-end">&euro; 0,00</div>
+        <div class="result-sub" id="r-sub">Kaufkraftbereinigt: &euro; 0,00</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Eigene Einzahlungen gesamt</div><div class="result-row-value" id="r-einz"></div></div>
+        <div class="result-row"><div class="result-row-label">Zinsen / Rendite gesamt</div><div class="result-row-value pos" id="r-zinsen"></div></div>
+        <div class="result-row"><div class="result-row-label">Endverm&ouml;gen nominal</div><div class="result-row-value pos" id="r-nominal"></div></div>
+        <div class="result-row"><div class="result-row-label">Endverm&ouml;gen real (nach Inflation)</div><div class="result-row-value" id="r-real"></div></div>
+        <div class="result-row"><div class="result-row-label">Renditeanteil am Endverm&ouml;gen</div><div class="result-row-value pos" id="r-anteil"></div></div>
+        <div class="result-row"><div class="result-row-label">Gesamtrendite</div><div class="result-row-value pos" id="r-gesamt-r"></div></div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Vermögensentwicklung nach Jahren</div>
+      <div id="spar-table" style="overflow:auto;max-height:280px;border:1px solid var(--border);border-radius:var(--radius-md)">
+        <table style="width:100%;border-collapse:collapse;font-size:13px">
+          <thead style="background:var(--bg-secondary);position:sticky;top:0">
+            <tr>
+              <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Jahr</th>
+              <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Eingezahlt</th>
+              <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Rendite</th>
+              <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Verm&ouml;gen</th>
+            </tr>
+          </thead>
+          <tbody id="spar-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));}
+function fmtE(n){return '€ '+fmt(n);}
+function calc(){
+  const r=parseFloat(document.getElementById('rate').value)||0;
+  const K0=parseFloat(document.getElementById('start').value)||0;
+  const p=parseFloat(document.getElementById('rendite').value)||0;
+  const n=parseInt(document.getElementById('jahre').value)||1;
+  const inf=parseFloat(document.getElementById('inflation').value)||0;
+  const erh=parseFloat(document.getElementById('erhoehung').value)||0;
+  const rm=p/100/12;
+  // Calculate monthly, group by year
+  let K=K0, totalEinz=K0, totalZins=0;
+  let tbody='', rateJetzt=r;
+  for(let j=1;j<=Math.min(n,60);j++){
+    if(j>1) rateJetzt*=(1+erh/100);
+    const einzJ=rateJetzt*12;
+    const K_vorher=K;
+    for(let m=0;m<12;m++){K=(K+rateJetzt)*(1+rm);}
+    const zinsJ=K-K_vorher-einzJ;
+    totalEinz+=einzJ; totalZins+=zinsJ;
+    const bg=j%2?'background:var(--bg-secondary)':'';
+    tbody+=`<tr style="${bg}">
+      <td style="padding:7px 12px;border-bottom:1px solid var(--border)">${j}</td>
+      <td style="padding:7px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-secondary)">${fmtE(totalEinz)}</td>
+      <td style="padding:7px 12px;text-align:right;border-bottom:1px solid var(--border);color:#2d7a3a">${fmtE(totalZins)}</td>
+      <td style="padding:7px 12px;text-align:right;border-bottom:1px solid var(--border);font-weight:600;color:var(--primary)">${fmtE(K)}</td>
+    </tr>`;
+  }
+  const realWert=K/Math.pow(1+inf/100,n);
+  const renditeAnteil=K>0?totalZins/K*100:0;
+  const gesamtR=totalEinz>0?(K-totalEinz)/totalEinz*100:0;
+  document.getElementById('r-end').textContent=fmtE(K);
+  document.getElementById('r-sub').textContent='Kaufkraftbereinigt: '+fmtE(realWert)+' (nach '+inf+'% Inflation/Jahr)';
+  document.getElementById('r-einz').textContent=fmtE(totalEinz);
+  document.getElementById('r-zinsen').textContent=fmtE(totalZins);
+  document.getElementById('r-nominal').textContent=fmtE(K);
+  document.getElementById('r-real').textContent=fmtE(realWert);
+  document.getElementById('r-anteil').textContent=renditeAnteil.toFixed(1).replace('.',',')+' %';
+  document.getElementById('r-gesamt-r').textContent='+'+gesamtR.toFixed(1).replace('.',',')+' %';
+  document.getElementById('spar-tbody').innerHTML=tbody;
+}
+function reset(){document.getElementById('rate').value=200;document.getElementById('start').value=0;document.getElementById('rendite').value=7;document.getElementById('jahre').value=25;document.getElementById('inflation').value=2.5;document.getElementById('erhoehung').value=0;calc();}
+calc();
+</script>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:0 24px 24px">
+    <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start">
+      <span style="color:#b45309;font-size:18px;flex-shrink:0;line-height:1.3">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:3px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.65">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Finanzberatung.</p>
+      </div>
+    </div>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Sparplan: Mit kleinen Beträgen zum großen Vermögen</h2>
+      <p>Der <strong>Sparplan-Rechner</strong> zeigt Ihnen, wie selbst kleine monatliche Beträge durch den Zinseszinseffekt über lange Zeiträume zu einem erheblichen Vermögen wachsen können. Wer früh beginnt und regelmäßig spart, profitiert überproportional vom Faktor Zeit.</p>
+
+<h3>Wie funktioniert ein Sparplan?</h3>
+<p>Bei einem Sparplan werden in regelmäßigen Abständen — meist monatlich — feste Beträge investiert. Das kann ein Banksparplan, ein ETF-Sparplan, ein Fondssparplan oder ein Bausparvertrag sein. Die Kombination aus regelmäßigen Einzahlungen und dem Zinseszinseffekt auf die bereits angesammelten Beträge lässt das Vermögen stetig wachsen.</p>
+
+<h3>Der Unterschied den Zeit macht</h3>
+<p>Mit 200 Euro monatlich und 7 % Rendite spart man nach 25 Jahren nominal 60.000 Euro ein. Der Zinseszinseffekt macht daraus ein Endvermögen von rund 162.000 Euro — über 100.000 Euro kommen allein aus Renditen. Beginnt man 5 Jahre früher (also 30 Jahre Laufzeit), wächst das Endvermögen auf etwa 243.000 Euro. Diese 5 Jahre extra bringen also 81.000 Euro mehr, obwohl man nur 12.000 Euro mehr eingezahlt hat.</p>
+
+<h3>ETF-Sparplan: Günstig und breit gestreut</h3>
+<p>ETF-Sparpläne auf globale Indizes wie den MSCI World oder FTSE All-World sind die beliebteste Form des langfristigen Vermögensaufbaus in Deutschland. Vorteile: Sehr niedrige Kosten (TER oft unter 0,2 %), breite Diversifikation über Tausende von Unternehmen, monatliche Einzahlungen bereits ab 25 Euro, automatisches Rebalancing und historisch solide Renditen.</p>
+
+<h3>Inflation berücksichtigen: Realer Vermögensaufbau</h3>
+<p>Unser Rechner zeigt Ihnen neben dem nominalen Endwert auch den inflationsbereinigten Realwert. Bei 2,5 % Inflation verliert Geld über 25 Jahre erheblich an Kaufkraft. Ein nominales Endvermögen von 162.000 Euro entspricht bei 2,5 % jährlicher Inflation nur einer Kaufkraft von rund 95.000 Euro in heutigen Preisen. Deshalb ist eine Rendite deutlich über der Inflationsrate entscheidend.</p>
+
+<h3>Sparrate automatisch erhöhen</h3>
+<p>Ein mächtiger Hebel: Erhöhen Sie Ihre Sparrate jährlich um 2–3 %, zum Beispiel mit jeder Gehaltserhöhung. Unser Rechner unterstützt diese Option. Eine monatliche Sparrate von 200 Euro, die jährlich um 3 % steigt, ergibt nach 25 Jahren ein deutlich höheres Endvermögen als eine konstante Rate von 200 Euro — bei kaum spürbarer Mehrbelastung im Alltag.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie viel sollte ich monatlich sparen?</div><div class="faq-a">Als Faustregel empfehlen Finanzberater, mindestens 10–20% des Nettoeinkommens zu sparen. Dabei gilt: Zuerst einen Notgroschen von 3 Monatsgehältern aufbauen, dann langfristig in ETF-Sparpläne investieren. Selbst kleine Beträge von 50–100 Euro monatlich machen über 20–30 Jahre einen großen Unterschied.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist ein ETF-Sparplan?</div><div class="faq-a">Ein ETF-Sparplan ist ein automatischer regelmäßiger Kauf von ETF-Anteilen (Exchange Traded Funds). ETFs bilden einen Börsenindex nach — z.B. den MSCI World mit über 1.500 Unternehmen. Monatliche Sparpläne gibt es bei vielen Direktbanken und Brokern ab 25 Euro, oft ohne Ausgabeaufschlag.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Welche Rendite kann ich realistisch erwarten?</div><div class="faq-a">Historisch hat ein global diversifizierter Aktien-ETF (MSCI World) etwa 7–9 % jährlich erzielt (vor Steuern und Inflation). Für Berechnungen verwenden viele Finanzplaner konservative 5–7 %. Beachten Sie: Vergangene Renditen garantieren keine zukünftigen Ergebnisse, und zwischenzeitliche Kursverluste von 30–50 % sind möglich.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wann sollte ich mit dem Sparen beginnen?</div><div class="faq-a">Sofort. Der wichtigste Faktor beim Vermögensaufbau ist Zeit. Wer mit 25 Jahren beginnt, 200 Euro monatlich bei 7 % zu sparen, hat mit 65 Jahren etwa 528.000 Euro. Wer erst mit 35 beginnt, kommt nur auf etwa 243.000 Euro — trotz gleicher Sparrate. Die 10 Jahre früher sind fast 285.000 Euro wert.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie funktioniert Cost-Average beim Sparplan?</div><div class="faq-a">Beim regelmäßigen Kauf kauft man bei hohen Kursen weniger Anteile, bei niedrigen Kursen mehr — der Durchschnittskosteneffekt (Cost Average). Über lange Zeiträume kann dies das Risiko ungünstiger Einmalanlage-Zeitpunkte reduzieren. Wichtig: Der Effekt bedeutet nicht automatisch höhere Rendite als eine Einmalanlage.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Muss ich Steuern auf Sparplan-Gewinne zahlen?</div><div class="faq-a">Ja. Kursgewinne und Dividenden unterliegen der Abgeltungsteuer (26,375% inkl. Soli). Bei ETF-Sparplänen gilt seit der Investmentsteuerreform 2018 die "Vorabpauschale" als jährliche Mindestbesteuerung bei thesaurierenden ETFs. Der Freistellungsauftrag von 1.000 Euro (2.000 bei Ehepaaren) sollte bei Ihrer Bank eingerichtet werden.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Brutto- und Netto-Rendite beim Sparplan?</div><div class="faq-a">Die Brutto-Rendite ist die nominale Rendite vor Steuern und Kosten. Die Netto-Rendite nach Abgeltungsteuer (26,375%) und nach Abzug der ETF-Kosten (TER) kann deutlich niedriger sein. Bei langfristigen Aktien-ETF-Sparplänen macht die Steuerlatenz (Steuern erst beim Verkauf) einen erheblichen Vorteil gegenüber jährlich besteuerten Produkten aus.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/zinseszinsrechner.html" class="related-link">Zinseszins-Rechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Rabattrechner — Rabatt & Ersparnis online berechnen | FastRechnen.de</title>
+<meta name="description" content="Rabattrechner: Endpreis nach Rabatt berechnen, Rabatt in Prozent ermitteln oder Originalpreis aus Endpreis zurückrechnen. Kostenlos und sofort.">
+<link rel="canonical" href="https://fastrechnen.de/rabattrechner">
+<meta property="og:title" content="Rabattrechner — Rabatt & Ersparnis online berechnen">
+<meta property="og:description" content="Rabattrechner: Endpreis nach Rabatt berechnen, Rabatt in Prozent ermitteln oder Originalpreis aus Endpreis zurückrechnen. Kostenlos und sofort.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Rabattrechner</div>
+    <h1>Rabattrechner</h1>
+    <p>Berechnen Sie den Rabatt, Endpreis oder die Ersparnis — in drei Richtungen.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Rabatt in %</span><span class="calc-badge">Ersparnis berechnen</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section">
+    <div class="calc-card">
+      <div class="calc-card-header">
+        <span class="calc-card-title">Berechnungsmodus</span>
+        <select id="modus" onchange="updateModus()" style="font-family:var(--font);font-size:13px;background:var(--bg);border:1px solid var(--border-medium);border-radius:6px;padding:4px 10px;outline:none;color:var(--text-primary)">
+          <option value="endpreis">Endpreis berechnen (Originalpreis &amp; Rabatt% bekannt)</option>
+          <option value="prozent">Rabatt% berechnen (Originalpreis &amp; Endpreis bekannt)</option>
+          <option value="original">Originalpreis berechnen (Endpreis &amp; Rabatt% bekannt)</option>
+        </select>
+      </div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group" id="fg-original">
+            <label class="field-label">Originalpreis (UVP)</label>
+            <div class="input-wrap"><input type="number" id="original" value="100" min="0" step="0.01" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+          <div class="field-group" id="fg-rabatt">
+            <label class="field-label">Rabatt</label>
+            <div class="input-wrap"><input type="number" id="rabatt" value="20" min="0" max="100" step="0.1" oninput="calc()"><span class="input-unit">%</span></div>
+          </div>
+          <div class="field-group" id="fg-endpreis" style="display:none">
+            <label class="field-label">Endpreis (Angebotspreis)</label>
+            <div class="input-wrap"><input type="number" id="endpreis-in" value="80" min="0" step="0.01" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label" id="r-label">Endpreis nach Rabatt</div>
+        <div class="result-value" id="r-main">&euro; 0,00</div>
+        <div class="result-sub" id="r-sub">Sie sparen &euro; 0,00</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Originalpreis</div><div class="result-row-value" id="r-orig"></div></div>
+        <div class="result-row"><div class="result-row-label">Rabatt</div><div class="result-row-value neg" id="r-rab"></div></div>
+        <div class="result-row"><div class="result-row-label">Endpreis</div><div class="result-row-value pos" id="r-end"></div></div>
+        <div class="result-row"><div class="result-row-label">Ersparnis</div><div class="result-row-value pos" id="r-spar"></div></div>
+      </div>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function fmtP(n){return n.toFixed(2).replace('.',',')+' %';}
+
+function updateModus(){
+  const m=document.getElementById('modus').value;
+  document.getElementById('fg-original').style.display=(m==='prozent'||m==='endpreis')?'':'none';
+  document.getElementById('fg-rabatt').style.display=(m==='endpreis'||m==='original')?'':'none';
+  document.getElementById('fg-endpreis').style.display=(m==='prozent'||m==='original')?'':'none';
+  calc();
+}
+
+function calc(){
+  const m=document.getElementById('modus').value;
+  const orig=parseFloat(document.getElementById('original').value)||0;
+  const rab=parseFloat(document.getElementById('rabatt').value)||0;
+  const endIn=parseFloat(document.getElementById('endpreis-in').value)||0;
+  let originalPreis,rabattProzent,endPreis,ersparnis;
+
+  if(m==='endpreis'){
+    originalPreis=orig; rabattProzent=rab;
+    ersparnis=originalPreis*(rabattProzent/100);
+    endPreis=originalPreis-ersparnis;
+    document.getElementById('r-label').textContent='Endpreis nach Rabatt';
+    document.getElementById('r-main').textContent='€ '+fmt(endPreis);
+    document.getElementById('r-sub').textContent='Sie sparen € '+fmt(ersparnis)+' ('+fmtP(rabattProzent)+')';
+  } else if(m==='prozent'){
+    originalPreis=orig; endPreis=endIn;
+    ersparnis=originalPreis-endPreis;
+    rabattProzent=originalPreis>0?ersparnis/originalPreis*100:0;
+    document.getElementById('r-label').textContent='Rabatt in Prozent';
+    document.getElementById('r-main').textContent=fmtP(rabattProzent);
+    document.getElementById('r-sub').textContent='Ersparnis: € '+fmt(ersparnis);
+  } else {
+    endPreis=endIn; rabattProzent=rab;
+    originalPreis=rabattProzent<100?endPreis/(1-rabattProzent/100):0;
+    ersparnis=originalPreis-endPreis;
+    document.getElementById('r-label').textContent='Originalpreis (UVP)';
+    document.getElementById('r-main').textContent='€ '+fmt(originalPreis);
+    document.getElementById('r-sub').textContent='Ersparnis: € '+fmt(ersparnis);
+  }
+  document.getElementById('r-orig').textContent='€ '+fmt(originalPreis);
+  document.getElementById('r-rab').textContent='- € '+fmt(Math.max(0,ersparnis||0))+' ('+fmtP(rabattProzent)+')';
+  document.getElementById('r-end').textContent='€ '+fmt(endPreis||endIn);
+  document.getElementById('r-spar').textContent='€ '+fmt(Math.max(0,ersparnis||0));
+}
+calc();
+</script>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:0 24px 24px">
+    <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start">
+      <span style="color:#b45309;font-size:18px;flex-shrink:0;line-height:1.3">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:3px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.65">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Finanzberatung.</p>
+      </div>
+    </div>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Rabatt berechnen: So nutzen Sie diesen Rechner optimal</h2>
+      <p>Der <strong>Rabattrechner</strong> ist eines der vielseitigsten Werkzeuge für Verbraucher und Einkäufer. Er löst drei häufige Berechnungsaufgaben: den Endpreis nach einem Rabatt ermitteln, den Rabattprozentsatz aus Originalpreis und Endpreis berechnen oder den Originalpreis aus einem bekannten Endpreis und Rabattsatz zurückrechnen.</p>
+
+<h3>Was ist ein Rabatt?</h3>
+<p>Ein Rabatt ist ein Preisnachlass auf den ursprünglichen Verkaufspreis (UVP — unverbindliche Preisempfehlung). Er wird in der Regel als Prozentsatz angegeben und direkt vom Originalpreis abgezogen. Ein Rabatt von 20 Prozent auf einen Artikel für 100 Euro ergibt einen Endpreis von 80 Euro — Sie sparen 20 Euro.</p>
+
+<h3>Rabatt in Prozent berechnen — die Formel</h3>
+<p>Die Grundformel lautet: <strong>Rabatt (€) = Originalpreis × Rabattsatz / 100</strong> und <strong>Endpreis = Originalpreis − Rabatt</strong>. Umgekehrt gilt: <strong>Rabattsatz (%) = (Originalpreis − Endpreis) / Originalpreis × 100</strong>. Diese Formeln sind die Basis aller drei Modi unseres Rechners.</p>
+
+<h3>Gestaffelte Rabatte und mehrere Preisnachlässe</h3>
+<p>Vorsicht bei der Addition mehrerer Rabatte: Zwei Rabatte von je 10 Prozent ergeben keine 20 Prozent Gesamtrabatt. Der erste Rabatt wird auf den Originalpreis angewendet, der zweite auf den bereits reduzierten Preis. Das Ergebnis: 100 € minus 10 % = 90 €, dann minus 10 % = 81 € — also 19 % Gesamtrabatt, nicht 20 %.</p>
+
+<h3>Rabatt vs. Skonto vs. Preisnachlass</h3>
+<p>Im Geschäftsalltag gibt es verschiedene Formen des Preisnachlasses. Ein <strong>Rabatt</strong> ist ein sofortiger Preisnachlass beim Kauf. <strong>Skonto</strong> ist ein Nachlass für schnelle Zahlung (z.B. 2 % bei Zahlung innerhalb von 10 Tagen). Ein <strong>Bonus</strong> wird nachträglich auf Basis des Gesamtumsatzes gewährt. Für alle drei Formen kann dieser Rechner die grundlegende Prozentrechnung übernehmen.</p>
+
+<h3>Saisonrabatte und Sale-Angebote richtig einschätzen</h3>
+<p>Im Einzelhandel werden Rabatte oft auf einen aufgeblähten UVP berechnet. Ein Artikel, der regulär für 50 Euro verkauft wurde, wird im "Sale" mit 70 Euro UVP und 30 Prozent Rabatt ausgezeichnet — der Endpreis von 49 Euro entspricht dem normalen Preis. Nutzen Sie unseren Rechner, um solche Angebote kritisch zu prüfen: Geben Sie UVP und Endpreis ein und lassen Sie sich den echten Rabattprozentsatz berechnen.</p>
+
+<h3>Einsatz im Geschäftsalltag</h3>
+<p>Unternehmen nutzen Rabattberechnungen täglich: bei der Kalkulation von Kundenrabatten, der Preisgestaltung in Aufhebungsverträgen, der Bewertung von Lieferantenkonditionen oder der Berechnung von Mengenrabatten. Händler müssen dabei auch beachten, dass Rabatte die Mehrwertsteuer-Bemessungsgrundlage reduzieren — der Rabatt bezieht sich immer auf den Nettopreis.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie berechnet man einen Rabatt?</div><div class="faq-a">Rabatt (€) = Originalpreis × Rabattprozent ÷ 100. Endpreis = Originalpreis − Rabatt. Beispiel: 150 Euro × 25 % ÷ 100 = 37,50 Euro Rabatt. Endpreis = 150 − 37,50 = 112,50 Euro.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Rabatt und Skonto?</div><div class="faq-a">Rabatt ist ein Preisnachlass beim Kauf — oft für Stammkunden, Mengenabnahme oder saisonale Aktionen. Skonto ist ein Nachlass für besonders schnelle Zahlung einer Rechnung (z.B. 2 % bei Zahlung innerhalb von 10 Tagen). Beide werden in Prozent angegeben, beziehen sich aber auf verschiedene Zahlungssituationen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie rechne ich mehrere Rabatte zusammen?</div><div class="faq-a">Mehrere Rabatte addieren sich nicht einfach: Bei 10 % + 10 % auf 100 Euro gilt: 100 × 0,9 = 90, dann 90 × 0,9 = 81 Euro. Der Gesamtrabatt beträgt 19 %, nicht 20 %. Allgemein: Gesamtfaktor = (1 − R1/100) × (1 − R2/100). Gesamtrabatt = (1 − Gesamtfaktor) × 100.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die UVP?</div><div class="faq-a">UVP steht für unverbindliche Preisempfehlung — der vom Hersteller empfohlene Einzelhandelspreis. Händler können davon abweichen. Als Basis für Rabattangaben ist die UVP häufig höher angesetzt als der tatsächlich übliche Verkaufspreis, was die Rabattangabe optisch attraktiver macht.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie berechnet man den Originalpreis aus dem Rabattpreis?</div><div class="faq-a">Wenn Sie den Endpreis und den Rabattprozentsatz kennen: Originalpreis = Endpreis ÷ (1 − Rabatt/100). Beispiel: Endpreis 75 €, Rabatt 25 %: 75 ÷ 0,75 = 100 € Originalpreis.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ist der Rabatt auf Brutto- oder Nettobetrag zu rechnen?</div><div class="faq-a">Im Privatkundengeschäft wird der Rabatt auf den Bruttopreis (inkl. MwSt.) gewährt. Im B2B-Bereich (Geschäftskunden) wird meist auf den Nettopreis (ohne MwSt.) rabattiert. Unser Rechner arbeitet mit dem eingegebenen Betrag — ob Netto oder Brutto bestimmen Sie selbst.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist ein versteckter Rabatt?</div><div class="faq-a">Von einem versteckten Rabatt spricht man, wenn der UVP kurz vor dem Sale künstlich erhöht wird, um einen höheren Rabattprozentsatz vorweisen zu können. In Deutschland ist das wettbewerbsrechtlich problematisch. Tipp: Preise über mehrere Wochen beobachten oder Preisvergleichsportale nutzen.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/prozentrechner.html" class="related-link">Prozentrechner</a><a href="/mehrwertsteuerrechner.html" class="related-link">Mehrwertsteuerrechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span>Fast</span>Rechnen.de</div>
+        <p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Rechner</h4>
+        <a href="/netto-brutto-rechner.html">Netto-Brutto</a>
+        <a href="/kreditrechner.html">Kredit</a>
+        <a href="/rentenrechner.html">Rente</a>
+        <a href="/alle-rechner.html">Alle Rechner</a>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/impressum.html">Impressum</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span>
+      <span>Zuletzt aktualisiert</span>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

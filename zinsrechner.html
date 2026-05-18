@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zinsrechner — Zinsen online berechnen | FastRechnen.de</title>
+<meta name="description" content="Zinsrechner: Zinsen, Endkapital oder Laufzeit bei einfacher Verzinsung berechnen. Für Tagesgeld, Festgeld und Sparkonten. Kostenlos und sofort.">
+<link rel="canonical" href="https://fastrechnen.de/zinsrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Zinsrechner</div>
+    <h1>Zinsrechner</h1>
+    <p>Berechnen Sie Zinsen, Endkapital oder Anlagedauer bei einfacher Verzinsung — für Tagesgeld und Festgeld.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Einfacher Zins</span><span class="calc-badge">Tagesgeld / Festgeld</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Anlagedetails</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Startkapital (Anlagesumme)</label>
+            <div class="input-wrap"><input type="number" id="kapital" value="10000" min="0" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">J&auml;hrlicher Zinssatz</label>
+            <div class="input-wrap"><input type="number" id="zinssatz" value="3.5" step="0.01" min="0" oninput="calc()"><span class="input-unit">%</span></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Laufzeit</label>
+            <div class="input-wrap"><input type="number" id="laufzeit" value="3" step="0.5" min="0" oninput="calc()"></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Laufzeit-Einheit</label>
+            <div class="input-wrap"><select id="einheit" onchange="calc()">
+              <option value="jahre">Jahre</option>
+              <option value="monate">Monate</option>
+              <option value="tage">Tage</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Zinszahlungsweise</label>
+          <div class="input-wrap"><select id="zinstyp" onchange="calc()">
+            <option value="jaehrlich">J&auml;hrlich (Regelfall)</option>
+            <option value="halbjaehrlich">Halbj&auml;hrlich</option>
+            <option value="quartalsweise">Quartalsweise</option>
+            <option value="monatlich">Monatlich</option>
+          </select></div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Zinsertr&auml;ge (brutto)</div>
+        <div class="result-value" id="r-zinsen">&euro; 0,00</div>
+        <div class="result-sub" id="r-sub">Endkapital: &euro; 0,00</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Startkapital</div><div class="result-row-value" id="r-start"></div></div>
+        <div class="result-row"><div class="result-row-label">Zinsertr&auml;ge brutto</div><div class="result-row-value pos" id="r-zins"></div></div>
+        <div class="result-row"><div class="result-row-label">Abgeltungsteuer (26,375%)</div><div class="result-row-value neg" id="r-steuer"></div></div>
+        <div class="result-row"><div class="result-row-label">Zinsertr&auml;ge netto</div><div class="result-row-value pos" id="r-netto"></div></div>
+        <div class="result-row"><div class="result-row-label">Endkapital (netto)</div><div class="result-row-value pos" id="r-end"></div></div>
+        <div class="result-row"><div class="result-row-label">Effektive Netto-Rendite p.a.</div><div class="result-row-value" id="r-rendite"></div></div>
+      </div>
+      <p class="result-disclaimer">Abgeltungsteuer 25% + 5,5% Soli = 26,375%. Freistellungsauftrag (1.000 &euro;/Jahr) und Kirchensteuer nicht ber&uuml;cksichtigt.</p>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calc(){
+  const K=parseFloat(document.getElementById('kapital').value)||0;
+  const p=parseFloat(document.getElementById('zinssatz').value)||0;
+  let t=parseFloat(document.getElementById('laufzeit').value)||0;
+  const einheit=document.getElementById('einheit').value;
+  if(einheit==='monate')t=t/12;
+  if(einheit==='tage')t=t/365;
+  const zinsen_brutto=K*p/100*t;
+  const steuer=Math.max(0,zinsen_brutto-0)*0.26375; // simplified (no Freistellungsauftrag shown)
+  const zinsen_netto=zinsen_brutto-steuer;
+  const endkapital_netto=K+zinsen_netto;
+  const rendite_pa=t>0?(zinsen_netto/K/t*100):0;
+  document.getElementById('r-zinsen').textContent='€ '+fmt(zinsen_brutto);
+  document.getElementById('r-sub').textContent='Endkapital netto: € '+fmt(endkapital_netto);
+  document.getElementById('r-start').textContent='€ '+fmt(K);
+  document.getElementById('r-zins').textContent='€ '+fmt(zinsen_brutto);
+  document.getElementById('r-steuer').textContent='- € '+fmt(steuer);
+  document.getElementById('r-netto').textContent='€ '+fmt(zinsen_netto);
+  document.getElementById('r-end').textContent='€ '+fmt(endkapital_netto);
+  document.getElementById('r-rendite').textContent=rendite_pa.toFixed(3).replace('.',',')+' % p.a.';
+}
+function reset(){document.getElementById('kapital').value=10000;document.getElementById('zinssatz').value=3.5;document.getElementById('laufzeit').value=3;document.getElementById('einheit').selectedIndex=0;document.getElementById('zinstyp').selectedIndex=0;calc();}
+calc();
+</script>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:0 24px 24px">
+    <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start">
+      <span style="color:#b45309;font-size:18px;flex-shrink:0;line-height:1.3">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:3px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.65">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Finanzberatung.</p>
+      </div>
+    </div>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Zinsen in Deutschland: Was Sparer wissen müssen</h2>
+      <p>Der <strong>Zinsrechner</strong> hilft Ihnen, die Zinserträge Ihrer Geldanlage schnell und präzise zu berechnen. Nach Jahren historisch niedriger Zinsen sind die Sparzinsen in Deutschland seit 2022 wieder deutlich gestiegen — ein guter Zeitpunkt, Tagesgeld, Festgeld und Sparkonto wieder stärker zu nutzen.</p>
+
+<h3>Einfacher Zins vs. Zinseszins</h3>
+<p>Dieser Rechner berechnet den <strong>einfachen Zins</strong> — also Zinsen, die nicht erneut verzinst werden. Das entspricht typisch einer Festgeldanlage mit jährlicher Zinszahlung. Die Formel lautet: <strong>Zinsen = Kapital × Zinssatz × Zeit</strong>. Bei einer Anlage von 10.000 Euro für 3 Jahre mit 3,5 % Zinssatz ergibt das 1.050 Euro Zinserträge brutto.</p>
+
+<h3>Abgeltungsteuer auf Kapitalerträge</h3>
+<p>In Deutschland werden Zinserträge mit der <strong>Abgeltungsteuer von 25 %</strong> plus 5,5 % Solidaritätszuschlag (auf die Steuer) besteuert — zusammen 26,375 %. Auf Kapitalerträge bis 1.000 Euro (Freistellungsauftrag, Stand 2023) fällt keine Steuer an. Unser Rechner zeigt Ihnen transparent Brutto- und Nettoerträge.</p>
+
+<h3>Tagesgeld: Flexibel, aber variabel</h3>
+<p>Tagesgeldkonten bieten variable Zinsen, die die Bank jederzeit ändern kann. Viele Banken locken mit attraktiven Neukunden-Aktionszinsen für 3–6 Monate. Der Vorteil: Das Geld ist täglich verfügbar. Der Nachteil: Die Zinsen können jederzeit sinken. Für mittelfristige Anlagen ist Festgeld oft attraktiver.</p>
+
+<h3>Festgeld: Planbar und sicher</h3>
+<p>Festgeld bietet garantierte Zinsen für die vereinbarte Laufzeit. Typische Laufzeiten: 3, 6, 12, 24 oder 36 Monate. Längere Laufzeiten bringen in der Regel höhere Zinsen (normale Zinsstrukturkurve), sind aber unflexibel — eine vorzeitige Kündigung ist meist nicht möglich oder mit Zinseinbußen verbunden.</p>
+
+<h3>Einlagensicherung: Ihr Geld ist geschützt</h3>
+<p>Tages- und Festgeldanlagen bei deutschen und europäischen Banken sind durch die gesetzliche Einlagensicherung bis 100.000 Euro pro Bank und Kunde geschützt. Bei einigen Banken besteht zusätzlicher Schutz durch freiwillige Sicherungssysteme.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch sind die Zinsen aktuell auf Tagesgeld?</div><div class="faq-a">Die Tagesgeldzinsen variieren je nach Bank und Marktlage stark. Nutzen Sie aktuelle Zinsvergleichsportale für den besten Überblick — die Zinsen ändern sich regelmäßig. Unser Rechner berechnet die Erträge für jeden beliebigen Zinssatz.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Abgeltungsteuer?</div><div class="faq-a">Die Abgeltungsteuer beträgt 25 % auf Kapitalerträge (Zinsen, Dividenden, Kursgewinne). Hinzu kommen 5,5 % Solidaritätszuschlag auf die Steuer, sodass der Gesamtsatz 26,375 % beträgt. Bis zum Freistellungsauftrag von 1.000 Euro (2.000 Euro bei Ehepaaren) sind Erträge steuerfrei.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist ein Freistellungsauftrag?</div><div class="faq-a">Mit einem Freistellungsauftrag bei Ihrer Bank bleiben Kapitalerträge bis 1.000 Euro pro Jahr (Stand 2023) steuerfrei — ohne Antrag in der Steuererklärung. Der Betrag kann auf mehrere Banken aufgeteilt werden. Ehepaare können gemeinsam bis zu 2.000 Euro freistellen lassen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ist Festgeld oder Tagesgeld besser?</div><div class="faq-a">Festgeld bietet planbare, garantierte Zinsen — gut für Geld, das Sie eine bestimmte Zeit nicht brauchen. Tagesgeld ist flexibel, aber der Zinssatz ist variabel und kann jederzeit gesenkt werden. Strategisch sinnvoll: Notgroschen auf Tagesgeld, mittelfristige Rücklagen auf Festgeld.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie unterscheidet sich einfacher Zins von Zinseszins?</div><div class="faq-a">Einfacher Zins: Zinsen werden nur auf das Startkapital berechnet. Zinseszins: Zinsen werden am Ende jeder Periode dem Kapital hinzugefügt und im nächsten Zeitraum mitverzinst. Bei kurzen Laufzeiten ist der Unterschied gering; bei langen Laufzeiten ist der Zinseszinseffekt erheblich.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was bedeutet "p.a." bei Zinssätzen?</div><div class="faq-a">P.a. steht für "per annum" (lateinisch: pro Jahr). Ein Zinssatz von 3,5 % p.a. bedeutet 3,5 % Zinsen bezogen auf ein Jahr. Bei kürzeren Anlagezeiträumen wird der Jahreszinssatz entsprechend anteilig berechnet: 3 Monate = 3,5 % × 3/12 = 0,875 %.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Sind Zinsen aus dem Ausland steuerpflichtig?</div><div class="faq-a">Ja. Auch Zinsen von ausländischen Banken sind in Deutschland steuerpflichtig und müssen in der Einkommensteuererklärung angegeben werden, wenn keine Abgeltungsteuer einbehalten wurde. Im EU-Raum funktioniert die automatische Informationsweitergabe zwischen Finanzbehörden.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/zinseszinsrechner.html" class="related-link">Zinseszins-Rechner</a><a href="/sparplanrechner.html" class="related-link">Sparplan-Rechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

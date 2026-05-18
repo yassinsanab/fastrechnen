@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Prozentrechner — Prozent online berechnen | FastRechnen.de</title>
+<meta name="description" content="Prozentrechner: Prozentwert, Grundwert und Prozentsatz berechnen. Was sind X% von Y? Wie viel Prozent ist A von B? Kostenlos und sofort.">
+<link rel="canonical" href="https://fastrechnen.de/prozentrechner">
+<meta property="og:title" content="Prozentrechner — Prozent online berechnen">
+<meta property="og:description" content="Prozentrechner: Prozentwert, Grundwert und Prozentsatz berechnen. Was sind X% von Y? Wie viel Prozent ist A von B? Kostenlos und sofort.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Prozentrechner</div>
+    <h1>Prozentrechner</h1>
+    <p>Prozentwert, Grundwert und Prozentsatz berechnen — alle drei Varianten in einem Rechner.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">3 Berechnungsarten</span><span class="calc-badge">Prozentualer Anteil</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section">
+    <div class="calc-card">
+      <div class="calc-card-header">
+        <span class="calc-card-title">Berechnungsart</span>
+        <select id="modus" onchange="updateModus()" style="font-family:var(--font);font-size:13px;background:var(--bg);border:1px solid var(--border-medium);border-radius:6px;padding:4px 10px;outline:none;color:var(--text-primary)">
+          <option value="wert">Prozentwert: Was sind X% von Y?</option>
+          <option value="satz">Prozentsatz: Wie viel % ist A von B?</option>
+          <option value="grund">Grundwert: X ist Y% von welchem Wert?</option>
+          <option value="aenderung">Prozentuale &Auml;nderung: Von A auf B</option>
+        </select>
+      </div>
+      <div class="calc-body">
+        <div id="inputs-wert">
+          <div class="field-row">
+            <div class="field-group"><label class="field-label">Grundwert (Gesamt)</label><div class="input-wrap"><input type="number" id="w-grund" value="200" oninput="calc()"></div></div>
+            <div class="field-group"><label class="field-label">Prozentsatz</label><div class="input-wrap"><input type="number" id="w-satz" value="15" step="0.01" oninput="calc()"><span class="input-unit">%</span></div></div>
+          </div>
+        </div>
+        <div id="inputs-satz" style="display:none">
+          <div class="field-row">
+            <div class="field-group"><label class="field-label">Prozentwert (Teil)</label><div class="input-wrap"><input type="number" id="s-wert" value="30" oninput="calc()"></div></div>
+            <div class="field-group"><label class="field-label">Grundwert (Gesamt)</label><div class="input-wrap"><input type="number" id="s-grund" value="200" oninput="calc()"></div></div>
+          </div>
+        </div>
+        <div id="inputs-grund" style="display:none">
+          <div class="field-row">
+            <div class="field-group"><label class="field-label">Prozentwert (bekannter Teil)</label><div class="input-wrap"><input type="number" id="g-wert" value="30" oninput="calc()"></div></div>
+            <div class="field-group"><label class="field-label">Prozentsatz</label><div class="input-wrap"><input type="number" id="g-satz" value="15" step="0.01" oninput="calc()"><span class="input-unit">%</span></div></div>
+          </div>
+        </div>
+        <div id="inputs-aenderung" style="display:none">
+          <div class="field-row">
+            <div class="field-group"><label class="field-label">Ausgangswert</label><div class="input-wrap"><input type="number" id="a-von" value="100" oninput="calc()"></div></div>
+            <div class="field-group"><label class="field-label">Neuer Wert</label><div class="input-wrap"><input type="number" id="a-auf" value="120" oninput="calc()"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label" id="r-label">Prozentwert</div>
+        <div class="result-value" id="r-main">0</div>
+        <div class="result-sub" id="r-sub"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Eingabe 1</div><div class="result-row-value" id="r-e1"></div></div>
+        <div class="result-row"><div class="result-row-label">Eingabe 2</div><div class="result-row-value" id="r-e2"></div></div>
+        <div class="result-row"><div class="result-row-label">Ergebnis</div><div class="result-row-value pos" id="r-erg"></div></div>
+        <div class="result-row"><div class="result-row-label">Formel</div><div class="result-row-value" id="r-formel" style="font-family:var(--font-mono);font-size:12px"></div></div>
+      </div>
+    </div>
+<script>
+function fmt(n){
+  if(Number.isInteger(n))return new Intl.NumberFormat('de-DE').format(n);
+  return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:4}).format(n);
+}
+function fmtP(n){return fmt(n)+' %';}
+
+function updateModus(){
+  const m=document.getElementById('modus').value;
+  ['wert','satz','grund','aenderung'].forEach(id=>{
+    document.getElementById('inputs-'+id).style.display=m===id?'block':'none';
+  });
+  calc();
+}
+
+function calc(){
+  const m=document.getElementById('modus').value;
+  let label,main,sub,e1,e2,erg,formel;
+
+  if(m==='wert'){
+    const G=parseFloat(document.getElementById('w-grund').value)||0;
+    const P=parseFloat(document.getElementById('w-satz').value)||0;
+    const W=G*P/100;
+    label='Prozentwert'; main=fmt(W); sub=P+'% von '+fmt(G)+' = '+fmt(W);
+    e1='Grundwert: '+fmt(G); e2='Prozentsatz: '+fmtP(P); erg=fmt(W);
+    formel='W = G × P ÷ 100';
+  } else if(m==='satz'){
+    const W=parseFloat(document.getElementById('s-wert').value)||0;
+    const G=parseFloat(document.getElementById('s-grund').value)||1;
+    const P=W/G*100;
+    label='Prozentsatz'; main=fmtP(P); sub=fmt(W)+' ist '+fmtP(P)+' von '+fmt(G);
+    e1='Teil: '+fmt(W); e2='Gesamt: '+fmt(G); erg=fmtP(P);
+    formel='P = W ÷ G × 100';
+  } else if(m==='grund'){
+    const W=parseFloat(document.getElementById('g-wert').value)||0;
+    const P=parseFloat(document.getElementById('g-satz').value)||1;
+    const G=W/(P/100);
+    label='Grundwert (Gesamt)'; main=fmt(G); sub=fmt(W)+' sind '+fmtP(P)+' von '+fmt(G);
+    e1='Teil: '+fmt(W); e2='Prozentsatz: '+fmtP(P); erg=fmt(G);
+    formel='G = W ÷ (P ÷ 100)';
+  } else {
+    const A=parseFloat(document.getElementById('a-von').value)||0;
+    const B=parseFloat(document.getElementById('a-auf').value)||0;
+    const P=A!==0?(B-A)/A*100:0;
+    const art=P>=0?'Zunahme':'Abnahme';
+    label='Prozentuale '+art; main=fmtP(Math.abs(P)); sub=(P>=0?'+ ':'- ')+fmtP(Math.abs(P))+' ('+fmt(A)+' → '+fmt(B)+')';
+    e1='Von: '+fmt(A); e2='Auf: '+fmt(B); erg=(P>=0?'+':'')+fmtP(P);
+    formel='P = (B − A) ÷ A × 100';
+  }
+  document.getElementById('r-label').textContent=label;
+  document.getElementById('r-main').textContent=main;
+  document.getElementById('r-sub').textContent=sub;
+  document.getElementById('r-e1').textContent=e1;
+  document.getElementById('r-e2').textContent=e2;
+  document.getElementById('r-erg').textContent=erg;
+  document.getElementById('r-formel').textContent=formel;
+}
+calc();
+</script>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:0 24px 24px">
+    <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start">
+      <span style="color:#b45309;font-size:18px;flex-shrink:0;line-height:1.3">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:3px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.65">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Finanzberatung.</p>
+      </div>
+    </div>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Prozentrechnung: Grundlagen und Anwendungen</h2>
+      <p>Die <strong>Prozentrechnung</strong> ist eine der grundlegendsten mathematischen Fertigkeiten im Alltag. Ob beim Einkaufen, in der Steuerberechnung, beim Vergleich von Zinssätzen oder bei der Auswertung von Statistiken — Prozente begegnen uns überall. Mit diesem Rechner lösen Sie alle vier Grundaufgaben der Prozentrechnung in Sekundenschnelle.</p>
+
+<h3>Die vier Grundaufgaben der Prozentrechnung</h3>
+<p>Die Prozentrechnung kennt vier klassische Berechnungsaufgaben: Erstens den <strong>Prozentwert</strong> — "Was sind 15 % von 200?" Ergebnis: 30. Zweitens den <strong>Prozentsatz</strong> — "Wie viel Prozent ist 30 von 200?" Ergebnis: 15 %. Drittens den <strong>Grundwert</strong> — "30 ist 15 % von welchem Wert?" Ergebnis: 200. Viertens die <strong>prozentuale Änderung</strong> — "Von 100 auf 120: wie viel Prozent Steigerung?" Ergebnis: 20 %.</p>
+
+<h3>Die Formeln der Prozentrechnung</h3>
+<p>Die drei Kernformeln lauten: <strong>Prozentwert W = Grundwert G × Prozentsatz P ÷ 100</strong>. Umgestellt ergibt sich: <strong>Prozentsatz P = W ÷ G × 100</strong> und <strong>Grundwert G = W ÷ (P ÷ 100)</strong>. Für die prozentuale Änderung gilt: <strong>Änderung in % = (Neuer Wert − Alter Wert) ÷ Alter Wert × 100</strong>.</p>
+
+<h3>Prozentrechnung im Finanzbereich</h3>
+<p>In der Finanzwelt sind Prozente allgegenwärtig: Zinssätze für Kredite und Spareinlagen, Renditen von Aktien und Fonds, Inflation und Kaufkraftentwicklung, Steuerquoten. Eine Aktie, die von 50 auf 65 Euro steigt, hat eine Rendite von 30 %. Fällt sie danach wieder auf 50 Euro, beträgt der Verlust dagegen nur 23 % — Prozente sind nicht symmetrisch.</p>
+
+<h3>Inflation und Kaufkraft berechnen</h3>
+<p>Die Inflationsrate zeigt, um wie viel Prozent das allgemeine Preisniveau gestiegen ist. Bei einer Inflationsrate von 3 % kostet ein Warenkorb, der heute 1.000 Euro kostet, in einem Jahr 1.030 Euro. In zehn Jahren kostet derselbe Warenkorb (bei gleichbleibender Inflation) bereits 1.344 Euro — das ist der Zinseszinseffekt auf die Inflation.</p>
+
+<h3>Mehrwertsteuer als Prozentrechnung</h3>
+<p>Die Mehrwertsteuer ist im Kern eine Prozentrechnung: 19 % Mehrwertsteuer auf einen Nettobetrag von 100 Euro ergibt einen Bruttobetrag von 119 Euro. Die enthaltene Mehrwertsteuer aus einem Bruttobetrag zurückzurechnen, entspricht der Grundwert-Berechnung: 119 ÷ 1,19 = 100 Euro Nettobetrag.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was sind 1% von 1000?</div><div class="faq-a">1 % von 1.000 = 1.000 × 1 ÷ 100 = 10. Allgemein: Prozentwert = Grundwert × Prozentsatz ÷ 100. Zum schnellen Kopfrechnen: 1 % eines Wertes entspricht immer dem Wert geteilt durch 100.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie berechnet man prozentuale Zunahme?</div><div class="faq-a">Prozentuale Zunahme = (Neuer Wert − Alter Wert) ÷ Alter Wert × 100. Beispiel: Von 80 auf 100: (100 − 80) ÷ 80 × 100 = 25 % Zunahme. Wichtig: Eine Zunahme von 25 % und eine anschließende Abnahme von 25 % ergibt nicht den Ursprungswert, sondern 93,75 % davon.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Prozentpunkt und Prozent?</div><div class="faq-a">Prozentpunkte messen die absolute Differenz zwischen zwei Prozentwerten. Wenn ein Zinssatz von 2 % auf 3 % steigt, ist das ein Anstieg um 1 Prozentpunkt, aber eine Steigerung um 50 %. Diese Unterscheidung ist in der Wirtschaftsberichterstattung und Statistik sehr wichtig.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie rechnet man Prozent im Kopf?</div><div class="faq-a">Hilfreiche Tricks: 10 % = Zahl durch 10. 5 % = halbe 10 %. 1 % = Zahl durch 100. 15 % = 10 % + 5 %. 25 % = Zahl durch 4. 50 % = Zahl durch 2. 75 % = 50 % + 25 %. Mit diesen Bausteinen lässt sich Prozentrechnung schnell im Kopf durchführen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was bedeutet "per mille" (‰)?</div><div class="faq-a">Per mille (Promille, ‰) entspricht einem Tausendstel, also 0,1 %. 5 ‰ sind 0,5 %. Promille kennt man vor allem aus dem Straßenverkehrsrecht (Blutalkohol) und der Finanzbranche (Bearbeitungsgebühren). Die Formeln sind dieselben wie bei Prozent, nur mit 1.000 statt 100 als Basis.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie berechne ich den prozentualen Anteil?</div><div class="faq-a">Prozentualer Anteil = Teil ÷ Gesamtwert × 100. Beispiel: In einer Klasse mit 30 Schülern sind 12 Mädchen. Anteil = 12 ÷ 30 × 100 = 40 %. Nutzen Sie den Berechnungsmodus "Prozentsatz" in unserem Rechner.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie verhält sich Inflation in Prozent?</div><div class="faq-a">Inflation misst die prozentuale Preissteigerung im Vergleich zum Vorjahr. Bei 3 % Inflation kostet ein Gut nach einem Jahr 3 % mehr. Über mehrere Jahre addieren sich die Inflationsraten nicht einfach — es gilt der Zinseszinseffekt: Nach 10 Jahren mit je 3 % Inflation beträgt die Gesamtpreissteigerung 34,4 %, nicht 30 %.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/rabattrechner.html" class="related-link">Rabattrechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a><a href="/mehrwertsteuerrechner.html" class="related-link">Mehrwertsteuerrechner</a></div></div></section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo"><span>Fast</span>Rechnen.de</div>
+        <p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Rechner</h4>
+        <a href="/netto-brutto-rechner.html">Netto-Brutto</a>
+        <a href="/kreditrechner.html">Kredit</a>
+        <a href="/rentenrechner.html">Rente</a>
+        <a href="/alle-rechner.html">Alle Rechner</a>
+      </div>
+      <div class="footer-col">
+        <h4>Rechtliches</h4>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/impressum.html">Impressum</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span>
+      <span>Zuletzt aktualisiert</span>
+    </div>
+  </div>
+</footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

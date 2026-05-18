@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Zinseszins-Rechner — Zinseszinseffekt berechnen | FastRechnen.de</title>
+<meta name="description" content="Zinseszins-Rechner: Endkapital mit Zinseszinseffekt berechnen. Visualisierung des Kapitalwachstums über Zeit. Für Investitionen und Sparanlagen. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/zinseszinsrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Zinseszins-Rechner</div>
+    <h1>Zinseszins-Rechner</h1>
+    <p>Berechnen Sie das Endkapital mit Zinseszinseffekt — und sehen Sie, wie Ihr Kapital exponentiell wächst.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Zinseszinseffekt</span><span class="calc-badge">Jahrestabelle</span><span class="calc-badge">Investitionsrechner</span></div>
+  </div>
+  <div class="calc-section">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Anlagedetails</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Startkapital</label>
+            <div class="input-wrap"><input type="number" id="start" value="10000" oninput="calc()"><span class="input-unit">&euro;</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">J&auml;hrlicher Zinssatz / Rendite</label>
+            <div class="input-wrap"><input type="number" id="zinssatz" value="7" step="0.1" oninput="calc()"><span class="input-unit">%</span></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Anlagedauer</label>
+            <div class="input-wrap"><input type="number" id="jahre" value="20" min="1" max="60" oninput="calc()"><span class="input-unit">Jahre</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Zinsgutschrift</label>
+            <div class="input-wrap"><select id="freq" onchange="calc()">
+              <option value="1">J&auml;hrlich</option>
+              <option value="2">Halbj&auml;hrlich</option>
+              <option value="4">Quartalsweise</option>
+              <option value="12">Monatlich</option>
+            </select></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Endkapital nach Zinseszins</div>
+        <div class="result-value" id="r-end">&euro; 0,00</div>
+        <div class="result-sub" id="r-sub">Gesamtrendite: 0%</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Startkapital</div><div class="result-row-value" id="r-start"></div></div>
+        <div class="result-row"><div class="result-row-label">Zinsertr&auml;ge gesamt</div><div class="result-row-value pos" id="r-zinsen"></div></div>
+        <div class="result-row"><div class="result-row-label">Endkapital</div><div class="result-row-value pos" id="r-endwert"></div></div>
+        <div class="result-row"><div class="result-row-label">Gesamtrendite</div><div class="result-row-value pos" id="r-rendite"></div></div>
+        <div class="result-row"><div class="result-row-label">Verdoppelungszeit (Regel 72)</div><div class="result-row-value" id="r-verdopp"></div></div>
+        <div class="result-row"><div class="result-row-label">Wachstumsfaktor</div><div class="result-row-value" id="r-faktor"></div></div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div style="font-size:12px;font-weight:600;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Kapitalwachstum nach Jahren</div>
+      <div id="growth-table" style="overflow:auto;max-height:280px;border:1px solid var(--border);border-radius:var(--radius-md)">
+        <table style="width:100%;border-collapse:collapse;font-size:13px">
+          <thead style="background:var(--bg-secondary);position:sticky;top:0">
+            <tr>
+              <th style="padding:8px 14px;text-align:left;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Jahr</th>
+              <th style="padding:8px 14px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Kapital</th>
+              <th style="padding:8px 14px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Zinsen dieses Jahr</th>
+              <th style="padding:8px 14px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Gesamtzinsen</th>
+            </tr>
+          </thead>
+          <tbody id="growth-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+<script>
+function fmt(n){return new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);}
+function calc(){
+  const K0=parseFloat(document.getElementById('start').value)||0;
+  const p=parseFloat(document.getElementById('zinssatz').value)||0;
+  const n=parseInt(document.getElementById('jahre').value)||1;
+  const m=parseInt(document.getElementById('freq').value);
+  const r=p/100/m;
+  const Kn=K0*Math.pow(1+r,m*n);
+  const zinsen=Kn-K0;
+  const rendite=(K0>0?(Kn-K0)/K0*100):0;
+  const faktor=K0>0?Kn/K0:1;
+  const verdopp=p>0?(72/p).toFixed(1):'∞';
+  document.getElementById('r-end').textContent='€ '+fmt(Kn);
+  document.getElementById('r-sub').textContent='Gesamtrendite: +'+rendite.toFixed(1).replace('.',',')+' % | Wachstumsfaktor: '+faktor.toFixed(2)+'x';
+  document.getElementById('r-start').textContent='€ '+fmt(K0);
+  document.getElementById('r-zinsen').textContent='€ '+fmt(zinsen);
+  document.getElementById('r-endwert').textContent='€ '+fmt(Kn);
+  document.getElementById('r-rendite').textContent='+'+rendite.toFixed(2).replace('.',',')+' %';
+  document.getElementById('r-verdopp').textContent=verdopp+' Jahre (Regel 72)';
+  document.getElementById('r-faktor').textContent=faktor.toFixed(3)+'x';
+  // Table
+  let tbody='', prev=K0, totalZins=0;
+  for(let j=1;j<=Math.min(n,60);j++){
+    const Kj=K0*Math.pow(1+r,m*j);
+    const zinsJ=Kj-prev; totalZins+=zinsJ; prev=Kj;
+    const bg=j%2?'background:var(--bg-secondary)':'';
+    tbody+=`<tr style="${bg}">
+      <td style="padding:7px 14px;border-bottom:1px solid var(--border)">${j}</td>
+      <td style="padding:7px 14px;text-align:right;border-bottom:1px solid var(--border);font-weight:500;color:var(--primary)">€ ${fmt(Kj)}</td>
+      <td style="padding:7px 14px;text-align:right;border-bottom:1px solid var(--border);color:#2d7a3a">+€ ${fmt(zinsJ)}</td>
+      <td style="padding:7px 14px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-secondary)">€ ${fmt(totalZins)}</td>
+    </tr>`;
+  }
+  document.getElementById('growth-tbody').innerHTML=tbody;
+}
+function reset(){document.getElementById('start').value=10000;document.getElementById('zinssatz').value=7;document.getElementById('jahre').value=20;document.getElementById('freq').selectedIndex=0;calc();}
+calc();
+</script>
+  </div>
+  <div style="max-width:880px;margin:0 auto;padding:0 24px 24px">
+    <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start">
+      <span style="color:#b45309;font-size:18px;flex-shrink:0;line-height:1.3">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:3px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.65">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Finanzberatung.</p>
+      </div>
+    </div>
+  </div>
+  <section class="article-section">
+    <div class="article-inner">
+      <h2>Zinseszins: Das achte Weltwunder der Finanzmathematik</h2>
+      <p>Albert Einstein soll den <strong>Zinseszins</strong> als das achte Weltwunder bezeichnet haben. Ob dieses Zitat echt ist oder nicht — es trifft einen wichtigen Kern der Wahrheit: Der Zinseszinseffekt ist das mächtigste Werkzeug im Vermögensaufbau und lässt Kapital über lange Zeiträume exponentiell wachsen.</p>
+
+<h3>Was ist der Zinseszinseffekt?</h3>
+<p>Beim einfachen Zins werden Zinsen immer nur auf das Startkapital berechnet. Beim <strong>Zinseszins</strong> werden die erwirtschafteten Zinsen am Ende jeder Periode dem Kapital hinzugefügt und im nächsten Zeitraum ebenfalls verzinst. Das führt zu exponentiellem Wachstum: Je länger die Anlagedauer, desto größer der Unterschied zwischen einfachem Zins und Zinseszins.</p>
+
+<h3>Die Zinseszinsformel</h3>
+<p>Die mathematische Grundformel lautet: <strong>Endkapital = Startkapital × (1 + Zinssatz)^Jahre</strong>. Bei 10.000 Euro, 7 % Jahresrendite und 20 Jahren: 10.000 × 1,07^20 = 38.697 Euro. Das Startkapital hat sich fast vervierfacht — der einfache Zins hätte dagegen nur 24.000 Euro ergeben.</p>
+
+<h3>Die Regel 72: Schnell die Verdoppelungszeit berechnen</h3>
+<p>Eine praktische Faustregel: Die Zeit, bis sich ein Kapital verdoppelt, berechnet sich annähernd durch <strong>72 ÷ Zinssatz</strong>. Bei 6 % Rendite: 72 ÷ 6 = 12 Jahre bis zur Verdoppelung. Bei 9 %: 8 Jahre. Diese Regel gilt auch umgekehrt für Inflation: Bei 3 % Inflation halbiert sich die Kaufkraft in 24 Jahren.</p>
+
+<h3>Häufigkeit der Zinsgutschrift macht einen Unterschied</h3>
+<p>Zinsen, die monatlich statt jährlich gutgeschrieben werden, erzeugen einen höheren Endwert — weil die Zinsen öfter mitverzinst werden. Ein Konto mit 12 % Jahreszins und monatlicher Gutschrift entspricht effektiv 12,68 % effektivem Jahreszins. Der Unterschied wächst mit der Laufzeit.</p>
+
+<h3>Zinseszins beim Aktien-ETF-Sparen</h3>
+<p>Der Zinseszinseffekt entfaltet seine volle Wirkung besonders bei langfristigen Aktienmarktinvestitionen. Historisch hat der MSCI World Index eine jährliche Rendite von 7–9 % erzielt. Wer früh beginnt zu sparen, profitiert enorm: 10.000 Euro über 30 Jahre bei 7 % ergeben 76.123 Euro — über 30 Jahre bei 9 % sogar 132.677 Euro.</p>
+    </div>
+  </section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen einfachem Zins und Zinseszins?</div><div class="faq-a">Einfacher Zins: Zinsen werden immer nur auf das Startkapital berechnet. Zinseszins: Zinsen werden dem Kapital hinzugefügt und ebenfalls verzinst. Bei kleinen Beträgen und kurzen Zeiträumen ist der Unterschied gering. Bei langen Zeiträumen ist er enorm: 10.000 € bei 5 % für 30 Jahre — einfacher Zins: 25.000 €, Zinseszins: 43.219 €.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Regel 72?</div><div class="faq-a">Eine Faustregel zur schnellen Schätzung der Verdoppelungszeit: Zeit (Jahre) ≈ 72 ÷ Zinssatz in %. Bei 6 % Rendite: 72 ÷ 6 = 12 Jahre bis zur Verdoppelung. Die Regel funktioniert gut für Zinssätze zwischen 2 und 15 %.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wirkt der Zinseszins auch negativ (bei Schulden)?</div><div class="faq-a">Ja, und das ist der gefährliche Aspekt: Bei Schulden wächst die Restschuld durch Zinseszins, wenn Zinsen nicht regelmäßig gezahlt werden. Kreditkartenschulden mit 20 % Jahreszins verdoppeln sich so nach der Regel 72 in etwa 3,6 Jahren. Das macht Schulden ohne Tilgungsplan gefährlich.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie häufig werden Zinsen normalerweise gutgeschrieben?</div><div class="faq-a">Tagesgeldkonten schreiben Zinsen meist jährlich gut. Viele Festgeldanlagen gutschreiben Zinsen am Ende der Laufzeit. Einige Anlageprodukte bieten monatliche oder vierteljährliche Zinsgutschrift, was den effektiven Ertrag leicht erhöht. Bei der Vergleich-Kennzahl Effektivzins ist die Gutschriftfrequenz bereits berücksichtigt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Warum ist der Anlagehorizont beim Zinseszins so wichtig?</div><div class="faq-a">Der Zinseszinseffekt wächst nicht linear, sondern exponentiell mit der Zeit. In den ersten Jahren ist der Unterschied zum einfachen Zins kaum spürbar. Nach 10 Jahren wird er merklich, nach 20 Jahren signifikant, nach 30 Jahren dramatisch. Deshalb gilt: Je früher man beginnt zu sparen, desto stärker wirkt der Zinseszinseffekt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie beeinflusst Inflation den Zinseszinseffekt?</div><div class="faq-a">Inflation "frisst" die Zinserträge auf. Bei 4 % Rendite und 3 % Inflation beträgt die reale Rendite nur etwa 1 %. Wer langfristig Vermögen aufbauen möchte, muss eine Rendite erzielen, die die Inflation deutlich übertrifft. Historisch haben breit gestreute Aktienanlagen dies zuverlässiger geleistet als Sparkonten.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann ich den Zinseszinsrechner auch für Aktienrenditen nutzen?</div><div class="faq-a">Ja. Geben Sie die erwartete jährliche Rendite als Zinssatz ein. Für einen globalen Aktien-ETF können Sie historische Durchschnittswerte von 7–9 % p.a. verwenden. Beachten Sie: Dies sind Vergangenheitswerte ohne Garantie. Kursschwankungen und Steuern können die tatsächliche Rendite deutlich von der theoretischen Berechnung abweichen.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/sparplanrechner.html" class="related-link">Sparplan-Rechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

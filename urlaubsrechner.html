@@ -28,17 +28,7 @@
 <nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
 <main>
   <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Urlaubsrechner</div><h1>Urlaubsrechner</h1><p>Berechnen Sie Ihren Urlaubsanspruch, Resturlaub bei Ausscheiden und die Urlaubsabgeltung.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Bundesurlaubsgesetz</span><span class="calc-badge">Urlaubsabgeltung</span><span class="calc-badge">Anteiliger Anspruch</span></div></div>
-  <!-- Wichtiger Hinweis -->
-  <div style="max-width:880px;margin:0 auto 0;padding:0 24px">
-    <div style="background:#fffbeb;border:1px solid #f0c040;border-radius:10px;padding:12px 16px;display:flex;gap:10px;align-items:flex-start">
-      <span style="color:#b45309;font-size:16px;flex-shrink:0;line-height:1.4">&#9888;</span>
-      <div>
-        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:2px">Wichtiger Hinweis</strong>
-        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuerberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
-      </div>
-    </div>
-  </div>
-  <div class="calc-section" style="padding-top:16px">
+  <div class="calc-section">
     <div class="calc-card">
       <div class="calc-card-header"><span class="calc-card-title">Ihre Arbeitsdaten</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
       <div class="calc-body">
@@ -119,6 +109,16 @@ const now=new Date();
 document.getElementById('eintritt').value=now.getFullYear()+'-01-01';
 calc();
 </script>
+  </div>
+  <!-- Wichtiger Hinweis -->
+  <div style="max-width:880px;margin:0 auto;padding:0 24px 24px">
+    <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:13px 18px;display:flex;gap:12px;align-items:flex-start">
+      <span style="color:#b45309;font-size:18px;flex-shrink:0;line-height:1.3">&#9888;</span>
+      <div>
+        <strong style="font-size:13px;color:#92400e;display:block;margin-bottom:3px">Wichtiger Hinweis</strong>
+        <p style="font-size:13px;color:#78350f;margin:0;line-height:1.65">Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Steuer- oder Finanzberatung. F&uuml;r verbindliche Ausk&uuml;nfte wenden Sie sich bitte an einen Steuerberater oder das zust&auml;ndige Finanzamt.</p>
+      </div>
+    </div>
   </div>
   <section class="article-section"><div class="article-inner"><h2>Urlaubsrecht in Deutschland: Anspruch, Übertragung und Abgeltung</h2><p>Das Recht auf bezahlten Jahresurlaub ist im <strong>Bundesurlaubsgesetz (BUrlG)</strong> geregelt. Jeder Arbeitnehmer in Deutschland hat einen gesetzlichen Mindesturlaubsanspruch — doch in der Praxis haben viele Arbeitnehmer deutlich mehr Urlaub als das gesetzliche Minimum. Wichtig ist zu wissen, was bei Jobwechsel, Kündigung oder Krankheit mit dem Resturlaub passiert.</p>
 
