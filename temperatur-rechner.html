@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4F3BY02EFW');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Temperatur-Rechner — Celsius, Fahrenheit, Kelvin umrechnen | FastRechnen.de</title>
+<meta name="description" content="Temperatur online umrechnen: Celsius in Fahrenheit, Kelvin in Celsius und mehr. Sofortige Live-Umrechnung mit allen Formeln erklärt.">
+<link rel="canonical" href="https://fastrechnen.de/temperatur-rechner">
+<meta property="og:title" content="Temperatur-Rechner — Celsius, Fahrenheit, Kelvin umrechnen">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> ›  Temperatur-Rechner</div>
+    <h1>Temperatur-Rechner</h1>
+    <p>Celsius, Fahrenheit und Kelvin sofort umrechnen — alle Werte werden live aktualisiert.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">°C °F K</span><span class="calc-badge">Live-Umrechnung</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section"><style>
+.temp-grid{border-radius:18px;overflow:hidden;border:1.5px solid var(--border-medium);margin-bottom:20px;box-shadow:var(--shadow-sm)}
+.temp-row{display:grid;grid-template-columns:190px 1fr;align-items:stretch;border-bottom:1px solid var(--border);background:var(--bg);transition:background .18s}
+.temp-row:last-child{border-bottom:none}
+.temp-row:focus-within{background:var(--primary-xlight)}
+.temp-unit{padding:16px 18px;border-right:1px solid var(--border);background:var(--bg-secondary);display:flex;flex-direction:column;justify-content:center}
+.temp-name{font-size:15px;font-weight:700;color:var(--text-primary)}
+.temp-sym{font-size:22px;font-weight:800;color:var(--primary);margin-top:2px}
+.temp-input-wrap{display:flex;align-items:center;padding:0 20px}
+.temp-input{border:none;outline:none;background:transparent;font-family:var(--font);font-size:24px;font-weight:800;color:var(--primary);width:100%;padding:16px 0;transition:color .18s}
+.temp-input::placeholder{color:var(--text-tertiary);font-weight:400;font-size:18px}
+.temp-context{background:var(--bg-secondary);border-radius:var(--radius-lg);padding:16px;margin-top:4px;border:1px solid var(--border)}
+.temp-context-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.temp-fact{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 14px;cursor:pointer;transition:all .18s}
+.temp-fact:hover{border-color:var(--primary);background:var(--primary-xlight)}
+.temp-fact-name{font-size:12px;color:var(--text-tertiary);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.temp-fact-val{font-size:15px;font-weight:700;color:var(--text-primary);margin-top:2px}
+</style>
+<div class="temp-grid">
+  <div class="temp-row"><div class="temp-unit"><div class="temp-name">Celsius</div><div class="temp-sym">°C</div></div><div class="temp-input-wrap"><input class="temp-input" type="number" id="tc" placeholder="0" oninput="fromC()" step="any"></div></div>
+  <div class="temp-row"><div class="temp-unit"><div class="temp-name">Fahrenheit</div><div class="temp-sym">°F</div></div><div class="temp-input-wrap"><input class="temp-input" type="number" id="tf" placeholder="32" oninput="fromF()" step="any"></div></div>
+  <div class="temp-row"><div class="temp-unit"><div class="temp-name">Kelvin</div><div class="temp-sym">K</div></div><div class="temp-input-wrap"><input class="temp-input" type="number" id="tk" placeholder="273.15" oninput="fromK()" step="any"></div></div>
+</div>
+<div class="temp-context">
+  <div style="font-size:12px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Bekannte Temperaturen — klicken zum Eintragen</div>
+  <div class="temp-context-grid">
+    <div class="temp-fact" onclick="setC(-273.15)"><div class="temp-fact-name">Absoluter Nullpunkt</div><div class="temp-fact-val">−273,15 °C</div></div>
+    <div class="temp-fact" onclick="setC(-40)"><div class="temp-fact-name">−40 °C = −40 °F</div><div class="temp-fact-val">Gleiche Temperatur!</div></div>
+    <div class="temp-fact" onclick="setC(0)"><div class="temp-fact-name">Gefrierpunkt Wasser</div><div class="temp-fact-val">0 °C = 32 °F</div></div>
+    <div class="temp-fact" onclick="setC(20)"><div class="temp-fact-name">Zimmertemperatur</div><div class="temp-fact-val">20 °C = 68 °F</div></div>
+    <div class="temp-fact" onclick="setC(37)"><div class="temp-fact-name">Körpertemperatur</div><div class="temp-fact-val">37 °C = 98,6 °F</div></div>
+    <div class="temp-fact" onclick="setC(100)"><div class="temp-fact-name">Siedepunkt Wasser</div><div class="temp-fact-val">100 °C = 212 °F</div></div>
+    <div class="temp-fact" onclick="setC(220)"><div class="temp-fact-name">Backofen (Oberhitze)</div><div class="temp-fact-val">220 °C = 428 °F</div></div>
+    <div class="temp-fact" onclick="setC(1535)"><div class="temp-fact-name">Schmelzpunkt Eisen</div><div class="temp-fact-val">1.535 °C = 2.795 °F</div></div>
+  </div>
+</div>
+<script>
+let b=false;
+function fmt(v){return parseFloat(v.toPrecision(10)).toString().replace('.',',');}
+function fromC(){if(b)return;b=true;const c=parseFloat(document.getElementById('tc').value);if(isNaN(c)){document.getElementById('tf').value='';document.getElementById('tk').value='';b=false;return;}document.getElementById('tf').value=fmt(c*9/5+32);document.getElementById('tk').value=fmt(c+273.15);b=false;}
+function fromF(){if(b)return;b=true;const f=parseFloat(document.getElementById('tf').value);if(isNaN(f)){document.getElementById('tc').value='';document.getElementById('tk').value='';b=false;return;}const c=(f-32)*5/9;document.getElementById('tc').value=fmt(c);document.getElementById('tk').value=fmt(c+273.15);b=false;}
+function fromK(){if(b)return;b=true;const k=parseFloat(document.getElementById('tk').value);if(isNaN(k)){document.getElementById('tc').value='';document.getElementById('tf').value='';b=false;return;}const c=k-273.15;document.getElementById('tc').value=fmt(c);document.getElementById('tf').value=fmt(c*9/5+32);b=false;}
+function setC(c){document.getElementById('tc').value=c;fromC();}
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px">
+  <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start">
+    <span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span>
+    <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Beratung.</p>
+  </div>
+</div>
+  <section class="article-section"><div class="article-inner"><h2>Temperaturskalen: Celsius, Fahrenheit und Kelvin erklärt</h2><p>Weltweit werden drei Temperaturskalen verwendet: Celsius in Europa und den meisten Ländern, Fahrenheit vor allem in den USA, und Kelvin in Wissenschaft und Technik. Alle drei messen dieselbe physikalische Größe — unterscheiden sich aber in Nullpunkt und Skalengröße.</p>
+<h3>Die Formeln</h3>
+<table><thead><tr><th>Umrechnung</th><th>Formel</th></tr></thead><tbody>
+<tr><td>°C → °F</td><td>(°C × 9/5) + 32</td></tr>
+<tr><td>°F → °C</td><td>(°F − 32) × 5/9</td></tr>
+<tr><td>°C → K</td><td>°C + 273,15</td></tr>
+<tr><td>K → °C</td><td>K − 273,15</td></tr>
+</tbody></table>
+<h3>Warum Fahrenheit in den USA?</h3>
+<p>Die Fahrenheitskala wurde 1724 von Daniel Gabriel Fahrenheit entwickelt. Er legte 0°F als die kälteste ihm bekannte Temperatur (Salzwassergemisch) und 96°F als Körpertemperatur fest. Die Skala war in Nordamerika verbreitet, bevor Europa auf Celsius umstellte. Die USA haben aus historischen und praktischen Gründen nie gewechselt.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie rechne ich Celsius in Fahrenheit um?</div><div class="faq-a">Formel: (°C × 9/5) + 32. Beispiele: 0°C = 32°F (Gefrierpunkt), 100°C = 212°F (Siedepunkt), 20°C = 68°F (angenehme Temperatur), 37°C = 98,6°F (Körpertemperatur). Schnelle Schätzung: °C × 2 + 30 (etwas ungenau, aber schnell im Kopf).</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der absolute Nullpunkt?</div><div class="faq-a">Der absolute Nullpunkt ist −273,15°C = 0 Kelvin. Bei dieser Temperatur haben Atome die geringstmögliche Wärmebewegung. Er ist theoretisch unerreichbar — experimentell wurden Temperaturen bis auf Milliardstel Kelvin über dem absoluten Nullpunkt erzielt.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Bei welcher Temperatur sind Celsius und Fahrenheit gleich?</div><div class="faq-a">Exakt bei −40°C = −40°F. Das ist der einzige Punkt, bei dem beide Skalen denselben numerischen Wert haben. Darüber liegen Fahrenheit-Werte immer höher als Celsius-Werte; darunter ist es umgekehrt.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Warum gibt es Kelvin ohne Grad-Symbol?</div><div class="faq-a">Kelvin ist die SI-Basiseinheit der Temperatur und wird ohne das Grad-Zeichen (°) geschrieben — also "300 K", nicht "300 °K". Der Grund: Kelvin misst eine absolute Größe (thermodynamische Temperatur), nicht eine relative wie Celsius oder Fahrenheit.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was bedeutet "Körpertemperatur 37°C" genau?</div><div class="faq-a">Die normale Körpertemperatur liegt zwischen 36,5°C und 37,4°C (gemessen axillar/in der Achselhöhle). Rektal ist sie ca. 0,5°C höher. Fieber beginnt bei 38°C. Hohe Temperaturen ab 39°C und darüber bedürfen ärztlicher Aufmerksamkeit.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/laengen-rechner.html" class="related-link">Längen-Rechner</a><a href="/gewicht-rechner.html" class="related-link">Gewicht-Rechner</a><a href="/mehrwertsteuerrechner.html" class="related-link">Mehrwertsteuerrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

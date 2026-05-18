@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4F3BY02EFW');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Altersrechner — Alter genau berechnen | FastRechnen.de</title>
+<meta name="description" content="Altersrechner: Wie alt bin ich genau? Alter in Jahren, Monaten, Tagen und Stunden berechnen. Nächster Geburtstag und Sternzeichen. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/altersrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> › Altersrechner</div>
+    <h1>Altersrechner</h1><p>Wie alt bin ich genau? Alter in Jahren, Monaten, Tagen und Wochen berechnen.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Exaktes Alter</span><span class="calc-badge">Nächster Geburtstag</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section">    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihr Geburtsdatum</span></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Geburtsdatum</label>
+            <div class="input-wrap"><input type="date" id="geb" oninput="calc()"></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Berechnung bis</label>
+            <div class="input-wrap"><input type="date" id="bis" oninput="calc()"></div>
+            <div class="field-hint">Leer lassen = heute</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card" id="result" style="display:none">
+      <div class="result-main">
+        <div class="result-label">Ihr Alter</div>
+        <div class="result-value" id="r-jahre">0</div>
+        <div class="result-sub" id="r-sub"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Jahre</div><div class="result-row-value pos" id="r-y"></div></div>
+        <div class="result-row"><div class="result-row-label">Monate (gesamt)</div><div class="result-row-value" id="r-m"></div></div>
+        <div class="result-row"><div class="result-row-label">Wochen (gesamt)</div><div class="result-row-value" id="r-w"></div></div>
+        <div class="result-row"><div class="result-row-label">Tage (gesamt)</div><div class="result-row-value" id="r-d"></div></div>
+        <div class="result-row"><div class="result-row-label">N&auml;chster Geburtstag</div><div class="result-row-value" id="r-next"></div></div>
+        <div class="result-row"><div class="result-row-label">Sternzeichen</div><div class="result-row-value" id="r-stern"></div></div>
+      </div>
+    </div>
+<script>
+function sternzeichen(m,d){
+  const z=[['Steinbock','22.12','19.1'],['Wassermann','20.1','18.2'],['Fische','19.2','20.3'],['Widder','21.3','19.4'],['Stier','20.4','20.5'],['Zwillinge','21.5','20.6'],['Krebs','21.6','22.7'],['Löwe','23.7','22.8'],['Jungfrau','23.8','22.9'],['Waage','23.9','22.10'],['Skorpion','23.10','21.11'],['Schütze','22.11','21.12']];
+  for(const [n,von,bis] of z){const[vd,vm]=von.split('.').map(Number);const[bd,bm]=bis.split('.').map(Number);if((m===vm&&d>=vd)||(m===bm&&d<=bd))return n;}
+  return 'Steinbock';
+}
+function fmt(n){return new Intl.NumberFormat('de-DE').format(n);}
+function calc(){
+  const g=document.getElementById('geb').value;
+  if(!g){document.getElementById('result').style.display='none';return;}
+  const bisVal=document.getElementById('bis').value;
+  const today=bisVal?new Date(bisVal):new Date();
+  const born=new Date(g);
+  if(isNaN(born)||born>today){document.getElementById('result').style.display='none';return;}
+  // Exact age
+  let y=today.getFullYear()-born.getFullYear();
+  let m=today.getMonth()-born.getMonth();
+  let d=today.getDate()-born.getDate();
+  if(d<0){m--;d+=new Date(today.getFullYear(),today.getMonth(),0).getDate();}
+  if(m<0){y--;m+=12;}
+  const totalDays=Math.floor((today-born)/(1000*60*60*24));
+  const totalWeeks=Math.floor(totalDays/7);
+  const totalMonths=y*12+m;
+  // Next birthday
+  let nextBirthday=new Date(today.getFullYear(),born.getMonth(),born.getDate());
+  if(nextBirthday<=today)nextBirthday.setFullYear(today.getFullYear()+1);
+  const daysToNext=Math.ceil((nextBirthday-today)/(1000*60*60*24));
+  const nextStr=nextBirthday.toLocaleDateString('de-DE',{day:'2-digit',month:'long',year:'numeric'});
+  // Sternzeichen
+  const sz=sternzeichen(born.getMonth()+1,born.getDate());
+  document.getElementById('result').style.display='block';
+  document.getElementById('r-jahre').textContent=y+' Jahre';
+  document.getElementById('r-sub').textContent=m>0?m+' Monate und '+d+' Tage':'und '+d+' Tage';
+  document.getElementById('r-y').textContent=y+' Jahre '+m+' Mon. '+d+' Tage';
+  document.getElementById('r-m').textContent=fmt(totalMonths)+' Monate';
+  document.getElementById('r-w').textContent=fmt(totalWeeks)+' Wochen';
+  document.getElementById('r-d').textContent=fmt(totalDays)+' Tage';
+  document.getElementById('r-next').textContent=daysToNext===0?'Heute! 🎂':'in '+daysToNext+' Tagen ('+nextStr+')';
+  document.getElementById('r-stern').textContent=sz;
+}
+// Set today as default bis
+const n=new Date();
+document.getElementById('bis').value=n.getFullYear()+'-'+(n.getMonth()<9?'0':'')+(n.getMonth()+1)+'-'+(n.getDate()<10?'0':'')+n.getDate();
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px"><div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start"><span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span><p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung und ersetzt keine professionelle Beratung.</p></div></div>
+  <section class="article-section"><div class="article-inner"><h2>Wie wird das genaue Alter berechnet?</h2><p>Das genaue Alter wird in Jahren, Monaten und Tagen angegeben. Dabei gilt: Vollendete Jahre werden gezählt, restliche Monate und Tage ergeben den Zusatz. Bei einem Geburtstag am 15. März und einem heutigen Datum 20. November ergibt sich das Alter durch: Jahre = Jahresunterschied (ggf. -1 wenn Geburtstag in diesem Jahr noch nicht war), Monate = Monatsunterschied, Tage = Tagsdifferenz.</p>
+<h3>Wann zählt ein Lebensjahr als abgeschlossen?</h3>
+<p>Im deutschen Recht gilt: Eine Person ist rechtlich volljährig mit der Vollendung des 18. Lebensjahres — also am 18. Geburtstag (dem Tag nach dem 17. Geburtstag, nicht dem Tag selbst). § 187 BGB regelt, wie Fristen berechnet werden.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie berechnet man das genaue Alter in Tagen?</div><div class="faq-a">Geburtstag von heutigem Datum abziehen: Differenz in Millisekunden ÷ 86.400.000 (Millisekunden pro Tag) = Tage. Schaltjahre werden automatisch berücksichtigt, da die Datumsberechnung absolut erfolgt.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viele Tage hat ein Jahr?</div><div class="faq-a">Ein normales Jahr hat 365 Tage. Ein Schaltjahr hat 366 Tage. Schaltjahre treten alle 4 Jahre auf — außer bei Jahrhunderten, die nicht durch 400 teilbar sind (1900 war kein Schaltjahr, 2000 schon). Im Durchschnitt hat ein Jahr 365,2425 Tage.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist das chinesische Alter?</div><div class="faq-a">In einigen asiatischen Kulturen zählt man schon im Mutterleib als 1 Jahr alt. Nach diesem System ist man bei der Geburt 1 und wird am Neujahrstag (nicht am Geburtstag) ein Jahr älter. Das "chinesische Alter" ist daher oft 1–2 Jahre höher als das westliche.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/datum-rechner.html" class="related-link">Datum-Rechner</a><a href="/bmi-rechner.html" class="related-link">BMI-Rechner</a><a href="/rentenrechner.html" class="related-link">Rentenrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechner</h4><a href="/altersrechner.html">Altersrechner</a><a href="/datum-rechner.html">Datum</a><a href="/spritkosten-rechner.html">Spritkosten</a><a href="/alle-rechner.html">Alle</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4F3BY02EFW');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Spritkosten-Rechner — Benzin und Diesel Kosten berechnen | FastRechnen.de</title>
+<meta name="description" content="Spritkosten berechnen: Kosten pro Kilometer, monatliche Tankkosten, Jahreskosten und CO2-Ausstoß für Benzin, Diesel und Gas.">
+<link rel="canonical" href="https://fastrechnen.de/spritkosten-rechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> › Spritkosten-Rechner</div>
+    <h1>Spritkosten-Rechner</h1><p>Kraftstoffkosten pro km, monatlich und jährlich berechnen — für Benzin, Diesel und Gas.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Kosten/km</span><span class="calc-badge">Jahreskosten</span><span class="calc-badge">CO2-Ausstoß</span></div>
+  </div>
+  <div class="calc-section">    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Fahrzeugdaten</span><button class="btn btn-secondary btn-sm" onclick="reset()">Zur&uuml;cksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Kraftstoffart</label>
+            <div class="input-wrap"><select id="kraftstoff" onchange="updatePreset()">
+              <option value="benzin">Benzin (Super E10)</option>
+              <option value="diesel">Diesel</option>
+              <option value="e5">Benzin (Super E5)</option>
+              <option value="lpg">LPG / Autogas</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Kraftstoffpreis</label>
+            <div class="input-wrap"><input type="number" id="preis" value="1.75" step="0.01" min="0" oninput="calc()"><span class="input-unit">&euro;/L</span></div>
+            <div class="field-hint" id="preis-hint">Aktueller Marktpreis (ca.)</div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Verbrauch</label>
+            <div class="input-wrap"><input type="number" id="verbrauch" value="7.5" step="0.1" min="0" oninput="calc()"><span class="input-unit">L/100km</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">J&auml;hrliche Kilometerleistung</label>
+            <div class="input-wrap"><input type="number" id="km_jahr" value="15000" step="500" min="0" oninput="calc()"><span class="input-unit">km</span></div>
+          </div>
+        </div>
+        <div class="field-group">
+          <label class="field-label">Kilometerleistung: <span id="km-label">15.000 km/Jahr</span></label>
+          <input type="range" id="km-slider" min="1000" max="80000" step="1000" value="15000" oninput="sliderUpdate()">
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Kosten pro Kilometer</div>
+        <div class="result-value" id="r-km">&mdash;</div>
+        <div class="result-sub" id="r-sub"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Kosten pro 100 km</div><div class="result-row-value" id="r-100km"></div></div>
+        <div class="result-row"><div class="result-row-label">Monatliche Spritkosten</div><div class="result-row-value neg" id="r-monat"></div></div>
+        <div class="result-row"><div class="result-row-label">J&auml;hrliche Spritkosten</div><div class="result-row-value neg" id="r-jahr"></div></div>
+        <div class="result-row"><div class="result-row-label">Tank-F&uuml;llungen/Jahr (50L)</div><div class="result-row-value" id="r-tank"></div></div>
+        <div class="result-row"><div class="result-row-label">CO2-Ausstoß/Jahr</div><div class="result-row-value" id="r-co2"></div></div>
+        <div class="result-row"><div class="result-row-label">Kraftstoff/Jahr gesamt</div><div class="result-row-value" id="r-liter"></div></div>
+      </div>
+    </div>
+<script>
+const fmt=n=>new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+const fmtI=n=>new Intl.NumberFormat('de-DE').format(Math.round(n));
+const CO2={benzin:2.37,diesel:2.65,e5:2.37,lpg:1.63};
+const PREISE={benzin:1.75,diesel:1.65,e5:1.78,lpg:0.85};
+
+function updatePreset(){
+  const k=document.getElementById('kraftstoff').value;
+  document.getElementById('preis').value=PREISE[k];
+  calc();
+}
+function sliderUpdate(){
+  const v=document.getElementById('km-slider').value;
+  document.getElementById('km_jahr').value=v;
+  document.getElementById('km-label').textContent=new Intl.NumberFormat('de-DE').format(v)+' km/Jahr';
+  calc();
+}
+function calc(){
+  const preis=parseFloat(document.getElementById('preis').value)||0;
+  const verb=parseFloat(document.getElementById('verbrauch').value)||0;
+  const kmJ=parseFloat(document.getElementById('km_jahr').value)||0;
+  const k=document.getElementById('kraftstoff').value;
+  document.getElementById('km-slider').value=kmJ;
+  document.getElementById('km-label').textContent=new Intl.NumberFormat('de-DE').format(kmJ)+' km/Jahr';
+  const costPer100=verb*preis;
+  const costPerKm=costPer100/100;
+  const jahreskosten=costPerKm*kmJ;
+  const liter_jahr=verb/100*kmJ;
+  const co2_jahr=liter_jahr*CO2[k];
+  document.getElementById('r-km').textContent=fmt(costPerKm)+' €/km';
+  document.getElementById('r-sub').textContent='bei '+verb+' L/100km und '+fmt(preis)+' €/L';
+  document.getElementById('r-100km').textContent=fmt(costPer100)+' €';
+  document.getElementById('r-monat').textContent=fmt(jahreskosten/12)+' €';
+  document.getElementById('r-jahr').textContent=fmt(jahreskosten)+' €';
+  document.getElementById('r-tank').textContent=fmtI(liter_jahr/50)+' Tankfüllungen';
+  document.getElementById('r-co2').textContent=fmtI(co2_jahr)+' kg CO2';
+  document.getElementById('r-liter').textContent=fmtI(liter_jahr)+' Liter';
+}
+function reset(){document.getElementById('kraftstoff').value='benzin';document.getElementById('preis').value=1.75;document.getElementById('verbrauch').value=7.5;document.getElementById('km_jahr').value=15000;calc();}
+calc();
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px"><div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start"><span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span><p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung und ersetzt keine professionelle Beratung.</p></div></div>
+  <section class="article-section"><div class="article-inner"><h2>Spritkosten in Deutschland: Was das Auto wirklich kostet</h2><p>Kraftstoffkosten sind einer der größten Kostenfaktoren beim Autofahren. Ein Pkw mit 8 Litern Verbrauch auf 100 km, der jährlich 15.000 km zurücklegt, verbraucht 1.200 Liter Kraftstoff. Bei 1,75 Euro pro Liter entstehen Jahreskosten von 2.100 Euro — nur für Kraftstoff.</p>
+<h3>Benzin vs. Diesel: Wann lohnt sich was?</h3>
+<p>Diesel ist typischerweise 10–15 Cent günstiger als Benzin, hat aber eine höhere Kfz-Steuer. Bei wenigen Jahreskilometern (unter 15.000 km) lohnt sich Diesel selten. Bei mehr als 20.000 km pro Jahr kann Diesel trotz höherem Kaufpreis günstiger sein.</p></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viel kostet ein Kilometer mit dem Auto?</div><div class="faq-a">Neben Kraftstoff kommen Versicherung, Kfz-Steuer, Wartung, Reifen und Wertverlust hinzu. Der ADAC schätzt Gesamtkosten von 25–60 Cent pro Kilometer, je nach Fahrzeugklasse. Der Kraftstoffkostenanteil liegt bei typisch 10–20 Cent/km.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie kann ich Sprit sparen?</div><div class="faq-a">Vorausschauend fahren, Reifendruck regelmäßig prüfen, überflüssige Last aus dem Auto nehmen, Klimaanlage sparsam nutzen, auf der Autobahn gleichmäßig fahren statt stark zu beschleunigen und zu bremsen. Eco-Fahrkurse können den Verbrauch um 10–20% senken.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was kostet ein Elektroauto im Vergleich?</div><div class="faq-a">Bei 15 Cent/kWh (Haushaltsstrom) und 20 kWh/100km kostet ein Elektroauto 3 Cent/km. Bei öffentlichen Ladesäulen (40–60 Cent/kWh) sind es 8–12 Cent/km — ähnlich wie Benzin. Der Vorteil liegt beim Laden zu Hause.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/kreditrechner.html" class="related-link">Kreditrechner</a><a href="/prozentrechner.html" class="related-link">Prozentrechner</a><a href="/datum-rechner.html" class="related-link">Datum-Rechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechner</h4><a href="/altersrechner.html">Altersrechner</a><a href="/datum-rechner.html">Datum</a><a href="/spritkosten-rechner.html">Spritkosten</a><a href="/alle-rechner.html">Alle</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

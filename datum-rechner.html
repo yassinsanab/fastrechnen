@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4F3BY02EFW');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Datum-Rechner — Tage zwischen zwei Daten berechnen | FastRechnen.de</title>
+<meta name="description" content="Datum-Rechner: Tage zwischen zwei Daten berechnen, Datum addieren/subtrahieren, Wochentag ermitteln. Kostenlos und sofort.">
+<link rel="canonical" href="https://fastrechnen.de/datum-rechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> › Datum-Rechner</div>
+    <h1>Datum-Rechner</h1><p>Tage zwischen zwei Daten berechnen, Datum addieren und Wochentag ermitteln.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Tage berechnen</span><span class="calc-badge">Datum addieren</span><span class="calc-badge">Wochentag</span></div>
+  </div>
+  <div class="calc-section"><style>.tab-group{display:flex;background:var(--bg-secondary);border:1px solid var(--border-medium);border-radius:var(--radius-sm);padding:3px;gap:2px;margin-bottom:16px}
+.tab-btn{padding:7px 18px;border:none;background:transparent;font-family:var(--font);font-size:13px;font-weight:600;color:var(--text-tertiary);border-radius:var(--radius-xs);cursor:pointer;transition:all .18s}
+.tab-btn.active{background:var(--bg);color:var(--text-primary);box-shadow:0 1px 3px rgba(0,0,0,.07)}
+</style>
+    <div class="tab-group">
+      <button class="tab-btn active" onclick="showTab('diff',this)">Tage zwischen Daten</button>
+      <button class="tab-btn" onclick="showTab('add',this)">Datum addieren</button>
+      <button class="tab-btn" onclick="showTab('wt',this)">Wochentag</button>
+    </div>
+    <!-- Tab 1: Difference -->
+    <div id="tab-diff">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Zwei Daten vergleichen</span></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group"><label class="field-label">Von (Startdatum)</label><div class="input-wrap"><input type="date" id="d-von" oninput="calcDiff()"></div></div>
+          <div class="field-group"><label class="field-label">Bis (Enddatum)</label><div class="input-wrap"><input type="date" id="d-bis" oninput="calcDiff()"></div></div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-secondary btn-sm" onclick="setDiff(0,1,0)">1 Monat</button>
+          <button class="btn btn-secondary btn-sm" onclick="setDiff(0,0,7)">1 Woche</button>
+          <button class="btn btn-secondary btn-sm" onclick="setDiff(1,0,0)">1 Jahr</button>
+        </div>
+      </div>
+    </div>
+    <div class="result-card" id="diff-result" style="display:none">
+      <div class="result-main">
+        <div class="result-label">Differenz</div>
+        <div class="result-value" id="dr-tage">0 Tage</div>
+        <div class="result-sub" id="dr-sub"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Kalenderwochen</div><div class="result-row-value" id="dr-wo"></div></div>
+        <div class="result-row"><div class="result-row-label">Arbeitstage (Mo–Fr)</div><div class="result-row-value pos" id="dr-at"></div></div>
+        <div class="result-row"><div class="result-row-label">Wochenenden</div><div class="result-row-value" id="dr-we"></div></div>
+        <div class="result-row"><div class="result-row-label">Monate (ca.)</div><div class="result-row-value" id="dr-mo"></div></div>
+      </div>
+    </div>
+    </div>
+    <!-- Tab 2: Add -->
+    <div id="tab-add" style="display:none">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Datum berechnen</span></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group"><label class="field-label">Startdatum</label><div class="input-wrap"><input type="date" id="a-start" oninput="calcAdd()"></div></div>
+          <div class="field-group"><label class="field-label">Tage hinzuf&uuml;gen</label><div class="input-wrap"><input type="number" id="a-tage" value="30" oninput="calcAdd()"><span class="input-unit">Tage</span></div></div>
+        </div>
+        <div class="field-row">
+          <div class="field-group"><label class="field-label">Monate</label><div class="input-wrap"><input type="number" id="a-monate" value="0" oninput="calcAdd()"><span class="input-unit">Mo.</span></div></div>
+          <div class="field-group"><label class="field-label">Jahre</label><div class="input-wrap"><input type="number" id="a-jahre" value="0" oninput="calcAdd()"><span class="input-unit">J.</span></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card" id="add-result" style="display:none">
+      <div class="result-main">
+        <div class="result-label">Ergebnis-Datum</div>
+        <div class="result-value" id="ar-datum" style="font-size:28px"></div>
+        <div class="result-sub" id="ar-wt"></div>
+      </div>
+    </div>
+    </div>
+    <!-- Tab 3: Weekday -->
+    <div id="tab-wt" style="display:none">
+    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Wochentag ermitteln</span></div>
+      <div class="calc-body">
+        <div class="field-group"><label class="field-label">Datum eingeben</label><div class="input-wrap"><input type="date" id="wt-datum" oninput="calcWT()"></div></div>
+      </div>
+    </div>
+    <div class="result-card" id="wt-result" style="display:none">
+      <div class="result-main">
+        <div class="result-label">Wochentag</div>
+        <div class="result-value" id="wtr-tag" style="font-size:32px"></div>
+        <div class="result-sub" id="wtr-sub"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Kalenderwoche</div><div class="result-row-value" id="wtr-kw"></div></div>
+        <div class="result-row"><div class="result-row-label">Tag des Jahres</div><div class="result-row-value" id="wtr-toy"></div></div>
+        <div class="result-row"><div class="result-row-label">Quartal</div><div class="result-row-value" id="wtr-q"></div></div>
+        <div class="result-row"><div class="result-row-label">Tage bis Jahresende</div><div class="result-row-value" id="wtr-jre"></div></div>
+      </div>
+    </div>
+    </div>
+<script>
+const WOCHENTAGE=['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+const MONATE=['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+function showTab(t,btn){['diff','add','wt'].forEach(id=>document.getElementById('tab-'+id).style.display='none');document.getElementById('tab-'+t).style.display='block';document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');}
+function getKW(d){const jan1=new Date(d.getFullYear(),0,1);const kw=Math.ceil(((d-jan1)/86400000+jan1.getDay()+1)/7);return kw;}
+function calcDiff(){
+  const v=document.getElementById('d-von').value,b=document.getElementById('d-bis').value;
+  if(!v||!b){document.getElementById('diff-result').style.display='none';return;}
+  const von=new Date(v),bis=new Date(b);
+  if(isNaN(von)||isNaN(bis)){return;}
+  const diff=Math.abs(Math.round((bis-von)/86400000));
+  const wo=Math.floor(diff/7);
+  let at=0;let cur=new Date(Math.min(von,bis));const end=new Date(Math.max(von,bis));
+  while(cur<end){const day=cur.getDay();if(day!==0&&day!==6)at++;cur.setDate(cur.getDate()+1);}
+  const we=diff-at;
+  document.getElementById('diff-result').style.display='block';
+  document.getElementById('dr-tage').textContent=diff.toLocaleString('de-DE')+' Tage';
+  document.getElementById('dr-sub').textContent=(bis>von?'':'−')+wo+' Wochen und '+(diff%7)+' Tage';
+  document.getElementById('dr-wo').textContent=wo.toLocaleString('de-DE')+' Wochen';
+  document.getElementById('dr-at').textContent=at.toLocaleString('de-DE')+' Tage';
+  document.getElementById('dr-we').textContent=we.toLocaleString('de-DE')+' Tage';
+  document.getElementById('dr-mo').textContent=(diff/30.44).toFixed(1).replace('.',',');
+}
+function setDiff(j,m,d){
+  const today=new Date();document.getElementById('d-von').value=today.toISOString().slice(0,10);
+  const end=new Date(today);end.setFullYear(end.getFullYear()+j);end.setMonth(end.getMonth()+m);end.setDate(end.getDate()+d);
+  document.getElementById('d-bis').value=end.toISOString().slice(0,10);calcDiff();
+}
+function calcAdd(){
+  const s=document.getElementById('a-start').value;
+  if(!s){document.getElementById('add-result').style.display='none';return;}
+  const start=new Date(s);if(isNaN(start))return;
+  const t=parseInt(document.getElementById('a-tage').value)||0;
+  const m=parseInt(document.getElementById('a-monate').value)||0;
+  const j=parseInt(document.getElementById('a-jahre').value)||0;
+  const result=new Date(start);result.setFullYear(result.getFullYear()+j);result.setMonth(result.getMonth()+m);result.setDate(result.getDate()+t);
+  document.getElementById('add-result').style.display='block';
+  document.getElementById('ar-datum').textContent=result.getDate()+'. '+MONATE[result.getMonth()]+' '+result.getFullYear();
+  document.getElementById('ar-wt').textContent=WOCHENTAGE[result.getDay()];
+}
+function calcWT(){
+  const d=document.getElementById('wt-datum').value;
+  if(!d){document.getElementById('wt-result').style.display='none';return;}
+  const dt=new Date(d);if(isNaN(dt))return;
+  const jan1=new Date(dt.getFullYear(),0,0);const diff=(dt-jan1)/86400000;
+  const yearEnd=new Date(dt.getFullYear(),11,31);const toEnd=Math.round((yearEnd-dt)/86400000);
+  document.getElementById('wt-result').style.display='block';
+  document.getElementById('wtr-tag').textContent=WOCHENTAGE[dt.getDay()];
+  document.getElementById('wtr-sub').textContent=dt.getDate()+'. '+MONATE[dt.getMonth()]+' '+dt.getFullYear();
+  document.getElementById('wtr-kw').textContent='KW '+getKW(dt);
+  document.getElementById('wtr-toy').textContent='Tag '+Math.ceil(diff)+' des Jahres';
+  document.getElementById('wtr-q').textContent='Q'+(Math.floor(dt.getMonth()/3)+1)+' '+dt.getFullYear();
+  document.getElementById('wtr-jre').textContent=toEnd+' Tage';
+}
+// Init with today
+const n=new Date();const ts=n.toISOString().slice(0,10);
+document.getElementById('d-von').value=ts;document.getElementById('a-start').value=ts;document.getElementById('wt-datum').value=ts;
+setDiff(0,0,30);calcAdd();calcWT();
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px"><div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start"><span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span><p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung und ersetzt keine professionelle Beratung.</p></div></div>
+  <section class="article-section"><div class="article-inner"><h2>Datum-Berechnungen im Alltag</h2><p>Datum-Berechnungen sind alltäglich: Wie viele Tage bis zum Urlaub? Wann ist die Kündigungsfrist abgelaufen? Auf welchen Wochentag fällt mein Geburtstag? Unser Datum-Rechner löst alle diese Fragen sofort.</p>
+<h3>Arbeitstage und Werktage</h3>
+<p>Arbeitstage sind Montag bis Freitag (ohne Samstag). Werktage sind in Deutschland Montag bis Samstag. Feiertage variieren nach Bundesland — unser Rechner berücksichtigt keine regionalen Feiertage, zählt aber Wochenenden korrekt heraus.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie berechne ich Arbeitstage zwischen zwei Daten?</div><div class="faq-a">Zählen Sie alle Tage zwischen den Daten und subtrahieren Sie Samstage und Sonntage. Pro Woche (7 Tage) sind 5 Arbeitstage. Unsere Rechner macht das automatisch. Feiertage müssen Sie je nach Bundesland separat abziehen.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist eine Kalenderwoche (KW)?</div><div class="faq-a">Kalenderwochen werden nach ISO 8601 nummeriert: Woche 1 ist die Woche mit dem ersten Donnerstag des Jahres (oder: die Woche mit dem 4. Januar). Ein Jahr hat 52 oder 53 Kalenderwochen.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie berechnet man eine Deadline?</div><div class="faq-a">Startdatum + Anzahl Tage/Monate/Jahre = Enddatum. Bei Monatszusätzen gilt: 31. Januar + 1 Monat = 28. (oder 29.) Februar (letzter Tag des Folgemonats). Nutzen Sie unser "Datum addieren"-Tool für genaue Fristen.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/altersrechner.html" class="related-link">Altersrechner</a><a href="/urlaubsrechner.html" class="related-link">Urlaubsrechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechner</h4><a href="/altersrechner.html">Altersrechner</a><a href="/datum-rechner.html">Datum</a><a href="/spritkosten-rechner.html">Spritkosten</a><a href="/alle-rechner.html">Alle</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

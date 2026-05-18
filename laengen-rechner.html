@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4F3BY02EFW');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Längen-Rechner — Meter, cm, mm, Fuß, Zoll umrechnen | FastRechnen.de</title>
+<meta name="description" content="Längen-Rechner: Meter, Zentimeter, Millimeter, Kilometer, Fuß, Zoll, Meile und Seemeile live umrechnen. Kostenlos, sofort, kein Login.">
+<link rel="canonical" href="https://fastrechnen.de/laengen-rechner">
+<meta property="og:title" content="Längen-Rechner — Meter, cm, mm, Fuß, Zoll umrechnen">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> ›  Längen-Rechner</div>
+    <h1>Längen-Rechner</h1>
+    <p>Längeneinheiten live umrechnen — alle Werte aktualisieren sich sofort beim Tippen.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Live-Umrechnung</span><span class="calc-badge">8 Einheiten</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section"><style>
+.converter-grid{border-radius:18px;overflow:hidden;border:1.5px solid var(--border-medium);margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.converter-row{display:grid;grid-template-columns:160px 1fr;align-items:stretch;border-bottom:1px solid var(--border);background:var(--bg);transition:background .18s}
+.converter-row:last-child{border-bottom:none}
+.converter-row:focus-within{background:var(--primary-xlight)}
+.converter-unit{padding:13px 16px;border-right:1px solid var(--border);background:var(--bg-secondary);display:flex;flex-direction:column;justify-content:center}
+.converter-unit-name{font-size:14px;font-weight:700;color:var(--text-primary)}
+.converter-unit-sym{font-size:11px;color:var(--text-tertiary);margin-top:1px;font-weight:500}
+.converter-input-wrap{display:flex;align-items:center;padding:0 16px}
+.converter-input{border:none;outline:none;background:transparent;font-family:var(--font);font-size:18px;font-weight:700;color:var(--primary);width:100%;padding:13px 0;transition:color .18s}
+.converter-input::placeholder{color:var(--text-tertiary);font-weight:400;font-size:15px}
+</style>
+<div style="display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap">
+  <button class="btn btn-secondary btn-sm" onclick="setVal('m',1)">1 Meter</button>
+  <button class="btn btn-secondary btn-sm" onclick="setVal('ft',1)">1 Fuß</button>
+  <button class="btn btn-secondary btn-sm" onclick="setVal('mi',1)">1 Meile</button>
+  <button class="btn btn-ghost btn-sm" onclick="clearAll()">Leeren</button>
+</div>
+<div class="converter-grid">
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Meter</div><div class="converter-unit-sym">m</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="m" placeholder="0" oninput="conv('m',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Kilometer</div><div class="converter-unit-sym">km</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="km" placeholder="0" oninput="conv('km',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Zentimeter</div><div class="converter-unit-sym">cm</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="cm" placeholder="0" oninput="conv('cm',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Millimeter</div><div class="converter-unit-sym">mm</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="mm" placeholder="0" oninput="conv('mm',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Fuß</div><div class="converter-unit-sym">ft</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="ft" placeholder="0" oninput="conv('ft',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Zoll</div><div class="converter-unit-sym">in</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="in" placeholder="0" oninput="conv('in',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Meile</div><div class="converter-unit-sym">mi</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="mi" placeholder="0" oninput="conv('mi',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Seemeile</div><div class="converter-unit-sym">nmi</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="nmi" placeholder="0" oninput="conv('nmi',this.value)" step="any"></div></div>
+</div>
+<script>
+// All in meters
+const TO_M={m:1,km:1000,cm:.01,mm:.001,ft:.3048,in:.0254,mi:1609.344,nmi:1852};
+let busy=false;
+function conv(src,val){
+  if(busy)return;busy=true;
+  const meters=parseFloat(val)*TO_M[src];
+  if(isNaN(meters)||val===''){clearAll(src);busy=false;return;}
+  Object.entries(TO_M).forEach(([u,f])=>{
+    if(u===src)return;
+    const el=document.getElementById(u);
+    const v=meters/f;
+    el.value=v===0?'':parseFloat(v.toPrecision(10)).toString();
+  });
+  busy=false;
+}
+function clearAll(except){
+  Object.keys(TO_M).forEach(u=>{if(u!==except)document.getElementById(u).value='';});
+}
+function setVal(unit,val){clearAll();document.getElementById(unit).value=val;conv(unit,val);}
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px">
+  <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start">
+    <span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span>
+    <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Beratung.</p>
+  </div>
+</div>
+  <section class="article-section"><div class="article-inner"><h2>Längeneinheiten: Von Millimeter bis Meile</h2><p>Längeneinheiten werden weltweit in verschiedenen Systemen gemessen. In Deutschland und Europa gilt das <strong>Internationale Einheitensystem (SI)</strong> mit dem Meter als Basiseinheit. Im englischsprachigen Raum sind hingegen imperiale Einheiten wie Fuß, Zoll und Meile verbreitet.</p>
+<h3>Die wichtigsten Längeneinheiten</h3>
+<table><thead><tr><th>Einheit</th><th>Symbol</th><th>In Metern</th><th>Verwendung</th></tr></thead><tbody>
+<tr><td>Millimeter</td><td>mm</td><td>0,001 m</td><td>Technik, Werkzeug</td></tr>
+<tr><td>Zentimeter</td><td>cm</td><td>0,01 m</td><td>Körpergröße, Kleidung</td></tr>
+<tr><td>Meter</td><td>m</td><td>1 m</td><td>Allgemein, Bau</td></tr>
+<tr><td>Kilometer</td><td>km</td><td>1.000 m</td><td>Entfernungen, Straßen</td></tr>
+<tr><td>Zoll</td><td>in</td><td>0,0254 m</td><td>Bildschirme, Schrauben</td></tr>
+<tr><td>Fuß</td><td>ft</td><td>0,3048 m</td><td>Luftfahrt, USA</td></tr>
+<tr><td>Meile</td><td>mi</td><td>1.609,344 m</td><td>USA, Großbritannien</td></tr>
+<tr><td>Seemeile</td><td>nmi</td><td>1.852 m</td><td>Schifffahrt, Luftfahrt</td></tr>
+</tbody></table>
+<h3>Alltagstipps zur Umrechnung</h3>
+<p>Ein Zoll entspricht exakt <strong>2,54 Zentimeter</strong>. Das hilft bei Bildschirmdiagonalen: Ein 15-Zoll-Laptop hat eine Diagonale von ca. 38 cm. Ein Fuß (12 Zoll) sind <strong>30,48 cm</strong>. Eine Meile sind rund <strong>1,6 Kilometer</strong> — oder genauer: 1.609 Meter. Die Seemeile (1.852 m) entspricht einer Bogenminute auf dem Großkreis der Erde.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viele Zentimeter sind ein Zoll?</div><div class="faq-a">Exakt 2,54 Zentimeter. Diese Umrechnung ist international standardisiert seit 1959. Daher: 1 Fuß = 12 Zoll = 30,48 cm. Bei Bildschirmgrößen gilt: Diagonale in Zoll × 2,54 = Diagonale in Zentimeter.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viele Kilometer sind eine Meile?</div><div class="faq-a">1 Meile (englische Landmeile) = 1.609,344 Meter = 1,609 Kilometer. Die Seemeile (Nautische Meile) ist dagegen 1.852 Meter = 1,852 Kilometer. Die Seemeile leitet sich von der Erdgeographie ab: eine Bogenminute auf einem Großkreis der Erde.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wozu braucht man Seemeilen?</div><div class="faq-a">Seemeilen (nmi) werden in der Schiff- und Luftfahrt verwendet, weil sie mit der Erdgeographie zusammenhängen: 1 nmi = 1 Bogenminute des Erdumfangs = 1.852 m. Geschwindigkeiten in Knoten (kn) geben Seemeilen pro Stunde an.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Unterschied zwischen britischer und amerikanischer Meile?</div><div class="faq-a">Es gibt nur eine "Landmeile": 1.609,344 m — sowohl in den USA als auch in Großbritannien. Daneben gibt es die britische "Admiralty Mile" (historisch) und die Seemeile. Für alltägliche Zwecke gelten US-Meile und UK-Meile als identisch.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Welche Längeneinheit ist am genauesten?</div><div class="faq-a">Für wissenschaftliche Präzision wird der Meter als SI-Basiseinheit verwendet. Seit 2019 ist er durch die Lichtgeschwindigkeit definiert: 1 Meter = Strecke, die Licht im Vakuum in 1/299.792.458 Sekunde zurücklegt.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/temperatur-rechner.html" class="related-link">Temperatur-Rechner</a><a href="/gewicht-rechner.html" class="related-link">Gewicht-Rechner</a><a href="/flaechen-rechner.html" class="related-link">Flächen-Rechner</a><a href="/waehrungsrechner.html" class="related-link">Währungsrechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

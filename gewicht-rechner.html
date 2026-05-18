@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-4F3BY02EFW');</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gewicht-Rechner — kg, Pfund, Gramm, Unzen umrechnen | FastRechnen.de</title>
+<meta name="description" content="Gewicht online umrechnen: Kilogramm, Gramm, Milligramm, Pfund (lbs), Unzen, Tonne und Zentner. Live-Umrechnung, kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/gewicht-rechner">
+<meta property="og:title" content="Gewicht-Rechner — kg, Pfund, Gramm, Unzen umrechnen">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> ›  Gewicht-Rechner</div>
+    <h1>Gewicht-Rechner</h1>
+    <p>Gewichtseinheiten live umrechnen — kg, Gramm, Pfund, Unzen, Tonne und mehr.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">7 Einheiten</span><span class="calc-badge">Live-Umrechnung</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section"><style>
+.converter-grid{border-radius:18px;overflow:hidden;border:1.5px solid var(--border-medium);margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.converter-row{display:grid;grid-template-columns:170px 1fr;align-items:stretch;border-bottom:1px solid var(--border);background:var(--bg);transition:background .18s}
+.converter-row:last-child{border-bottom:none}
+.converter-row:focus-within{background:var(--primary-xlight)}
+.converter-unit{padding:13px 16px;border-right:1px solid var(--border);background:var(--bg-secondary);display:flex;flex-direction:column;justify-content:center}
+.converter-unit-name{font-size:14px;font-weight:700;color:var(--text-primary)}
+.converter-unit-sym{font-size:11px;color:var(--text-tertiary);margin-top:1px;font-weight:500}
+.converter-input-wrap{display:flex;align-items:center;padding:0 16px}
+.converter-input{border:none;outline:none;background:transparent;font-family:var(--font);font-size:18px;font-weight:700;color:var(--primary);width:100%;padding:13px 0;transition:color .18s}
+.converter-input::placeholder{color:var(--text-tertiary);font-weight:400;font-size:15px}
+</style>
+<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+  <button class="btn btn-secondary btn-sm" onclick="setVal('kg',1)">1 kg</button>
+  <button class="btn btn-secondary btn-sm" onclick="setVal('lb',1)">1 Pfund</button>
+  <button class="btn btn-secondary btn-sm" onclick="setVal('t',1)">1 Tonne</button>
+  <button class="btn btn-ghost btn-sm" onclick="clearAll()">Leeren</button>
+</div>
+<div class="converter-grid">
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Kilogramm</div><div class="converter-unit-sym">kg</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="kg" placeholder="0" oninput="conv('kg',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Gramm</div><div class="converter-unit-sym">g</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="g" placeholder="0" oninput="conv('g',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Milligramm</div><div class="converter-unit-sym">mg</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="mg" placeholder="0" oninput="conv('mg',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Tonne</div><div class="converter-unit-sym">t</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="t" placeholder="0" oninput="conv('t',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Pfund (lbs)</div><div class="converter-unit-sym">lb</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="lb" placeholder="0" oninput="conv('lb',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Unzen</div><div class="converter-unit-sym">oz</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="oz" placeholder="0" oninput="conv('oz',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Zentner</div><div class="converter-unit-sym">Ztr.</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="ztr" placeholder="0" oninput="conv('ztr',this.value)" step="any"></div></div>
+</div>
+<script>
+const TO_KG={kg:1,g:.001,mg:.000001,t:1000,lb:0.45359237,oz:0.0283495,ztr:50};
+let busy=false;
+function conv(src,val){
+  if(busy)return;busy=true;
+  const kg=parseFloat(val)*TO_KG[src];
+  if(isNaN(kg)||val===''){clearAll(src);busy=false;return;}
+  Object.entries(TO_KG).forEach(([u,f])=>{
+    if(u===src)return;
+    const el=document.getElementById(u);
+    const v=kg/f;
+    el.value=parseFloat(v.toPrecision(10)).toString();
+  });
+  busy=false;
+}
+function clearAll(except){Object.keys(TO_KG).forEach(u=>{if(u!==except)document.getElementById(u).value='';});}
+function setVal(unit,val){clearAll();document.getElementById(unit).value=val;conv(unit,val);}
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px">
+  <div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start">
+    <span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span>
+    <p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind N&auml;herungswerte und ersetzen keine professionelle Beratung.</p>
+  </div>
+</div>
+  <section class="article-section"><div class="article-inner"><h2>Gewichtseinheiten: Metrisch und imperial im Vergleich</h2><p>Das metrische Gewichtssystem mit Kilogramm als Basiseinheit ist weltweit der Standard — außer in den USA, Großbritannien und einigen anderen Ländern, die noch imperiale Einheiten wie Pfund und Unzen verwenden.</p>
+<h3>Übersicht aller Einheiten</h3>
+<table><thead><tr><th>Einheit</th><th>In kg</th><th>Verwendung</th></tr></thead><tbody>
+<tr><td>Milligramm (mg)</td><td>0,000001 kg</td><td>Medikamente, Chemie</td></tr>
+<tr><td>Gramm (g)</td><td>0,001 kg</td><td>Lebensmittel, Kochen</td></tr>
+<tr><td>Kilogramm (kg)</td><td>1 kg</td><td>Körpergewicht, Einkauf</td></tr>
+<tr><td>Zentner</td><td>50 kg</td><td>Landwirtschaft (DE)</td></tr>
+<tr><td>Tonne (t)</td><td>1.000 kg</td><td>Fahrzeuge, Fracht</td></tr>
+<tr><td>Unze (oz)</td><td>0,0283495 kg</td><td>Edelmetalle, USA-Rezepte</td></tr>
+<tr><td>Pfund (lb)</td><td>0,45359237 kg</td><td>USA, Körpergewicht</td></tr>
+</tbody></table></div></section>
+<section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viel kg sind ein Pfund?</div><div class="faq-a">1 Pfund (lbs) = 0,453592 Kilogramm. Umgekehrt: 1 kg = 2,20462 Pfund. Faustregel: 1 kg ≈ 2,2 lbs. Bei 70 kg Körpergewicht: 70 × 2,2 = 154 lbs.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Unterschied zwischen deutschem Pfund und britischem Pfund?</div><div class="faq-a">Das deutsche Pfund (Handelspfund) = 500 Gramm = 0,5 kg. Das britisch-amerikanische Pfund (Pound, lb) = 453,592 Gramm. Wenn eine amerikanische Rezept "1 lb Mehl" fordert, sind das ca. 454 g, nicht 500 g.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist eine Unze?</div><div class="faq-a">Eine Unze (oz, Avoirdupois) = 28,3495 Gramm. Bei Edelmetallen gilt die Feinunze (troy ounce, ozt) = 31,1035 g. Wenn Gold oder Silber in Unzen quotiert wird, ist immer die Feinunze gemeint.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie schwer ist eine Tonne?</div><div class="faq-a">1 metrische Tonne = 1.000 kg. Eine "kurze Tonne" (US) = 907,185 kg. Eine "lange Tonne" (UK) = 1.016,047 kg. In Deutschland meint "Tonne" immer die metrische Tonne von 1.000 kg.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/laengen-rechner.html" class="related-link">Längen-Rechner</a><a href="/flaechen-rechner.html" class="related-link">Flächen-Rechner</a><a href="/bmi-rechner.html" class="related-link">BMI-Rechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>
