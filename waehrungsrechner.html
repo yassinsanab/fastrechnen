@@ -12,7 +12,7 @@
 </script>
 <!-- Google AdSense -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
-<meta name="google-site-verification" content="8f3u8GY_yqHGkg7PrWjgiHqh3ZQvm82w-fPM5khC6Bo">
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Währungsrechner — Live-Wechselkurse umrechnen | FastRechnen.de</title>
 <meta name="description" content="Währungsrechner mit aktuellen Wechselkursen: Euro, Dollar, Pfund, Schweizer Franken, Yen und mehr. Echtzeit-Kurse von der EZB. Kostenlos.">
@@ -24,7 +24,7 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Währungsrechner</div>
@@ -102,10 +102,24 @@ async function loadRates() {
     status.textContent = 'Kurse werden geladen...';
     status.className = 'currency-status loading';
     // Use frankfurter.app — free EZB data, no API key needed
-    const res = await fetch('https://api.frankfurter.app/latest?base=EUR&symbols=' +
-      Object.keys(CURRENCIES).filter(c=>c!=='EUR').join(','));
-    if(!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
+    // Primary: open.er-api.com (hourly updates, free, no key)
+    // Fallback: frankfurter.app (EZB daily)
+    let data = null;
+    try {
+      const r1 = await fetch('https://open.er-api.com/v6/latest/EUR');
+      if(r1.ok) {
+        const d = await r1.json();
+        if(d.result === 'success') {
+          data = { rates: d.rates, date: d.time_last_update_utc ? d.time_last_update_utc.slice(0,10) : 'aktuell' };
+        }
+      }
+    } catch(e1) {}
+    if(!data) {
+      const r2 = await fetch('https://api.frankfurter.app/latest?base=EUR');
+      if(r2.ok) { const d = await r2.json(); data = {rates: d.rates, date: d.date}; data.rates.EUR = 1; }
+    }
+    if(!data) throw new Error('Keine Verbindung');
+    // Filter to our supported currencies
     rates = {...data.rates, EUR: 1};
     updateTime = data.date;
     status.textContent = '✓ Kurse aktuell (' + data.date + ')';

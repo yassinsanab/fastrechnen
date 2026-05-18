@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pendlerpauschale: Lohnt sich die Steuererklärung? | FastRechnen.de</title>
+<meta name="description" content="Pendlerpauschale und Steuererklärung: Ab wann lohnt es sich? Mit konkreten Berechnungen für 10, 20, 30 und 50 km Entfernung und dem eingebetteten Rechner.">
+<link rel="canonical" href="https://fastrechnen.de/ratgeber/pendlerpauschale-steuererklarung">
+<meta property="og:title" content="Pendlerpauschale: Lohnt sich die Steuererklärung?">
+<meta property="og:description" content="Pendlerpauschale und Steuererklärung: Ab wann lohnt es sich? Mit konkreten Berechnungen für 10, 20, 30 und 50 km Entfernung und dem eingebetteten Rechner.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/shared.css">
+<link rel="stylesheet" href="/ratgeber/blog.css">
+</head>
+<body>
+<div class="progress-bar" id="pb"></div>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+<div class="article-wrap">
+  <div class="article-header">
+    <span class="article-tag">Steuer & Gehalt</span>
+    <h1>Pendlerpauschale: Ab wann lohnt sich die Steuererklärung?</h1>
+    <div class="article-meta"><span>7 Min. Lesedauer</span><span>FastRechnen.de</span></div>
+  </div>
+  <div class="article-body"><p>Millionen Deutsche pendeln täglich zur Arbeit — und viele verschenken dabei Steuergeld, weil sie keine Steuererklärung abgeben. Die <strong>Pendlerpauschale</strong> kann je nach Entfernung mehrere tausend Euro Steuerersparnis im Jahr bringen. Dieser Artikel zeigt, ab wann es sich lohnt.</p>
+
+<h2>Die Grundregel: Werbungskosten über 1.230 Euro</h2>
+<p>Jeder Arbeitnehmer erhält automatisch den Arbeitnehmer-Pauschbetrag von <strong>1.230 Euro</strong> — ohne Belege, ohne Antrag. Steuervorteil entsteht erst, wenn Ihre tatsächlichen Werbungskosten diesen Betrag übersteigen. Die Pendlerpauschale ist der häufigste Weg, diesen Betrag zu überschreiten.</p>
+
+<div class="article-tool">
+  <div class="article-tool-header">
+    <span class="article-tool-title">Pendlerpauschale Rechner</span>
+    <a href="/pendlerpauschale.html" class="article-tool-link">Vollständiger Rechner →</a>
+  </div>
+  <div class="mini-field-row">
+    <div><label class="mini-label">Entfernung (einfach)</label><div style="position:relative"><input class="mini-input" type="number" id="pp-km" value="30" oninput="ppCalc()"><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-tertiary)">km</span></div></div>
+    <div><label class="mini-label">Arbeitstage/Jahr</label><div style="position:relative"><input class="mini-input" type="number" id="pp-tage" value="220" oninput="ppCalc()"><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-tertiary)">Tage</span></div></div>
+  </div>
+  <div class="mini-result">
+    <div><div class="mini-result-label">Entfernungspauschale / Jahr</div><div class="mini-result-value" id="pp-pauschale">€ 0</div></div>
+    <div><div class="mini-result-label">Über Pauschbetrag</div><div class="mini-result-value" id="pp-ueber" style="font-size:15px;color:var(--text-secondary)">€ 0</div></div>
+  </div>
+  <script>
+  function ppCalc(){
+    const km=parseFloat(document.getElementById('pp-km').value)||0;
+    const t=parseFloat(document.getElementById('pp-tage').value)||0;
+    const p=km<=20?km*0.30*t:(20*0.30+(km-20)*0.38)*t;
+    const ueber=Math.max(0,p-1230);
+    const fmt=v=>'€ '+new Intl.NumberFormat('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(v));
+    document.getElementById('pp-pauschale').textContent=fmt(p);
+    document.getElementById('pp-ueber').textContent=fmt(ueber)+(ueber>0?' (steuerwirksam)':' (kein Vorteil)');
+  }
+  ppCalc();
+  </script>
+</div>
+
+<h2>Beispielrechnungen nach Entfernung</h2>
+<table>
+  <thead><tr><th>Entfernung</th><th>Pauschale (220 Tage)</th><th>Über Pauschbetrag</th><th>Steuerersparnis (32%)</th></tr></thead>
+  <tbody>
+    <tr><td>10 km</td><td>660 €</td><td>0 € (unter Grenze)</td><td>0 €</td></tr>
+    <tr><td>20 km</td><td>1.320 €</td><td>90 €</td><td>ca. 29 €</td></tr>
+    <tr><td>30 km</td><td>2.134 €</td><td>904 €</td><td>ca. 289 €</td></tr>
+    <tr><td>50 km</td><td>3.762 €</td><td>2.532 €</td><td>ca. 810 €</td></tr>
+  </tbody>
+</table>
+
+<h2>Wer fährt mehr als 20 km? Fernpendler profitieren besonders</h2>
+<p>Seit 2021 gilt die erhöhte Fernpendlerpauschale von 0,38 Euro ab dem 21. Kilometer (befristet bis Ende 2026). Bei 50 km Entfernung ergibt das allein aus der Pendlerpauschale über 3.700 Euro Werbungskosten — weit über dem Pauschbetrag. Die Steuerersparnis übersteigt den Aufwand für die Steuererklärung bei weitem.</p>
+
+<h2>Homeoffice und Pendlerpauschale kombinieren</h2>
+<p>Kein entweder/oder: Pendlerpauschale für Bürotage (0,30/0,38 Euro/km) und Homeoffice-Pauschale für Homeoffice-Tage (6 Euro/Tag) können im selben Jahr kombiniert werden. Wer 3 Tage pro Woche ins Büro fährt und 2 Tage von zu Hause arbeitet, kann beide Pauschalen optimal ausschöpfen.</p>
+
+<h2>Lohnsteuerfreibetrag statt jährlicher Erstattung</h2>
+<p>Sie müssen nicht bis zur Steuererklärung warten: Stellen Sie beim Finanzamt einen Antrag auf Lohnsteuerermäßigung. Wenn Ihre Werbungskosten (inkl. Pendlerpauschale) 1.230 Euro übersteigen, wird der Überschuss als monatlicher Freibetrag eingetragen. Das erhöht Ihr Nettogehalt sofort — monatlich statt jährlich.</p></div>
+</div>
+<section class="related-section" style="background:var(--bg-secondary);padding:28px 24px">
+  <div style="max-width:760px;margin:0 auto">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Passende Rechner &amp; Artikel</h3>
+    <div class="related-grid"><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale Rechner</a><a href="/ratgeber/lohnsteuer-senken.html" class="related-link">Lohnsteuer senken</a><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner &amp; Finanzratgeber f&uuml;r Deutschland.</p></div><div class="footer-col"><h4>Ratgeber</h4><a href="/ratgeber/">Alle Artikel</a><a href="/ratgeber/steuerklasse-3-oder-4.html">Steuerklasse 3 oder 4?</a><a href="/ratgeber/lohnsteuer-senken.html">Lohnsteuer senken</a></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/sparplanrechner.html">Sparplan</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr &middot; Zuletzt aktualisiert</span></div></div></footer>
+<script>window.addEventListener('scroll',function(){var d=document.documentElement;document.getElementById('pb').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';});</script>
+</body>
+</html>

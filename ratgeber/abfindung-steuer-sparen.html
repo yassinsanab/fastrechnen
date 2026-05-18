@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Abfindung: So sparen Sie Steuern durch die Fünftelregel | FastRechnen.de</title>
+<meta name="description" content="Abfindung und Steuern: Wie die Fünftelregel funktioniert, wann sie sich lohnt und wie Sie mit Timing und Gestaltung legal Steuern sparen. Mit Abfindungsrechner.">
+<link rel="canonical" href="https://fastrechnen.de/ratgeber/abfindung-steuer-sparen">
+<meta property="og:title" content="Abfindung: So sparen Sie Steuern durch die Fünftelregel">
+<meta property="og:description" content="Abfindung und Steuern: Wie die Fünftelregel funktioniert, wann sie sich lohnt und wie Sie mit Timing und Gestaltung legal Steuern sparen. Mit Abfindungsrechner.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/shared.css">
+<link rel="stylesheet" href="/ratgeber/blog.css">
+</head>
+<body>
+<div class="progress-bar" id="pb"></div>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+<div class="article-wrap">
+  <div class="article-header">
+    <span class="article-tag">Steuer & Gehalt</span>
+    <h1>Abfindung: So sparen Sie mit der Fünftelregel Tausende Euro Steuern</h1>
+    <div class="article-meta"><span>8 Min. Lesedauer</span><span>FastRechnen.de</span></div>
+  </div>
+  <div class="article-body"><p>Eine Abfindung klingt nach einer guten Nachricht — aber ohne die richtige steuerliche Gestaltung können bis zu 45 Prozent an das Finanzamt gehen. Mit der <strong>Fünftelregelung (§34 EStG)</strong> und klugem Timing können Sie die Steuerlast erheblich senken.</p>
+
+<h2>Warum ist die Abfindung steuerlich problematisch?</h2>
+<p>Deutschland hat einen progressiven Steuertarif. Je mehr Sie in einem Jahr verdienen, desto höher der Steuersatz. Eine Abfindung von 50.000 Euro zusätzlich zu einem Jahresgehalt von 50.000 Euro bedeutet plötzlich 100.000 Euro zu versteuerndes Einkommen — und der Grenzsteuersatz springt von rund 30 auf 42 Prozent. Ohne Sonderregelung würden Sie auf die Abfindung bis zu 45 Prozent Steuern zahlen.</p>
+
+<h2>Die Fünftelregel: Wie sie funktioniert</h2>
+<p>Die Fünftelregel verteilt die Abfindung fiktiv auf fünf Jahre. Die Steuerberechnung läuft in drei Schritten:</p>
+<ol>
+  <li>Einkommensteuer auf das reguläre Jahreseinkommen berechnen (Basis)</li>
+  <li>Einkommensteuer auf reguläres Einkommen + <strong>ein Fünftel der Abfindung</strong> berechnen</li>
+  <li>Die Mehrstuer aus Schritt 2 mit <strong>5 multiplizieren</strong> = tatsächliche Steuer auf die Abfindung</li>
+</ol>
+<p>Das Ergebnis: Der effektive Steuersatz auf die Abfindung liegt oft 10–15 Prozentpunkte unter dem, was ohne Fünftelregel fällig wäre.</p>
+
+<div class="article-tool">
+  <div class="article-tool-header">
+    <span class="article-tool-title">Abfindungsrechner — Netto-Abfindung berechnen</span>
+    <a href="/abfindungsrechner.html" class="article-tool-link">Vollständiger Rechner →</a>
+  </div>
+  <div class="mini-field-row">
+    <div><label class="mini-label">Abfindungsbetrag</label><div style="position:relative"><input class="mini-input" type="number" id="abf-betrag" value="30000" oninput="abfCalc()"><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-tertiary)">€</span></div></div>
+    <div><label class="mini-label">Sonstiges Jahreseinkommen</label><div style="position:relative"><input class="mini-input" type="number" id="abf-eink" value="45000" oninput="abfCalc()"><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-tertiary)">€</span></div></div>
+  </div>
+  <div class="mini-result">
+    <div><div class="mini-result-label">Netto-Abfindung (Fünftelregel)</div><div class="mini-result-value" id="abf-result">€ 0</div></div>
+    <div><div class="mini-result-label">Steuerersparnis</div><div class="mini-result-value" id="abf-spar" style="color:#2d7a3a">€ 0</div></div>
+  </div>
+  <script>
+  function abfCalc(){
+    const A=parseFloat(document.getElementById('abf-betrag').value)||0;
+    const e=parseFloat(document.getElementById('abf-eink').value)||0;
+    function eSt(z){if(z<=11604)return 0;if(z<=17005){const y=(z-11604)/10000;return(922.98*y+1400)*y;}if(z<=66760){const y=(z-17005)/10000;return(181.19*y+2397)*y+1025.38;}return 0.42*z-10602.13;}
+    const zvE=Math.max(0,e*0.79-1230);
+    const ohne=eSt(zvE+A)-eSt(zvE);
+    const mit=(eSt(zvE+A/5)-eSt(zvE))*5;
+    const netto=A-Math.max(0,mit);
+    const fmt=n=>'€ '+new Intl.NumberFormat('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(Math.max(0,n)));
+    document.getElementById('abf-result').textContent=fmt(netto);
+    document.getElementById('abf-spar').textContent=fmt(Math.max(0,ohne-mit));
+  }
+  abfCalc();
+  </script>
+</div>
+
+<h2>Tipp 1: Timing der Auszahlung</h2>
+<p>Die Fünftelregel wirkt am stärksten, wenn das sonstige Einkommen im Auszahlungsjahr möglichst gering ist. Wer nach Kündigung arbeitslos ist und ALG bezieht, hat ein niedrigeres Gesamteinkommen — was den Steuersatz auf die Abfindung senkt. Eine Abfindungsauszahlung im Januar eines Jahres statt im Dezember kann tausende Euro sparen.</p>
+
+<h2>Tipp 2: Abfindung in Versorgungsleistungen umwandeln</h2>
+<p>Unter bestimmten Umständen kann ein Teil der Abfindung in eine betriebliche Altersversorgung (bAV) umgewandelt werden. Diese ist bis zu gewissen Grenzen steuer- und sozialversicherungsfrei. Das spart doppelt — erst beim Eingang, später beim Rentenbezug meist niedrigerer Steuersatz.</p>
+
+<h2>Wann greift die Fünftelregel nicht?</h2>
+<p>Die Fünftelregel wird versagt, wenn die Abfindung in mehreren Jahresraten ausgezahlt wird oder wenn keine echte "Zusammenballung" der Einkünfte vorliegt. Außerdem wirkt sie nicht, wenn das Einkommen bereits im Spitzensteuersatz liegt und die Abfindung daran nichts ändert. Ein Steuerberater hilft bei der Optimierung.</p></div>
+</div>
+<section class="related-section" style="background:var(--bg-secondary);padding:28px 24px">
+  <div style="max-width:760px;margin:0 auto">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Passende Rechner &amp; Artikel</h3>
+    <div class="related-grid"><a href="/abfindungsrechner.html" class="related-link">Abfindungsrechner</a><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/rentenrechner.html" class="related-link">Rentenrechner</a><a href="/ratgeber/lohnsteuer-senken.html" class="related-link">Lohnsteuer senken</a></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner &amp; Finanzratgeber f&uuml;r Deutschland.</p></div><div class="footer-col"><h4>Ratgeber</h4><a href="/ratgeber/">Alle Artikel</a><a href="/ratgeber/steuerklasse-3-oder-4.html">Steuerklasse 3 oder 4?</a><a href="/ratgeber/lohnsteuer-senken.html">Lohnsteuer senken</a></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/sparplanrechner.html">Sparplan</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr &middot; Zuletzt aktualisiert</span></div></div></footer>
+<script>window.addEventListener('scroll',function(){var d=document.documentElement;document.getElementById('pb').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';});</script>
+</body>
+</html>

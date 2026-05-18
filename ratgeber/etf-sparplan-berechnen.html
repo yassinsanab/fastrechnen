@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4F3BY02EFW');
+</script>
+<!-- Google AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ETF-Sparplan berechnen: Wie viel müssen Sie monatlich sparen? | FastRechnen.de</title>
+<meta name="description" content="ETF-Sparplan Rechner: Wie viel müssen Sie monatlich sparen, um Ihr Ziel zu erreichen? Mit Zinseszinseffekt, realen Renditeerwartungen und konkreten Beispielen.">
+<link rel="canonical" href="https://fastrechnen.de/ratgeber/etf-sparplan-berechnen">
+<meta property="og:title" content="ETF-Sparplan berechnen: Wie viel müssen Sie monatlich sparen?">
+<meta property="og:description" content="ETF-Sparplan Rechner: Wie viel müssen Sie monatlich sparen, um Ihr Ziel zu erreichen? Mit Zinseszinseffekt, realen Renditeerwartungen und konkreten Beispielen.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="article">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/shared.css">
+<link rel="stylesheet" href="/ratgeber/blog.css">
+</head>
+<body>
+<div class="progress-bar" id="pb"></div>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<main>
+<div class="article-wrap">
+  <div class="article-header">
+    <span class="article-tag">Sparen & Investieren</span>
+    <h1>ETF-Sparplan: Wie viel müssen Sie monatlich sparen?</h1>
+    <div class="article-meta"><span>9 Min. Lesedauer</span><span>FastRechnen.de</span></div>
+  </div>
+  <div class="article-body"><p>Ob Altersvorsorge, Hauskauf oder finanzielle Unabhängigkeit — der ETF-Sparplan ist das beliebteste Werkzeug zum Vermögensaufbau in Deutschland. Doch wie viel müssen Sie tatsächlich monatlich zur Seite legen? Mit unserem Sparplan-Rechner und den richtigen Annahmen bekommen Sie eine realistische Antwort.</p>
+
+<h2>Was ist ein ETF-Sparplan?</h2>
+<p>Ein ETF-Sparplan ist ein automatischer, regelmäßiger Kauf von ETF-Anteilen. ETF steht für Exchange Traded Fund — ein börsengehandelter Indexfonds, der einen Marktindex wie den <strong>MSCI World</strong> (1.500+ Unternehmen weltweit) oder den <strong>FTSE All-World</strong> (4.000+ Unternehmen) nachbildet. Monatliche Sparpläne starten bereits ab 25 Euro bei vielen Brokern.</p>
+
+<h2>Realistische Renditeerwartungen</h2>
+<table>
+  <thead><tr><th>Szenario</th><th>Rendite p.a.</th><th>Basis</th></tr></thead>
+  <tbody>
+    <tr><td>Konservativ</td><td>5 %</td><td>Sicherheitspuffer für schlechtere Jahrzehnte</td></tr>
+    <tr><td>Realistisch</td><td>7 %</td><td>Historischer MSCI-World-Schnitt nach Inflation ca. 5 %</td></tr>
+    <tr><td>Optimistisch</td><td>9 %</td><td>Historische Nominalrendite vor Kosten</td></tr>
+  </tbody>
+</table>
+<p>Wichtiger Hinweis: Diese Zahlen sind historische Durchschnittswerte. Einzelne Jahre können stark davon abweichen — Verluste von 30–50 % sind an der Börse möglich und normal. Wer langfristig (15+ Jahre) investiert, hat historisch immer positive Renditen erzielt.</p>
+
+<h2>Berechnen Sie Ihr Ziel</h2>
+<div class="article-tool">
+  <div class="article-tool-header">
+    <span class="article-tool-title">Sparplan-Rechner — Zielwert berechnen</span>
+    <a href="/sparplanrechner.html" class="article-tool-link">Vollständiger Rechner →</a>
+  </div>
+  <div class="mini-field-row">
+    <div><label class="mini-label">Monatliche Sparrate</label><div style="position:relative"><input class="mini-input" type="number" id="spar-rate" value="300" oninput="sparCalc()"><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-tertiary)">€</span></div></div>
+    <div><label class="mini-label">Anlagedauer</label><div style="position:relative"><input class="mini-input" type="number" id="spar-jahre" value="25" min="1" max="50" oninput="sparCalc()"><span style="position:absolute;right:10px;top:50%;transform:translateY(-50%);font-size:13px;color:var(--text-tertiary)">J</span></div></div>
+  </div>
+  <div class="mini-result">
+    <div><div class="mini-result-label">Endvermögen bei 7% p.a.</div><div class="mini-result-value" id="spar-result">€ 0</div></div>
+    <div><div class="mini-result-label">Davon eigene Einzahlungen</div><div class="mini-result-value" id="spar-einz" style="font-size:15px;color:var(--text-secondary)">€ 0</div></div>
+  </div>
+  <script>
+  function sparCalc(){
+    const r=parseFloat(document.getElementById('spar-rate').value)||0;
+    const n=parseInt(document.getElementById('spar-jahre').value)||1;
+    const rm=0.07/12;
+    let K=0;for(let i=0;i<n*12;i++)K=(K+r)*(1+rm);
+    const fmt=n=>'€ '+new Intl.NumberFormat('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));
+    document.getElementById('spar-result').textContent=fmt(K);
+    document.getElementById('spar-einz').textContent=fmt(r*n*12);
+  }
+  sparCalc();
+  </script>
+</div>
+
+<h2>Wie viel müssen Sie für typische Ziele sparen?</h2>
+<table>
+  <thead><tr><th>Ziel</th><th>Zeitraum</th><th>Benötigte Rate (7%)</th></tr></thead>
+  <tbody>
+    <tr><td>100.000 € Notgroschen/Eigenkapital</td><td>15 Jahre</td><td>ca. 290 €/Monat</td></tr>
+    <tr><td>250.000 € Altersvorsorge</td><td>25 Jahre</td><td>ca. 460 €/Monat</td></tr>
+    <tr><td>500.000 € Finanzielle Freiheit</td><td>30 Jahre</td><td>ca. 570 €/Monat</td></tr>
+    <tr><td>1.000.000 € Millionär</td><td>35 Jahre</td><td>ca. 720 €/Monat</td></tr>
+  </tbody>
+</table>
+
+<h2>Die besten Broker für ETF-Sparpläne in Deutschland</h2>
+<p>Die günstigsten Anbieter für ETF-Sparpläne sind aktuell Neobroker wie Scalable Capital, Trade Republic und justETF-Partner. Viele bieten kostenlose Sparpläne auf die gängigen ETFs (iShares Core MSCI World, Vanguard FTSE All-World). Achten Sie auf: Sparplankosten (0 % vs. 1,5 %), Mindestsparbetrag, verfügbare ETFs und Einlagensicherung.</p>
+
+<h2>Steuern beim ETF-Sparplan</h2>
+<p>Kursgewinne beim Verkauf unterliegen der Abgeltungsteuer (26,375 %). Bei thesaurierenden ETFs gilt die jährliche Vorabpauschale als Mindestbesteuerung. Nutzen Sie den Freistellungsauftrag (1.000 Euro/Jahr) und investieren Sie bevorzugt in thesaurierende ETFs für optimale Steuerstundung.</p></div>
+</div>
+<section class="related-section" style="background:var(--bg-secondary);padding:28px 24px">
+  <div style="max-width:760px;margin:0 auto">
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Passende Rechner &amp; Artikel</h3>
+    <div class="related-grid"><a href="/sparplanrechner.html" class="related-link">Sparplan-Rechner</a><a href="/zinseszinsrechner.html" class="related-link">Zinseszins-Rechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a><a href="/rentenrechner.html" class="related-link">Rentenrechner</a></div>
+  </div>
+</section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner &amp; Finanzratgeber f&uuml;r Deutschland.</p></div><div class="footer-col"><h4>Ratgeber</h4><a href="/ratgeber/">Alle Artikel</a><a href="/ratgeber/steuerklasse-3-oder-4.html">Steuerklasse 3 oder 4?</a><a href="/ratgeber/lohnsteuer-senken.html">Lohnsteuer senken</a></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/sparplanrechner.html">Sparplan</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr &middot; Zuletzt aktualisiert</span></div></div></footer>
+<script>window.addEventListener('scroll',function(){var d=document.documentElement;document.getElementById('pb').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight)*100)+'%';});</script>
+</body>
+</html>
