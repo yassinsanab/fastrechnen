@@ -50,4 +50,7 @@
   <url><loc>https://fastrechnen.de/ratgeber/etf-sparplan-berechnen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://fastrechnen.de/ratgeber/kredit-oder-leasing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://fastrechnen.de/ratgeber/pendlerpauschale-steuererklarung</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://fastrechnen.de/gehaltsrechner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://fastrechnen.de/volumen-rechner</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://fastrechnen.de/tilgungsrechner</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
 </urlset>

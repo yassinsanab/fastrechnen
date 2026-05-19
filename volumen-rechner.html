@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4F3BY02EFW");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Volumen-Rechner — Liter, ml, m³, Gallone, Pint umrechnen | FastRechnen.de</title>
+<meta name="description" content="Volumen-Rechner: Liter, Milliliter, Kubikmeter, Gallone, Pint, Fluid Ounce und mehr live umrechnen. Kostenlos und sofort.">
+<link rel="canonical" href="https://fastrechnen.de/volumen-rechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Volumen-Rechner</div>
+    <h1>Volumen-Rechner</h1><p>Volumeneinheiten live umrechnen — Liter, ml, m³, Gallonen, Pint und mehr.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">8 Einheiten</span><span class="calc-badge">Live-Umrechnung</span><span class="calc-badge">Sofort</span></div>
+  </div>
+  <div class="calc-section"><style>
+.converter-grid{border-radius:18px;overflow:hidden;border:1.5px solid var(--border-medium);margin-bottom:14px;box-shadow:var(--shadow-sm)}
+.converter-row{display:grid;grid-template-columns:170px 1fr;align-items:stretch;border-bottom:1px solid var(--border);background:var(--bg);transition:background .18s}
+.converter-row:last-child{border-bottom:none}
+.converter-row:focus-within{background:var(--primary-xlight)}
+.converter-unit{padding:12px 16px;border-right:1px solid var(--border);background:var(--bg-secondary);display:flex;flex-direction:column;justify-content:center}
+.converter-unit-name{font-size:13px;font-weight:700;color:var(--text-primary)}
+.converter-unit-sym{font-size:11px;color:var(--text-tertiary);margin-top:1px;font-weight:500}
+.converter-input-wrap{display:flex;align-items:center;padding:0 16px}
+.converter-input{border:none;outline:none;background:transparent;font-family:var(--font);font-size:18px;font-weight:700;color:var(--primary);width:100%;padding:12px 0;transition:color .18s}
+.converter-input::placeholder{color:var(--text-tertiary);font-weight:400;font-size:15px}
+</style><div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+  <button class="btn btn-secondary btn-sm" onclick="sv('l',1)">1 Liter</button>
+  <button class="btn btn-secondary btn-sm" onclick="sv('gal_us',1)">1 US-Gallone</button>
+  <button class="btn btn-secondary btn-sm" onclick="sv('m3',1)">1 m³</button>
+  <button class="btn btn-ghost btn-sm" onclick="ca()">Leeren</button>
+</div>
+<div class="converter-grid">
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Liter</div><div class="converter-unit-sym">L</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="l" placeholder="0" oninput="conv('l',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Milliliter</div><div class="converter-unit-sym">ml</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="ml" placeholder="0" oninput="conv('ml',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Kubikmeter</div><div class="converter-unit-sym">m³</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="m3" placeholder="0" oninput="conv('m3',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Zentiliter</div><div class="converter-unit-sym">cl</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="cl" placeholder="0" oninput="conv('cl',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">US-Gallone</div><div class="converter-unit-sym">gal (US)</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="gal_us" placeholder="0" oninput="conv('gal_us',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">UK-Gallone</div><div class="converter-unit-sym">gal (UK)</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="gal_uk" placeholder="0" oninput="conv('gal_uk',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Pint (US)</div><div class="converter-unit-sym">pt</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="pt" placeholder="0" oninput="conv('pt',this.value)" step="any"></div></div>
+  <div class="converter-row"><div class="converter-unit"><div class="converter-unit-name">Fluid Ounce (US)</div><div class="converter-unit-sym">fl oz</div></div><div class="converter-input-wrap"><input class="converter-input" type="number" id="floz" placeholder="0" oninput="conv('floz',this.value)" step="any"></div></div>
+</div>
+<script>
+const TL={l:1,ml:.001,m3:1000,cl:.01,gal_us:3.785411784,gal_uk:4.54609,pt:0.473176473,floz:0.0295735296};
+let b=false;
+function conv(src,val){if(b)return;b=true;const v=parseFloat(val)*TL[src];if(isNaN(v)||val===''){ca(src);b=false;return;}Object.entries(TL).forEach(([u,f])=>{if(u!==src)document.getElementById(u).value=parseFloat((v/f).toPrecision(10)).toString();});b=false;}
+function ca(x){Object.keys(TL).forEach(u=>{if(u!==x)document.getElementById(u).value='';});}
+function sv(u,v){ca();document.getElementById(u).value=v;conv(u,v);}
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px"><div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start"><span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span><p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind Näherungswerte und ersetzen keine professionelle Beratung.</p></div></div>
+  <section class="article-section"><div class="article-inner"><h2>Volumeneinheiten: Von Milliliter bis Kubikmeter</h2><p>Volumeneinheiten werden im Alltag ständig benötigt — in der Küche, beim Kochen nach amerikanischen Rezepten, im Handwerk oder bei der Berechnung von Tankvolumen und Behältergrößen. Das metrische System verwendet Liter und Kubikmeter, während der angloamerikanische Raum auf Gallonen, Pint und Fluid Ounce setzt.</p>
+
+<h3>Übersicht der wichtigsten Einheiten</h3>
+<table><thead><tr><th>Einheit</th><th>In Litern</th><th>Verwendung</th></tr></thead><tbody>
+<tr><td>Milliliter (ml)</td><td>0,001 L</td><td>Medikamente, Getränke</td></tr>
+<tr><td>Zentiliter (cl)</td><td>0,01 L</td><td>Spirituosen, Rezepte</td></tr>
+<tr><td>Liter (L)</td><td>1 L</td><td>Getränke, Haushalt</td></tr>
+<tr><td>Kubikmeter (m³)</td><td>1.000 L</td><td>Bau, Wasserverbrauch</td></tr>
+<tr><td>US-Gallone</td><td>3,785 L</td><td>Benzin USA, Rezepte</td></tr>
+<tr><td>UK-Gallone</td><td>4,546 L</td><td>Großbritannien</td></tr>
+<tr><td>US-Pint</td><td>0,473 L</td><td>Bier USA, Rezepte</td></tr>
+<tr><td>Fluid Ounce (US)</td><td>0,0296 L</td><td>Kosmetik, Rezepte</td></tr>
+</tbody></table>
+
+<h3>Häufige Alltagsumrechnungen</h3>
+<p>In amerikanischen Rezepten begegnen einem oft Cups (1 Cup = 240 ml), Tablespoons (1 tbsp = 15 ml) und Teaspoons (1 tsp = 5 ml). Eine US-Gallone Benzin entspricht rund 3,79 Litern — wichtig beim Vergleich amerikanischer und europäischer Kraftstoffangaben, da US-Fahrzeuge häufig in Meilen pro Gallone (mpg) angegeben werden.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>Häufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Unterschied zwischen US-Gallone und UK-Gallone?</div><div class="faq-a">Eine US-Gallone entspricht 3,785 Litern, eine britische (Imperial) Gallone dagegen 4,546 Litern. Der Unterschied von rund 20 Prozent ist relevant beim Vergleich von Kraftstoffverbrauchsangaben amerikanischer und britischer Fahrzeuge.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viel Milliliter sind ein Liter?</div><div class="faq-a">Exakt 1.000 Milliliter. Weitere Umrechnungen: 1 Liter = 10 Deziliter (dl) = 100 Zentiliter (cl) = 1.000 Milliliter (ml). Ein Kubikmeter (m³) enthält 1.000 Liter.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist ein Fluid Ounce?</div><div class="faq-a">Ein US Fluid Ounce (fl oz) = 29,5735 Milliliter. In britischen Maßen gilt 1 UK fl oz = 28,4131 ml. Fluid Ounce wird vor allem bei Kosmetikprodukten, Getränken und US-amerikanischen Rezepten verwendet.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/laengen-rechner.html" class="related-link">Längen-Rechner</a><a href="/gewicht-rechner.html" class="related-link">Gewicht-Rechner</a><a href="/flaechen-rechner.html" class="related-link">Flächen-Rechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Übersicht</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">Längen umrechnen</a><a href="/temperatur-rechner.html">Temperatur umrechnen</a><a href="/gewicht-rechner.html">Gewicht umrechnen</a><a href="/flaechen-rechner.html">Fläche umrechnen</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutzerklärung</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gewähr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>

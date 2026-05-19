@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4F3BY02EFW");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tilgungsrechner — Kreditrate, Restschuld und Tilgungsplan berechnen | FastRechnen.de</title>
+<meta name="description" content="Tilgungsrechner: Tilgungsplan für Annuitätendarlehen berechnen. Restschuld nach X Jahren, Zins- und Tilgungsanteil pro Jahr. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/tilgungsrechner">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div></div></nav>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Tilgungsrechner</div>
+    <h1>Tilgungsrechner</h1><p>Vollständigen Tilgungsplan für Ihr Darlehen berechnen — Restschuld, Zinsanteil und Tilgungsanteil pro Jahr.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Tilgungsplan</span><span class="calc-badge">Restschuld</span><span class="calc-badge">Annuitätendarlehen</span></div>
+  </div>
+  <div class="calc-section">    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Darlehensdetails</span><button class="btn btn-secondary btn-sm" onclick="resetT()">Zurücksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Darlehensbetrag</label>
+            <div class="input-wrap"><input type="number" id="t-betrag" value="200000" oninput="calcT()"><span class="input-unit">€</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Sollzinssatz (jährlich)</label>
+            <div class="input-wrap"><input type="number" id="t-zins" value="4.5" step="0.01" min="0" oninput="calcT()"><span class="input-unit">%</span></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Anfängliche Tilgung</label>
+            <div class="input-wrap"><input type="number" id="t-tilg" value="2" step="0.1" min="0.1" oninput="calcT()"><span class="input-unit">% p.a.</span></div>
+            <div class="field-hint">Mindest-Tilgung: 1 %</div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Zinsbindung</label>
+            <div class="input-wrap">
+              <select id="t-bind" onchange="calcT()">
+                <option value="5">5 Jahre</option>
+                <option value="10" selected>10 Jahre</option>
+                <option value="15">15 Jahre</option>
+                <option value="20">20 Jahre</option>
+                <option value="30">30 Jahre</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Monatliche Annuität</div>
+        <div class="result-value" id="tr-rate">€ 0</div>
+        <div class="result-sub" id="tr-sub"></div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Darlehensbetrag</div><div class="result-row-value" id="tr-bet"></div></div>
+        <div class="result-row"><div class="result-row-label">Restschuld nach Zinsbindung</div><div class="result-row-value neg" id="tr-rest"></div></div>
+        <div class="result-row"><div class="result-row-label">Gezahlte Zinsen (Zinsbindung)</div><div class="result-row-value neg" id="tr-zinsen"></div></div>
+        <div class="result-row"><div class="result-row-label">Getilgter Betrag</div><div class="result-row-value pos" id="tr-getilgt"></div></div>
+        <div class="result-row"><div class="result-row-label">Gesamtlaufzeit (ca.)</div><div class="result-row-value" id="tr-lz"></div></div>
+        <div class="result-row"><div class="result-row-label">Gesamtzinsen gesamt</div><div class="result-row-value neg" id="tr-gesamt-z"></div></div>
+      </div>
+    </div>
+    <div style="margin-top:16px">
+      <div style="font-size:12px;font-weight:700;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px">Jahres-Tilgungsplan</div>
+      <div style="overflow:auto;max-height:320px;border:1px solid var(--border);border-radius:var(--radius-md)">
+        <table style="width:100%;border-collapse:collapse;font-size:13px">
+          <thead style="background:var(--bg-secondary);position:sticky;top:0">
+            <tr>
+              <th style="padding:8px 12px;text-align:left;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Jahr</th>
+              <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Rate/Mo.</th>
+              <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Zinsen</th>
+              <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Tilgung</th>
+              <th style="padding:8px 12px;text-align:right;border-bottom:1px solid var(--border);color:var(--text-tertiary);font-size:11px;text-transform:uppercase">Restschuld</th>
+            </tr>
+          </thead>
+          <tbody id="t-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+<script>
+const fmt=n=>'€ '+new Intl.NumberFormat('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));
+const fmtE2=n=>'€ '+new Intl.NumberFormat('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n);
+
+function calcT(){
+  const P=parseFloat(document.getElementById('t-betrag').value)||0;
+  const iz=parseFloat(document.getElementById('t-zins').value)||0;
+  const it=parseFloat(document.getElementById('t-tilg').value)||0;
+  const bind=parseInt(document.getElementById('t-bind').value)||10;
+  const r=iz/100/12;
+  const rate_j=(iz+it)/100;
+  const rate_m=P*rate_j/12;
+  // Laufzeit bis Volltilgung
+  let lz=0;
+  if(iz===0){lz=Math.ceil(P/rate_m/12);}
+  else{lz=Math.ceil(-Math.log(1-P*r/rate_m)/Math.log(1+r)/12);}
+  // Plan
+  let rest=P,total_z=0,total_t=0;
+  let tbody='';
+  const maxJ=Math.min(lz,50);
+  for(let j=1;j<=maxJ;j++){
+    let jz=0,jt=0;
+    for(let m=0;m<12&&rest>0;m++){
+      const mi=rest*r;const mt=Math.min(rate_m-mi,rest);
+      jz+=mi;jt+=mt;rest-=mt;
+    }
+    rest=Math.max(0,rest);
+    total_z+=jz;total_t+=jt;
+    const hi=j<=bind?'background:rgba(0,143,122,.04)':'';
+    const endY=j===bind?` style="border-bottom:2px solid var(--primary)"`:` style="border-bottom:1px solid var(--border)"`;
+    tbody+=`<tr style="${j%2?'background:var(--bg-secondary)':''}">
+      <td${endY} style="padding:7px 12px">${j}${j===bind?' ★':''}</td>
+      <td${endY} style="padding:7px 12px;text-align:right">${fmtE2(rate_m)}</td>
+      <td${endY} style="padding:7px 12px;text-align:right;color:#e53935">${fmt(jz)}</td>
+      <td${endY} style="padding:7px 12px;text-align:right;color:#008f7a">${fmt(jt)}</td>
+      <td${endY} style="padding:7px 12px;text-align:right;font-weight:600">${fmt(rest)}</td>
+    </tr>`;
+  }
+  // Restschuld nach Zinsbindung
+  let rest_bind=P;
+  for(let m=0;m<bind*12&&rest_bind>0;m++){const mi=rest_bind*r;const mt=Math.min(rate_m-mi,rest_bind);rest_bind-=mt;}
+  let total_z_bind=0,total_t_bind=0;
+  let r2=P;
+  for(let m=0;m<bind*12&&r2>0;m++){const mi=r2*r;const mt=Math.min(rate_m-mi,r2);total_z_bind+=mi;total_t_bind+=mt;r2-=mt;}
+  // All-time
+  let r3=P,all_z=0;
+  while(r3>0.01){const mi=r3*r;const mt=Math.min(rate_m-mi,r3);all_z+=mi;r3-=mt;}
+
+  document.getElementById('tr-rate').textContent=fmtE2(rate_m);
+  document.getElementById('tr-sub').textContent='Zinsbindung: '+bind+' Jahre ★ Tilgungsanteil steigt jährlich';
+  document.getElementById('tr-bet').textContent=fmt(P);
+  document.getElementById('tr-rest').textContent=fmt(Math.max(0,rest_bind));
+  document.getElementById('tr-zinsen').textContent=fmt(total_z_bind);
+  document.getElementById('tr-getilgt').textContent=fmt(total_t_bind);
+  document.getElementById('tr-lz').textContent=lz>0?lz+' Jahre':'—';
+  document.getElementById('tr-gesamt-z').textContent=fmt(all_z);
+  document.getElementById('t-tbody').innerHTML=tbody;
+}
+function resetT(){document.getElementById('t-betrag').value=200000;document.getElementById('t-zins').value=4.5;document.getElementById('t-tilg').value=2;document.getElementById('t-bind').value=10;calcT();}
+calcT();
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px"><div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start"><span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span><p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung. Die Ergebnisse sind Näherungswerte und ersetzen keine professionelle Beratung.</p></div></div>
+  <section class="article-section"><div class="article-inner"><h2>Tilgungsplan für Immobilienkredite: Was Sie wissen müssen</h2><p>Der <strong>Tilgungsplan</strong> (auch Amortisierungsplan) zeigt, wie sich ein Annuitätendarlehen über die gesamte Laufzeit entwickelt — Jahr für Jahr aufgeschlüsselt nach Zinsanteil, Tilgungsanteil und Restschuld. Er ist das wichtigste Werkzeug für eine fundierte Immobilienfinanzierung.</p>
+
+<h3>Was ist ein Annuitätendarlehen?</h3>
+<p>Bei einem Annuitätendarlehen bleibt die monatliche Rate (Annuität) über die Zinsbindungszeit konstant. Am Anfang ist der Zinsanteil hoch und der Tilgungsanteil niedrig. Weil die Restschuld mit jeder Zahlung sinkt, fällt auch der Zinsanteil — und der Tilgungsanteil steigt automatisch. Dieses "Scherenprinzip" bewirkt, dass die Tilgung gegen Ende der Laufzeit deutlich beschleunigt wird.</p>
+
+<h3>Anfangstilgung: Wie viel ist sinnvoll?</h3>
+<p>Die anfängliche Tilgung sollte mindestens 2 Prozent betragen. Bei einer Tilgung von nur 1 Prozent und 4,5 % Zinsen dauert die vollständige Entschuldung rund 50 Jahre — deutlich zu lang für die meisten Finanzierungskonzepte. Bei 2 % Anfangstilgung verkürzt sich die Laufzeit auf rund 28 Jahre; bei 3 % auf etwa 22 Jahre.</p>
+
+<h3>Zinsbindung und Anschlussfinanzierung</h3>
+<p>Die Zinsbindung legt den Zinssatz für einen festen Zeitraum (meist 5–20 Jahre) fest. Nach Ablauf muss eine Anschlussfinanzierung zu dann geltenden Marktzinsen abgeschlossen werden. Im Tilgungsplan ist die Restschuld nach Zinsbindungsende entscheidend — sie zeigt das Refinanzierungsrisiko. Hohe Anfangstilgung reduziert die Restschuld und damit das Risiko.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>Häufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Unterschied zwischen Tilgung und Amortisation?</div><div class="faq-a">Tilgung bezeichnet die laufende Rückzahlung des Darlehens. Amortisation ist der Gesamtprozess bis zur vollständigen Entschuldung. Bei einem Annuitätendarlehen steigt der Tilgungsanteil jährlich, weil die Zinsbelastung mit sinkender Restschuld abnimmt.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Lohnen sich Sondertilgungen?</div><div class="faq-a">Ja, fast immer. Jede Sondertilgung reduziert die Restschuld und damit die künftigen Zinsen. Bei einem 200.000 € Darlehen mit 4,5 % Zinsen spart eine Sondertilgung von 10.000 Euro im zweiten Jahr rund 3.500 € Gesamtzinsen und verkürzt die Laufzeit um über ein Jahr.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist die Anschlussfinanzierung?</div><div class="faq-a">Nach Ablauf der Zinsbindungsfrist (meist 5–15 Jahre) muss das Restdarlehen zu neuen Konditionen refinanziert werden. Sind die Zinsen gestiegen, steigt die monatliche Rate. Wer früh umschuldet (Forward-Darlehen bis zu 36 Monate vor Ablauf), kann günstige Konditionen sichern.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viel Eigenkapital braucht man für eine Immobilie?</div><div class="faq-a">Als Faustregel gilt: mindestens 20 % des Kaufpreises als Eigenkapital plus Kaufnebenkosten (Grunderwerbsteuer 3,5–6,5 %, Notar ca. 1,5 %, Makler 0–3,57 %). Wer weniger Eigenkapital mitbringt, zahlt höhere Zinsen (Risikoaufschlag) und braucht länger zur Entschuldung.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/kreditrechner.html" class="related-link">Kreditrechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a><a href="/sparplanrechner.html" class="related-link">Sparplan-Rechner</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Übersicht</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">Längen umrechnen</a><a href="/temperatur-rechner.html">Temperatur umrechnen</a><a href="/gewicht-rechner.html">Gewicht umrechnen</a><a href="/flaechen-rechner.html">Fläche umrechnen</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutzerklärung</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gewähr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+</body>
+</html>
