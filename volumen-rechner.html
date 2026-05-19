@@ -16,7 +16,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Volumen-Rechner</div>
@@ -77,7 +97,18 @@ function sv(u,v){ca();document.getElementById(u).value=v;conv(u,v);}
 <section class="faq-section"><div class="faq-inner"><h2>Häufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Unterschied zwischen US-Gallone und UK-Gallone?</div><div class="faq-a">Eine US-Gallone entspricht 3,785 Litern, eine britische (Imperial) Gallone dagegen 4,546 Litern. Der Unterschied von rund 20 Prozent ist relevant beim Vergleich von Kraftstoffverbrauchsangaben amerikanischer und britischer Fahrzeuge.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viel Milliliter sind ein Liter?</div><div class="faq-a">Exakt 1.000 Milliliter. Weitere Umrechnungen: 1 Liter = 10 Deziliter (dl) = 100 Zentiliter (cl) = 1.000 Milliliter (ml). Ein Kubikmeter (m³) enthält 1.000 Liter.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist ein Fluid Ounce?</div><div class="faq-a">Ein US Fluid Ounce (fl oz) = 29,5735 Milliliter. In britischen Maßen gilt 1 UK fl oz = 28,4131 ml. Fluid Ounce wird vor allem bei Kosmetikprodukten, Getränken und US-amerikanischen Rezepten verwendet.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/laengen-rechner.html" class="related-link">Längen-Rechner</a><a href="/gewicht-rechner.html" class="related-link">Gewicht-Rechner</a><a href="/flaechen-rechner.html" class="related-link">Flächen-Rechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Übersicht</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">Längen umrechnen</a><a href="/temperatur-rechner.html">Temperatur umrechnen</a><a href="/gewicht-rechner.html">Gewicht umrechnen</a><a href="/flaechen-rechner.html">Fläche umrechnen</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutzerklärung</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gewähr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Übersicht</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">Längen umrechnen</a><a href="/temperatur-rechner.html">Temperatur umrechnen</a><a href="/gewicht-rechner.html">Gewicht umrechnen</a><a href="/flaechen-rechner.html">Fläche umrechnen</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gewähr</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

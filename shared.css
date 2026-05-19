@@ -220,3 +220,24 @@ input[type=range]::-webkit-slider-thumb:active{cursor:grabbing;transform:scale(1
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 @keyframes resultPop{0%{transform:scale(.95);opacity:.7}100%{transform:scale(1);opacity:1}}
 @media(max-width:640px){.nav-links{display:none}.home-hero h1{font-size:34px}.result-value{font-size:36px}}
+/* ── MOBILE NAV ── */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;border-radius:var(--radius-xs)}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--text-primary);border-radius:2px;transition:all .25s cubic-bezier(.4,0,.2,1)}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+.nav-mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:99;backdrop-filter:blur(2px)}
+.nav-mobile-overlay.open{display:block}
+
+.nav-mobile-menu{position:fixed;top:0;right:0;height:100vh;width:min(280px,80vw);background:var(--bg);z-index:101;padding:72px 0 32px;box-shadow:-8px 0 32px rgba(0,0,0,.12);transform:translateX(100%);transition:transform .3s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column}
+.nav-mobile-menu.open{transform:translateX(0)}
+.nav-mobile-menu a{display:flex;align-items:center;font-size:16px;font-weight:500;color:var(--text-primary);text-decoration:none;padding:14px 24px;border-bottom:1px solid var(--border);transition:background var(--t),color var(--t)}
+.nav-mobile-menu a:hover,.nav-mobile-menu a:active{background:var(--primary-xlight);color:var(--primary)}
+.nav-mobile-menu a.active{color:var(--primary);font-weight:700;background:var(--primary-xlight)}
+.nav-mobile-menu-footer{margin-top:auto;padding:20px 24px;font-size:12px;color:var(--text-tertiary)}
+
+@media(max-width:640px){
+  .nav-links{display:none!important}
+  .nav-hamburger{display:flex}
+}

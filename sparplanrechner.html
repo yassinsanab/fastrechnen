@@ -19,7 +19,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Sparplan-Rechner</div>
@@ -174,7 +194,18 @@ calc();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie viel sollte ich monatlich sparen?</div><div class="faq-a">Als Faustregel empfehlen Finanzberater, mindestens 10–20% des Nettoeinkommens zu sparen. Dabei gilt: Zuerst einen Notgroschen von 3 Monatsgehältern aufbauen, dann langfristig in ETF-Sparpläne investieren. Selbst kleine Beträge von 50–100 Euro monatlich machen über 20–30 Jahre einen großen Unterschied.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist ein ETF-Sparplan?</div><div class="faq-a">Ein ETF-Sparplan ist ein automatischer regelmäßiger Kauf von ETF-Anteilen (Exchange Traded Funds). ETFs bilden einen Börsenindex nach — z.B. den MSCI World mit über 1.500 Unternehmen. Monatliche Sparpläne gibt es bei vielen Direktbanken und Brokern ab 25 Euro, oft ohne Ausgabeaufschlag.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Welche Rendite kann ich realistisch erwarten?</div><div class="faq-a">Historisch hat ein global diversifizierter Aktien-ETF (MSCI World) etwa 7–9 % jährlich erzielt (vor Steuern und Inflation). Für Berechnungen verwenden viele Finanzplaner konservative 5–7 %. Beachten Sie: Vergangene Renditen garantieren keine zukünftigen Ergebnisse, und zwischenzeitliche Kursverluste von 30–50 % sind möglich.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wann sollte ich mit dem Sparen beginnen?</div><div class="faq-a">Sofort. Der wichtigste Faktor beim Vermögensaufbau ist Zeit. Wer mit 25 Jahren beginnt, 200 Euro monatlich bei 7 % zu sparen, hat mit 65 Jahren etwa 528.000 Euro. Wer erst mit 35 beginnt, kommt nur auf etwa 243.000 Euro — trotz gleicher Sparrate. Die 10 Jahre früher sind fast 285.000 Euro wert.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie funktioniert Cost-Average beim Sparplan?</div><div class="faq-a">Beim regelmäßigen Kauf kauft man bei hohen Kursen weniger Anteile, bei niedrigen Kursen mehr — der Durchschnittskosteneffekt (Cost Average). Über lange Zeiträume kann dies das Risiko ungünstiger Einmalanlage-Zeitpunkte reduzieren. Wichtig: Der Effekt bedeutet nicht automatisch höhere Rendite als eine Einmalanlage.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Muss ich Steuern auf Sparplan-Gewinne zahlen?</div><div class="faq-a">Ja. Kursgewinne und Dividenden unterliegen der Abgeltungsteuer (26,375% inkl. Soli). Bei ETF-Sparplänen gilt seit der Investmentsteuerreform 2018 die "Vorabpauschale" als jährliche Mindestbesteuerung bei thesaurierenden ETFs. Der Freistellungsauftrag von 1.000 Euro (2.000 bei Ehepaaren) sollte bei Ihrer Bank eingerichtet werden.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Brutto- und Netto-Rendite beim Sparplan?</div><div class="faq-a">Die Brutto-Rendite ist die nominale Rendite vor Steuern und Kosten. Die Netto-Rendite nach Abgeltungsteuer (26,375%) und nach Abzug der ETF-Kosten (TER) kann deutlich niedriger sein. Bei langfristigen Aktien-ETF-Sparplänen macht die Steuerlatenz (Steuern erst beim Verkauf) einen erheblichen Vorteil gegenüber jährlich besteuerten Produkten aus.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/zinseszinsrechner.html" class="related-link">Zinseszins-Rechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

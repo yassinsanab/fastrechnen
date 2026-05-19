@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4F3BY02EFW");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Heiratsvorteil-Rechner — Steuerersparnis durch Ehegattensplitting berechnen | FastRechnen.de</title>
+<meta name="description" content="Heiratsvorteil berechnen: Wie viel Steuern sparen Sie durch das Ehegattensplitting? Vergleich ledig vs. verheiratet mit konkreten Euro-Beträgen. Kostenlos.">
+<link rel="canonical" href="https://fastrechnen.de/heiratsvorteil-rechner">
+<meta property="og:title" content="Heiratsvorteil-Rechner — Steuerersparnis durch Ehegattensplitting berechnen">
+<meta property="og:description" content="Heiratsvorteil berechnen: Wie viel Steuern sparen Sie durch das Ehegattensplitting? Vergleich ledig vs. verheiratet mit konkreten Euro-Beträgen. Kostenlos.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Heiratsvorteil-Rechner — Steuerersparnis durch Ehegattensplitting berechnen","description":"Heiratsvorteil berechnen: Wie viel Steuern sparen Sie durch das Ehegattensplitting? Vergleich ledig vs. verheiratet mit konkreten Euro-Beträgen. Kostenlos.","url":"https://fastrechnen.de/heiratsvorteil-rechner","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"de"}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div><button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü"><span></span><span></span><span></span></button></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/">Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Heiratsvorteil-Rechner</div>
+    <h1>Heiratsvorteil-Rechner</h1><p>Berechnen Sie die jährliche Steuerersparnis durch das Ehegattensplitting — sofort als Euro-Betrag.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Ehegattensplitting</span><span class="calc-badge">Steuerersparnis</span><span class="calc-badge">Vergleich ledig/verheiratet</span></div>
+  </div>
+  <div class="calc-section">    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Einkommen beider Partner</span><button class="btn btn-secondary btn-sm" onclick="resetH()">Zurücksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Einkommen Partner 1 (brutto p.a.)</label>
+            <div class="input-wrap"><input type="number" id="h-p1" value="70000" oninput="calcH()"><span class="input-unit">€</span></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Einkommen Partner 2 (brutto p.a.)</label>
+            <div class="input-wrap"><input type="number" id="h-p2" value="30000" oninput="calcH()"><span class="input-unit">€</span></div>
+            <div class="field-hint">0 = Partner nicht berufstätig</div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Kirchensteuer</label>
+            <div class="input-wrap"><select id="h-kist" onchange="calcH()">
+              <option value="0">Keine Kirchensteuer</option>
+              <option value="9">9 % (alle Länder außer BY/BW)</option>
+              <option value="8">8 % (Bayern und Baden-Württemberg)</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Werbungskosten gesamt</label>
+            <div class="input-wrap"><input type="number" id="h-wk" value="1230" oninput="calcH()"><span class="input-unit">€</span></div>
+            <div class="field-hint">Mindest-Pauschbetrag: 1.230 €</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Steuerersparnis durch Heirat pro Jahr</div>
+        <div class="result-value" id="hr-ersparnis" style="color:var(--primary)">€ 0</div>
+        <div class="result-sub" id="hr-sub">Das Splitting macht sich bezahlt</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px">
+        <div style="background:rgba(229,57,53,.05);border:1px solid rgba(229,57,53,.2);border-radius:var(--radius-md);padding:16px">
+          <div style="font-size:11px;font-weight:700;color:#c62828;text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">Ledig (getrennte Veranlagung)</div>
+          <div class="result-row" style="background:white"><div class="result-row-label">Partner 1 ESt.</div><div class="result-row-value neg" id="hr-p1-ledig"></div></div>
+          <div class="result-row" style="background:white;margin-top:6px"><div class="result-row-label">Partner 2 ESt.</div><div class="result-row-value neg" id="hr-p2-ledig"></div></div>
+          <div class="result-row" style="background:white;margin-top:6px;border-top:2px solid rgba(229,57,53,.2)"><div class="result-row-label"><strong>Gesamt ledig</strong></div><div class="result-row-value neg" id="hr-ledig-ges"></div></div>
+        </div>
+        <div style="background:var(--primary-xlight);border:1px solid rgba(0,143,122,.2);border-radius:var(--radius-md);padding:16px">
+          <div style="font-size:11px;font-weight:700;color:var(--primary-dark);text-transform:uppercase;letter-spacing:.06em;margin-bottom:12px">Verheiratet (Splitting-Verfahren)</div>
+          <div class="result-row" style="background:white"><div class="result-row-label">Gemeinsame ESt.</div><div class="result-row-value neg" id="hr-verheiratet-est"></div></div>
+          <div class="result-row" style="background:white;margin-top:6px"><div class="result-row-label">Solidaritätszuschlag</div><div class="result-row-value neg" id="hr-soli"></div></div>
+          <div class="result-row" style="background:white;margin-top:6px;border-top:2px solid rgba(0,143,122,.2)"><div class="result-row-label"><strong>Gesamt verheiratet</strong></div><div class="result-row-value pos" id="hr-verheiratet-ges"></div></div>
+        </div>
+      </div>
+      <div style="background:linear-gradient(135deg,var(--primary),var(--primary-hover));border-radius:var(--radius-md);padding:16px 20px;margin-top:14px;color:#fff;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div style="font-size:14px;font-weight:600">Jährliche Steuerersparnis durch Ehegattensplitting</div>
+        <div style="font-size:28px;font-weight:800;letter-spacing:-.5px" id="hr-ersparnis2">€ 0</div>
+      </div>
+      <p class="result-disclaimer">Berechnung nach §32a Abs. 5 EStG (Splitting-Tarif) und Grundfreibetrag 12.348 € (2026). Kinderfreibeträge, bAV und Sonderausgaben nicht berücksichtigt. Nur zur Orientierung.</p>
+    </div>
+<script>
+const fmt=n=>'€ '+new Intl.NumberFormat('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));
+
+function estCalc(zvE){
+  const GFB=12348;
+  if(zvE<=GFB)return 0;
+  let est=0;
+  if(zvE<=17005){const y=(zvE-GFB)/10000;est=(922.98*y+1400)*y;}
+  else if(zvE<=66760){const y=(zvE-17005)/10000;est=(181.19*y+2397)*y+1025.38;}
+  else if(zvE<=277825){est=0.42*zvE-10602.13;}
+  else{est=0.45*zvE-18936.88;}
+  return Math.max(0,est);
+}
+
+function calcH(){
+  const p1=parseFloat(document.getElementById('h-p1').value)||0;
+  const p2=parseFloat(document.getElementById('h-p2').value)||0;
+  const kist_s=parseFloat(document.getElementById('h-kist').value)/100;
+  const wk=Math.max(1230,parseFloat(document.getElementById('h-wk').value)||1230);
+  // zvE pro Person: Brutto - WKP
+  const zvE1=Math.max(0,p1-wk);
+  const zvE2=Math.max(0,p2-wk);
+
+  // Ledig
+  const est1=estCalc(zvE1);
+  const est2=estCalc(zvE2);
+  const soli1=est1>40700?est1*0.055:0;
+  const soli2=est2>40700?est2*0.055:0;
+  const kist1=est1*kist_s;const kist2=est2*kist_s;
+  const ledig_ges=est1+est2+soli1+soli2+kist1+kist2;
+
+  // Splitting: gemeinsames zvE halbiert, ESt verdoppelt
+  const zvE_split=(zvE1+zvE2)/2;
+  const est_split=estCalc(zvE_split)*2;
+  const soli_split=est_split>40700?est_split*0.055:0;
+  const kist_split=est_split*kist_s;
+  const verheiratet_ges=est_split+soli_split+kist_split;
+
+  const ersparnis=Math.max(0,ledig_ges-verheiratet_ges);
+
+  document.getElementById('hr-ersparnis').textContent=fmt(ersparnis);
+  document.getElementById('hr-ersparnis2').textContent=fmt(ersparnis);
+  document.getElementById('hr-sub').textContent=ersparnis>0?
+    'Monatliche Ersparnis: '+fmt(ersparnis/12)+' • in 10 Jahren: '+fmt(ersparnis*10) :
+    'Bei gleichen Einkommen gibt es keinen Splittingvorteil';
+  document.getElementById('hr-p1-ledig').textContent='- '+fmt(est1+soli1+kist1);
+  document.getElementById('hr-p2-ledig').textContent='- '+fmt(est2+soli2+kist2);
+  document.getElementById('hr-ledig-ges').textContent='- '+fmt(ledig_ges);
+  document.getElementById('hr-verheiratet-est').textContent='- '+fmt(est_split);
+  document.getElementById('hr-soli').textContent=soli_split>0?'- '+fmt(soli_split):'€ 0';
+  document.getElementById('hr-verheiratet-ges').textContent='- '+fmt(verheiratet_ges);
+}
+function resetH(){document.getElementById('h-p1').value=70000;document.getElementById('h-p2').value=30000;document.getElementById('h-kist').value=0;document.getElementById('h-wk').value=1230;calcH();}
+calcH();
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px"><div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start"><span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span><p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung und ersetzt keine professionelle Steuer- oder Finanzberatung.</p></div></div>
+  <section class="article-section"><div class="article-inner"><h2>Ehegattensplitting: Wie Deutschland Ehepaare steuerlich begünstigt</h2><p>Das <strong>Ehegattensplitting</strong> ist eine der wichtigsten steuerlichen Regelungen für Ehepaare und eingetragene Lebenspartnerschaften in Deutschland. Es basiert auf der Idee, dass Ehepaare eine wirtschaftliche Gemeinschaft bilden und daher gemeinsam veranlagt werden sollten. Das Ergebnis: Besonders bei stark unterschiedlichen Einkommen entstehen erhebliche Steuerersparnisse.</p>
+
+<h3>Wie funktioniert das Splitting-Verfahren?</h3>
+<p>Beim Ehegattensplitting wird das gemeinsame zu versteuernde Einkommen beider Partner addiert, halbiert, die Einkommensteuer auf den halbierten Betrag berechnet und dann wieder verdoppelt. Weil der Steuertarif progressiv ist, zahlt man auf zwei mal den halben Betrag weniger Steuer als auf den vollen Betrag. Der Splittingvorteil ist maximal, wenn ein Partner gar nichts verdient — dann beträgt er mehrere tausend Euro jährlich.</p>
+
+<h3>Wer profitiert am meisten?</h3>
+<p>Der Splittingvorteil ist umso größer, je weiter die Einkommen der Partner auseinanderliegen. Bei einem Ehepaar mit 80.000 Euro und 20.000 Euro Jahreseinkommen beträgt der Vorteil rund 3.000–4.000 Euro jährlich. Verdienen beide genau gleich viel, gibt es keinen Splittingvorteil — die getrennte Veranlagung führt zum selben Ergebnis.</p>
+
+<h3>Splitting und Steuerklasse</h3>
+<p>Die Steuerklassenwahl (III/V oder IV/IV) beeinflusst nur den monatlichen Vorabzug der Lohnsteuer, nicht die Jahressteuerschuld. Die tatsächliche Jahressteuerlast ist bei beiden Kombinationen identisch — der Unterschied wird im Rahmen der Steuererklärung ausgeglichen. Für das Elterngeld ist die Steuerklasse dagegen sehr relevant, da es sich nach dem Nettoeinkommen vor der Geburt richtet.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>Häufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Gilt das Splitting auch für eingetragene Lebenspartnerschaften?</div><div class="faq-a">Ja. Seit einem Urteil des Bundesverfassungsgerichts von 2013 und der Öffnung der Ehe für gleichgeschlechtliche Paare 2017 gilt das Ehegattensplitting für alle Ehepaare und eingetragenen Lebenspartnerschaften gleichermaßen.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wann lohnt sich die Zusammenveranlagung nicht?</div><div class="faq-a">Wenn beide Partner fast gleich viel verdienen, ist der Splittingvorteil gering oder null. Zudem kann es Situationen geben, in denen getrennte Veranlagung vorteilhafter ist — z.B. wenn ein Partner hohe außergewöhnliche Belastungen hat, die bei getrennter Veranlagung einen größeren steuerlichen Effekt haben.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Unterschied zwischen Steuerklasse III/V und IV/IV?</div><div class="faq-a">Beide Kombinationen führen zur gleichen Jahressteuerlast. Der Unterschied liegt im monatlichen Vorabzug: III/V führt zu weniger Lohnsteuer für den III-Partner und mehr für den V-Partner. IV/IV verteilt die Last gleichmäßiger. Das Risiko bei III/V: hohe Nachzahlungen am Jahresende.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Hat das Ehegattensplitting Nachteile?</div><div class="faq-a">Kritiker sehen im Splitting einen Anreiz, dass der weniger verdienende Partner weniger arbeitet — weil der Grenzsteuersatz auf das erste zu versteuernde Euro des zweiten Einkommens bereits auf dem hohen Niveau des ersten Einkommens beginnt. Die Bundesregierung diskutiert Reformen, aber das Splitting ist verfassungsrechtlich geschützt.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/ratgeber/steuerklasse-3-oder-4.html" class="related-link">Steuerklasse 3 oder 4?</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>33 kostenlose Rechner für Deutschland.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Neu</h4><a href="/selbststaendigen-steuerrechner.html">Steuer Selbstständige</a><a href="/heiratsvorteil-rechner.html">Heiratsvorteil</a><a href="/miete-vs-kauf-rechner.html">Miete vs. Kauf</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gewähr</span></div></div></footer>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+function tF(el){el.parentElement.classList.toggle('open');}
+</script>
+</body>
+</html>

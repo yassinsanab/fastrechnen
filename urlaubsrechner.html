@@ -20,7 +20,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Urlaubsrechner</div><h1>Urlaubsrechner</h1><p>Berechnen Sie Ihren Urlaubsanspruch, Resturlaub bei Ausscheiden und die Urlaubsabgeltung.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Bundesurlaubsgesetz</span><span class="calc-badge">Urlaubsabgeltung</span><span class="calc-badge">Anteiliger Anspruch</span></div></div>
   <div class="calc-section">
@@ -131,7 +151,18 @@ calc();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie viele Urlaubstage stehen mir gesetzlich zu?</div><div class="faq-a">Das Bundesurlaubsgesetz (BUrlG) sieht bei einer Fünf-Tage-Woche mindestens 20 Arbeitstage Urlaub pro Jahr vor (24 Werktage bei einer Sechs-Tage-Woche). Die meisten Arbeitnehmer haben durch Tarifvertrag oder Arbeitsvertrag 25–30 Tage. Bei weniger Arbeitstagen pro Woche reduziert sich der Anspruch proportional.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann ich Urlaub ins nächste Jahr übertragen?</div><div class="faq-a">Ja, aber nur unter bestimmten Voraussetzungen. Urlaub kann auf das Folgejahr übertragen werden, wenn dringende betriebliche oder persönliche Gründe vorliegen. In diesem Fall verfällt er am 31. März des Folgejahres, nicht schon am 31. Dezember. Bei dauerhafter Erkrankung gilt eine 15-Monats-Frist (EuGH-Rechtsprechung).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was passiert mit dem Resturlaub bei Kündigung?</div><div class="faq-a">Urlaub, der bis zum Ende des Arbeitsverhältnisses nicht genommen werden kann, muss abgegolten werden. Die Abgeltung unterliegt der normalen Lohnsteuer und Sozialversicherung. Eine Abgeltung statt Freistellung vor Ablauf der Kündigungsfrist ist nicht möglich — die Freistellung geht vor.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie wird der anteilige Urlaubsanspruch berechnet?</div><div class="faq-a">Bei Einstellung während des Jahres oder Kündigung: 1/12 des Jahresurlaubs pro vollständigem Beschäftigungsmonat. Bei einem Jahresurlaub von 30 Tagen und 7 Monaten Betriebszugehörigkeit ergibt sich ein Anspruch von 17,5 Tagen (7/12 × 30), aufgerundet auf 18 Tage.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Darf der Arbeitgeber Urlaub ablehnen?</div><div class="faq-a">Der Arbeitgeber kann Urlaubswünsche nur aus dringenden betrieblichen Gründen oder wegen bereits bewilligten Urlaubs anderer Mitarbeiter ablehnen. Er kann Urlaubszeiträume jedoch nicht dauerhaft blockieren — der Arbeitnehmer hat das Recht, seinen Urlaub tatsächlich nehmen zu können.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Erholungsurlaub und Sonderurlaub?</div><div class="faq-a">Erholungsurlaub ist der regelmäßige bezahlte Jahresurlaub nach BUrlG. Sonderurlaub wird für besondere Anlässe gewährt (Hochzeit, Geburt, Todesfall in der Familie, Umzug). Der Anspruch auf Sonderurlaub ergibt sich aus Tarifvertrag, Betriebsvereinbarung oder Einzelvereinbarung — gesetzlich verpflichtend ist nur weniges.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gibt es auch Urlaub für Minijobber?</div><div class="faq-a">Ja. Auch geringfügig Beschäftigte (Minijobber) haben einen gesetzlichen Urlaubsanspruch, der proportional zu ihrer Arbeitszeit berechnet wird. Wer einmal pro Woche arbeitet, hat Anspruch auf 4 Urlaubstage (20 Tage × 1/5). Viele Arbeitgeber vergessen dies — bei Beendigung des Minijobs kann der Urlaub nachträglich abgegolten werden.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/abfindungsrechner.html" class="related-link">Abfindungsrechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

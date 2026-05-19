@@ -16,7 +16,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Gehaltsrechner</div>
@@ -157,7 +177,18 @@ function resetG(){['g-jahr','g-monat','g-tag','g-std-lohn'].forEach(id=>document
 <section class="faq-section"><div class="faq-inner"><h2>Häufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie rechne ich Jahresgehalt in Stundengehalt um?</div><div class="faq-a">Formel: Stundengehalt = Jahresgehalt ÷ (Arbeitstage/Jahr × Stunden/Tag). Bei 42.000 € Jahresgehalt, 220 Arbeitstagen und 8 Stunden: 42.000 ÷ (220 × 8) = 23,86 €/Stunde.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Warum weicht mein Monatsgehalt vom Jahresgehalt ÷ 12 ab?</div><div class="faq-a">Bei manchen Arbeitgebern wird ein 13. Monatsgehalt oder Weihnachtsgeld als separater Bestandteil des Jahresgehalts ausgezahlt. Dann ergibt Jahresgehalt ÷ 13 das monatliche Basisgehalt. Prüfen Sie Ihren Arbeitsvertrag, ob Sonderzahlungen enthalten sind.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was gilt als Mindestlohn im Stundengehalt?</div><div class="faq-a">Der gesetzliche Mindestlohn beträgt ab Januar 2026 genau 13,90 Euro pro Stunde brutto. Bei einer 40-Stunden-Woche entspricht das einem Monatsgehalt von rund 2.407 Euro brutto oder einem Jahresgehalt von etwa 28.880 Euro.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viele Stunden arbeitet man im Jahr in Deutschland?</div><div class="faq-a">Bei einer 40-Stunden-Woche, 30 Urlaubstagen und 10 Feiertagen ergibt sich eine jährliche Arbeitszeit von rund 1.720 Stunden. Ein Arbeitstag mit 8 Stunden und 220 Arbeitstagen ergibt 1.760 Stunden. Der Durchschnitt in Deutschland liegt bei etwa 1.700 bis 1.800 Stunden.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/ratgeber/mindestlohn-2026.html" class="related-link">Mindestlohn 2026</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Übersicht</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">Längen umrechnen</a><a href="/temperatur-rechner.html">Temperatur umrechnen</a><a href="/gewicht-rechner.html">Gewicht umrechnen</a><a href="/flaechen-rechner.html">Fläche umrechnen</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutzerklärung</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gewähr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Übersicht</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">Längen umrechnen</a><a href="/temperatur-rechner.html">Temperatur umrechnen</a><a href="/gewicht-rechner.html">Gewicht umrechnen</a><a href="/flaechen-rechner.html">Fläche umrechnen</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gewähr</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

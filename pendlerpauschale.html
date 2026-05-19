@@ -20,7 +20,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Pendlerpauschale Rechner</div><h1>Pendlerpauschale Rechner</h1><p>Berechnen Sie Ihre absetzbaren Fahrtkosten zur Arbeit — 0,30 €/km (bis 20 km) und 0,38 €/km (ab 21 km).</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">0,38 € ab 21. km</span><span class="calc-badge">Steuerersparnis</span><span class="calc-badge">Aktuell gepflegt</span></div></div>
   <div class="calc-section">
@@ -124,7 +144,18 @@ calc();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch ist die Pendlerpauschale?</div><div class="faq-a">Die Entfernungspauschale beträgt 0,30 Euro je Kilometer für die ersten 20 Kilometer und 0,38 Euro ab dem 21. Kilometer. Nur die einfache Entfernung (nicht hin und zurück) wird berücksichtigt. Die erhöhte Pauschale ab 21 km gilt befristet bis Ende 2026.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gilt die Pendlerpauschale auch für ÖPNV-Nutzer?</div><div class="faq-a">Ja. Die Entfernungspauschale gilt unabhängig vom Verkehrsmittel. ÖPNV-Nutzer können alternativ ihre tatsächlichen Kosten absetzen, wenn diese höher sind als die Entfernungspauschale. Das ist z.B. bei teuren Bahntickets in Ballungsräumen relevant.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was gilt für Homeoffice-Tage?</div><div class="faq-a">Für Homeoffice-Tage kann keine Entfernungspauschale beansprucht werden. Stattdessen gibt es die Homeoffice-Pauschale von 6 Euro pro Tag (ab 2023), maximal 1.260 Euro jährlich (210 Tage). Sie wird automatisch in der Steuererklärung zusammen mit der Pendlerpauschale für Bürotage berücksichtigt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ab wann lohnt sich die Steuererklärung für Pendler?</div><div class="faq-a">Werbungskosten (inkl. Pendlerpauschale) müssen den Arbeitnehmer-Pauschbetrag von 1.230 Euro übersteigen, damit sich die Einzelaufführung lohnt. Bei 10 km Entfernung und 220 Arbeitstagen beträgt die Pendlerpauschale bereits 660 Euro — erst in Kombination mit anderen Werbungskosten ergibt sich ein steuerlicher Vorteil.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann ich die Pendlerpauschale als Freibetrag eintragen lassen?</div><div class="faq-a">Ja. Sie können beim Finanzamt einen Lohnsteuerfreibetrag beantragen (Antrag auf Lohnsteuerermäßigung). Wenn Ihre voraussichtlichen Werbungskosten 1.230 Euro übersteigen, wird der Überschuss als Freibetrag eingetragen und die monatliche Lohnsteuer direkt reduziert.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die erste Tätigkeitsstätte?</div><div class="faq-a">Die erste Tätigkeitsstätte ist der Ort, dem ein Arbeitnehmer dauerhaft zugeordnet ist — in der Regel der Betrieb des Arbeitgebers. Nur für Fahrten dorthin gilt die Pendlerpauschale. Für Fahrten zu anderen Einsatzorten gelten die tatsächlichen Fahrtkosten (0,30 Euro/km für alle gefahrenen Kilometer hin und zurück).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wird die Pendlerpauschale 2025 erhöht?</div><div class="faq-a">Die erhöhte Fernpendlerpauschale von 0,38 Euro ab dem 21. Kilometer gilt befristet bis Ende 2026. Nach aktuellem Stand ist keine weitere Erhöhung geplant. Der Grundsatz von 0,30 Euro für die ersten 20 Kilometer bleibt voraussichtlich unverändert.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/urlaubsrechner.html" class="related-link">Urlaubsrechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

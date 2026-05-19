@@ -16,7 +16,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> › Flächen-Rechner</div>
@@ -70,7 +90,18 @@ function sv(u,v){ca();document.getElementById(u).value=v;conv(u,v);}
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie groß ist ein Hektar?</div><div class="faq-a">1 Hektar = 10.000 m² = 100 Ar. Ein Fußballfeld (105 × 68 m) ist ca. 0,71 Hektar (7.140 m²). Ein Hektar entspricht etwa der Fläche eines Blocks von 100 × 100 Metern.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist ein Ar?</div><div class="faq-a">1 Ar (a) = 100 m² = 0,01 Hektar. Das Ar wird in Deutschland hauptsächlich im Grundbuch und für Gartengrundstücke verwendet. Ein kleines Reihenhaus mit Garten hat oft 3–5 Ar.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist ein Acre?</div><div class="faq-a">1 Acre = 4.046,86 m² ≈ 0,4 Hektar. Es ist die wichtigste Flächeneinheit in den USA und UK für Grundstücke und landwirtschaftliche Flächen. Der Acre leitet sich historisch von der Fläche ab, die ein Ochsengespann an einem Tag pflügen konnte.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/laengen-rechner.html" class="related-link">Längen-Rechner</a><a href="/gewicht-rechner.html" class="related-link">Gewicht-Rechner</a><a href="/bmi-rechner.html" class="related-link">BMI-Rechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechner</h4><a href="/altersrechner.html">Altersrechner</a><a href="/datum-rechner.html">Datum</a><a href="/spritkosten-rechner.html">Spritkosten</a><a href="/alle-rechner.html">Alle</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechner</h4><a href="/altersrechner.html">Altersrechner</a><a href="/datum-rechner.html">Datum</a><a href="/spritkosten-rechner.html">Spritkosten</a><a href="/alle-rechner.html">Alle</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr</span></div></div></footer>
 <script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

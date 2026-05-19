@@ -20,7 +20,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Zinseszins-Rechner</div>
@@ -163,7 +183,18 @@ calc();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen einfachem Zins und Zinseszins?</div><div class="faq-a">Einfacher Zins: Zinsen werden immer nur auf das Startkapital berechnet. Zinseszins: Zinsen werden dem Kapital hinzugefügt und ebenfalls verzinst. Bei kleinen Beträgen und kurzen Zeiträumen ist der Unterschied gering. Bei langen Zeiträumen ist er enorm: 10.000 € bei 5 % für 30 Jahre — einfacher Zins: 25.000 €, Zinseszins: 43.219 €.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Regel 72?</div><div class="faq-a">Eine Faustregel zur schnellen Schätzung der Verdoppelungszeit: Zeit (Jahre) ≈ 72 ÷ Zinssatz in %. Bei 6 % Rendite: 72 ÷ 6 = 12 Jahre bis zur Verdoppelung. Die Regel funktioniert gut für Zinssätze zwischen 2 und 15 %.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wirkt der Zinseszins auch negativ (bei Schulden)?</div><div class="faq-a">Ja, und das ist der gefährliche Aspekt: Bei Schulden wächst die Restschuld durch Zinseszins, wenn Zinsen nicht regelmäßig gezahlt werden. Kreditkartenschulden mit 20 % Jahreszins verdoppeln sich so nach der Regel 72 in etwa 3,6 Jahren. Das macht Schulden ohne Tilgungsplan gefährlich.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie häufig werden Zinsen normalerweise gutgeschrieben?</div><div class="faq-a">Tagesgeldkonten schreiben Zinsen meist jährlich gut. Viele Festgeldanlagen gutschreiben Zinsen am Ende der Laufzeit. Einige Anlageprodukte bieten monatliche oder vierteljährliche Zinsgutschrift, was den effektiven Ertrag leicht erhöht. Bei der Vergleich-Kennzahl Effektivzins ist die Gutschriftfrequenz bereits berücksichtigt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Warum ist der Anlagehorizont beim Zinseszins so wichtig?</div><div class="faq-a">Der Zinseszinseffekt wächst nicht linear, sondern exponentiell mit der Zeit. In den ersten Jahren ist der Unterschied zum einfachen Zins kaum spürbar. Nach 10 Jahren wird er merklich, nach 20 Jahren signifikant, nach 30 Jahren dramatisch. Deshalb gilt: Je früher man beginnt zu sparen, desto stärker wirkt der Zinseszinseffekt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie beeinflusst Inflation den Zinseszinseffekt?</div><div class="faq-a">Inflation "frisst" die Zinserträge auf. Bei 4 % Rendite und 3 % Inflation beträgt die reale Rendite nur etwa 1 %. Wer langfristig Vermögen aufbauen möchte, muss eine Rendite erzielen, die die Inflation deutlich übertrifft. Historisch haben breit gestreute Aktienanlagen dies zuverlässiger geleistet als Sparkonten.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Kann ich den Zinseszinsrechner auch für Aktienrenditen nutzen?</div><div class="faq-a">Ja. Geben Sie die erwartete jährliche Rendite als Zinssatz ein. Für einen globalen Aktien-ETF können Sie historische Durchschnittswerte von 7–9 % p.a. verwenden. Beachten Sie: Dies sind Vergangenheitswerte ohne Garantie. Kursschwankungen und Steuern können die tatsächliche Rendite deutlich von der theoretischen Berechnung abweichen.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/sparplanrechner.html" class="related-link">Sparplan-Rechner</a><a href="/zinsrechner.html" class="related-link">Zinsrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

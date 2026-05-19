@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4F3BY02EFW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-4F3BY02EFW");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9119957000963306" crossorigin="anonymous"></script>
+<meta name="google-site-verification" content="HYnCSzRsqtymp8I31qlE4gKl2fGiSBUzCpCAk8IOiQk">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Steuerrechner Selbstständige — Einkommensteuer für Freiberufler berechnen | FastRechnen.de</title>
+<meta name="description" content="Steuerrechner für Selbstständige: Einkommensteuer, Gewerbesteuer und Solidaritätszuschlag für Freiberufler und Gewerbetreibende berechnen. Aktuell 2026.">
+<link rel="canonical" href="https://fastrechnen.de/selbststaendigen-steuerrechner">
+<meta property="og:title" content="Steuerrechner Selbstständige — Einkommensteuer für Freiberufler berechnen">
+<meta property="og:description" content="Steuerrechner für Selbstständige: Einkommensteuer, Gewerbesteuer und Solidaritätszuschlag für Freiberufler und Gewerbetreibende berechnen. Aktuell 2026.">
+<meta property="og:image" content="https://fastrechnen.de/og-image.png">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="shared.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Steuerrechner Selbstständige — Einkommensteuer für Freiberufler berechnen","description":"Steuerrechner für Selbstständige: Einkommensteuer, Gewerbesteuer und Solidaritätszuschlag für Freiberufler und Gewerbetreibende berechnen. Aktuell 2026.","url":"https://fastrechnen.de/selbststaendigen-steuerrechner","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"},"inLanguage":"de"}
+</script>
+</head>
+<body>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">Währung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Übersicht</a></div><button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü"><span></span><span></span><span></span></button></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/">Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
+<main>
+  <div class="calc-hero">
+    <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Steuerrechner für Selbstständige</div>
+    <h1>Steuerrechner für Selbstständige</h1><p>Einkommensteuer, Gewerbesteuer und Solidaritätszuschlag für Freiberufler und Gewerbetreibende berechnen.</p>
+    <div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">Freiberufler & Gewerbe</span><span class="calc-badge">Einkommensteuer</span><span class="calc-badge">Gewerbesteuer</span></div>
+  </div>
+  <div class="calc-section">    <div class="calc-card">
+      <div class="calc-card-header"><span class="calc-card-title">Ihre Angaben</span><button class="btn btn-secondary btn-sm" onclick="resetS()">Zurücksetzen</button></div>
+      <div class="calc-body">
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Art der Tätigkeit</label>
+            <div class="input-wrap"><select id="s-art" onchange="toggleGewerbe()">
+              <option value="freiberufler">Freiberufler (§18 EStG) — keine Gewerbesteuer</option>
+              <option value="gewerbe">Gewerbetreibender (§15 EStG) — mit Gewerbesteuer</option>
+            </select></div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Familienstand</label>
+            <div class="input-wrap"><select id="s-fam" onchange="calcS()">
+              <option value="ledig">Ledig / alleinstehend</option>
+              <option value="verheiratet">Verheiratet / Zusammenveranlagung</option>
+            </select></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Jahresgewinn (nach Betriebsausgaben)</label>
+            <div class="input-wrap"><input type="number" id="s-gewinn" value="60000" oninput="calcS()"><span class="input-unit">€</span></div>
+            <div class="field-hint">Einnahmen minus Betriebsausgaben</div>
+          </div>
+          <div class="field-group" id="s-gst-group">
+            <label class="field-label">Gewerbesteuer-Hebesatz (Gemeinde)</label>
+            <div class="input-wrap"><input type="number" id="s-hebesatz" value="400" min="200" max="900" oninput="calcS()"><span class="input-unit">%</span></div>
+            <div class="field-hint">Ø Deutschland: 400 %. Berlin: 410 %, München: 490 %</div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Krankenversicherung</label>
+            <div class="input-wrap"><select id="s-kv" onchange="calcS()">
+              <option value="gkv">GKV (ca. 16,1 % des Gewinns, max. 1.872 €/Mo.)</option>
+              <option value="pkv">PKV (Monatsbeitrag angeben)</option>
+            </select></div>
+          </div>
+          <div class="field-group" id="s-pkv-group" style="display:none">
+            <label class="field-label">PKV-Monatsbeitrag</label>
+            <div class="input-wrap"><input type="number" id="s-pkv" value="450" oninput="calcS()"><span class="input-unit">€</span></div>
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field-group">
+            <label class="field-label">Rentenbeitrag (monatlich)</label>
+            <div class="input-wrap"><input type="number" id="s-rv" value="0" oninput="calcS()"><span class="input-unit">€</span></div>
+            <div class="field-hint">Freiwillig. Pflichtversicherung bestimmter Berufsgruppen separat prüfen.</div>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Sonstige Sonderausgaben / Freibeträge</label>
+            <div class="input-wrap"><input type="number" id="s-fb" value="0" oninput="calcS()"><span class="input-unit">€</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card">
+      <div class="result-main">
+        <div class="result-label">Einkommensteuer gesamt</div>
+        <div class="result-value" id="sr-est">€ 0</div>
+        <div class="result-sub" id="sr-sub">Effektiver Steuersatz: 0 %</div>
+      </div>
+      <div class="result-grid">
+        <div class="result-row"><div class="result-row-label">Jahresgewinn (brutto)</div><div class="result-row-value" id="sr-gew"></div></div>
+        <div class="result-row"><div class="result-row-label">KV-Beitrag p.a. (abziehbar)</div><div class="result-row-value neg" id="sr-kv"></div></div>
+        <div class="result-row"><div class="result-row-label">Gewerbesteuer</div><div class="result-row-value neg" id="sr-gst"></div></div>
+        <div class="result-row"><div class="result-row-label">Zu versteuerndes Einkommen</div><div class="result-row-value" id="sr-zve"></div></div>
+        <div class="result-row"><div class="result-row-label">Einkommensteuer</div><div class="result-row-value neg" id="sr-est2"></div></div>
+        <div class="result-row"><div class="result-row-label">Solidaritätszuschlag</div><div class="result-row-value neg" id="sr-soli"></div></div>
+        <div class="result-row"><div class="result-row-label">Gesamtabgaben (Steuern + KV)</div><div class="result-row-value neg" id="sr-ges"></div></div>
+        <div class="result-row"><div class="result-row-label">Verbleibendes Nettoeinkommen</div><div class="result-row-value pos" id="sr-netto"></div></div>
+      </div>
+      <p class="result-disclaimer">Vereinfachte Schätzung. Vorauszahlungen, Sonderabschreibungen, Investitionsabzugsbeträge und viele weitere individuelle Faktoren nicht berücksichtigt. Bitte einen Steuerberater konsultieren.</p>
+    </div>
+<script>
+const fmt=n=>'€ '+new Intl.NumberFormat('de-DE',{minimumFractionDigits:0,maximumFractionDigits:0}).format(Math.round(n));
+const fmtP=n=>n.toFixed(1).replace('.',',')+' %';
+
+function toggleGewerbe(){
+  const isGew=document.getElementById('s-art').value==='gewerbe';
+  document.getElementById('s-gst-group').style.display=isGew?'':'none';
+  calcS();
+}
+
+function estBasis(zvE, verheiratet){
+  // §32a EStG 2026, Grundfreibetrag 12.348€
+  const GFB=12348;
+  if(verheiratet) zvE=zvE/2;
+  let est=0;
+  if(zvE<=GFB) est=0;
+  else if(zvE<=17005){const y=(zvE-GFB)/10000;est=(922.98*y+1400)*y;}
+  else if(zvE<=66760){const y=(zvE-17005)/10000;est=(181.19*y+2397)*y+1025.38;}
+  else if(zvE<=277825){est=0.42*zvE-10602.13;}
+  else{est=0.45*zvE-18936.88;}
+  return verheiratet?est*2:est;
+}
+
+function calcS(){
+  const art=document.getElementById('s-art').value;
+  const fam=document.getElementById('s-fam').value;
+  const gewinn=parseFloat(document.getElementById('s-gewinn').value)||0;
+  const hebesatz=parseFloat(document.getElementById('s-hebesatz').value)||400;
+  const kv_art=document.getElementById('s-kv').value;
+  const pkv_mo=parseFloat(document.getElementById('s-pkv').value)||0;
+  const rv_mo=parseFloat(document.getElementById('s-rv').value)||0;
+  const fb=parseFloat(document.getElementById('s-fb').value)||0;
+  const verheiratet=fam==='verheiratet';
+
+  // KV Beitrag
+  let kv_jahr=0;
+  if(kv_art==='gkv'){
+    // Selbstständige zahlen 14,6% + Zusatz ~2,9% = 17,5% aber max 2×BBG-Beitrag
+    const bbg_kv_mo=5812.5;
+    const kv_mo=Math.min(gewinn/12,bbg_kv_mo)*0.175;
+    kv_jahr=kv_mo*12;
+    document.getElementById('s-pkv-group').style.display='none';
+  } else {
+    kv_jahr=pkv_mo*12;
+    document.getElementById('s-pkv-group').style.display='';
+  }
+  const rv_jahr=rv_mo*12;
+
+  // Gewerbesteuer
+  let gst=0;
+  if(art==='gewerbe'){
+    // Steuermessbetrag: Gewerbeertrag - Freibetrag 24.500€ → × 3,5%
+    const messbetrag=Math.max(0,(gewinn-24500)*0.035);
+    gst=messbetrag*(hebesatz/100);
+    // GeSt mindert ESt (§35 EStG): Anrechnung 4,0 × Messbetrag
+    // vereinfacht berücksichtigt unten
+  }
+
+  // Sonderausgaben: KV (vollständig abzugsfähig für Selbstständige)
+  // + RV bis max Vorsorgeaufwendungslimit
+  const rv_abzug=Math.min(rv_jahr, 27566); // 2026 Limit
+  // zvE = Gewinn - KV - RV - GeSt (anteilig) - sonstige FB - Grundfreibetrag wird automatisch berücksichtigt
+  const zvE=Math.max(0, gewinn - kv_jahr - rv_abzug - gst*0.5 - fb);
+
+  const est=estBasis(zvE, verheiratet);
+  // GeSt-Anrechnung §35: 4,0 × Gewerbesteuermessbetrag, max. ESt
+  const messbetrag35=art==='gewerbe'?Math.max(0,(gewinn-24500)*0.035):0;
+  const anrechnung=Math.min(messbetrag35*4.0, est);
+  const est_nach_anrechnung=Math.max(0,est-anrechnung);
+
+  // Soli
+  const soli=est_nach_anrechnung>40700/0.055?est_nach_anrechnung*0.055:0;
+
+  const gesamt_steuer=est_nach_anrechnung+soli+gst;
+  const gesamt_abgaben=gesamt_steuer+kv_jahr+rv_jahr;
+  const netto=gewinn-gesamt_abgaben;
+  const eff_satz=gewinn>0?gesamt_abgaben/gewinn*100:0;
+
+  document.getElementById('sr-est').textContent=fmt(est_nach_anrechnung+soli);
+  document.getElementById('sr-sub').textContent='Effektiver Gesamtabgabensatz: '+fmtP(eff_satz);
+  document.getElementById('sr-gew').textContent=fmt(gewinn);
+  document.getElementById('sr-kv').textContent='- '+fmt(kv_jahr);
+  document.getElementById('sr-gst').textContent=art==='gewerbe'?'- '+fmt(gst):'€ 0 (Freiberufler)';
+  document.getElementById('sr-zve').textContent=fmt(zvE);
+  document.getElementById('sr-est2').textContent='- '+fmt(est_nach_anrechnung);
+  document.getElementById('sr-soli').textContent=soli>0?'- '+fmt(soli):'€ 0 (unter Freigrenze)';
+  document.getElementById('sr-ges').textContent='- '+fmt(gesamt_abgaben);
+  document.getElementById('sr-netto').textContent=fmt(Math.max(0,netto));
+}
+
+document.getElementById('s-kv').addEventListener('change',function(){
+  document.getElementById('s-pkv-group').style.display=this.value==='pkv'?'':'none';calcS();
+});
+function resetS(){
+  document.getElementById('s-art').value='freiberufler';
+  document.getElementById('s-fam').value='ledig';
+  document.getElementById('s-gewinn').value=60000;
+  document.getElementById('s-hebesatz').value=400;
+  document.getElementById('s-kv').value='gkv';
+  document.getElementById('s-pkv').value=450;
+  document.getElementById('s-rv').value=0;
+  document.getElementById('s-fb').value=0;
+  document.getElementById('s-pkv-group').style.display='none';
+  document.getElementById('s-gst-group').style.display='none';
+  calcS();
+}
+toggleGewerbe();
+calcS();
+</script></div>
+<div style="max-width:880px;margin:0 auto;padding:0 24px 18px"><div style="background:#fffbeb;border:1px solid #e8b400;border-radius:10px;padding:11px 16px;display:flex;gap:10px;align-items:flex-start"><span style="color:#b45309;font-size:16px;flex-shrink:0">&#9888;</span><p style="font-size:13px;color:#78350f;margin:0;line-height:1.6"><strong>Wichtiger Hinweis:</strong> Diese Berechnung dient nur zur Orientierung und ersetzt keine professionelle Steuer- oder Finanzberatung.</p></div></div>
+  <section class="article-section"><div class="article-inner"><h2>Steuern für Selbstständige in Deutschland</h2><p>Selbstständige — ob Freiberufler oder Gewerbetreibende — unterliegen in Deutschland einem anderen Steuersystem als Arbeitnehmer. Während Arbeitnehmer durch die Lohnsteuer automatisch abrechnen, müssen Selbstständige ihre Steuerlast selbst im Blick behalten und vierteljährliche Vorauszahlungen leisten.</p>
+
+<h3>Freiberufler vs. Gewerbetreibender: Der entscheidende Unterschied</h3>
+<p>Freiberufler nach §18 EStG (Ärzte, Anwälte, Architekten, IT-Berater, Texter, Künstler) zahlen keine Gewerbesteuer. Gewerbetreibende nach §15 EStG unterliegen dagegen der Gewerbesteuer, können diese aber über §35 EStG anteilig auf die Einkommensteuer anrechnen. Die Anrechnung beträgt das 4,0-fache des Steuermessbetrags — bei einem Hebesatz bis 400 % wird die Gewerbesteuer damit vollständig oder nahezu vollständig erstattet.</p>
+
+<h3>Krankenversicherung als größter Kostenfaktor</h3>
+<p>Selbstständige erhalten keinen Arbeitgeberzuschuss zur Krankenversicherung. In der GKV zahlen sie den vollen Beitrag von rund 17,5 Prozent selbst — das sind bei 60.000 Euro Jahresgewinn rund 7.350 Euro KV-Beitrag pro Jahr. Diese Beiträge sind jedoch als Vorsorgeaufwendungen vollständig steuerlich absetzbar.</p>
+
+<h3>Vierteljährliche Steuervorauszahlungen</h3>
+<p>Selbstständige müssen Einkommensteuer- und Gewerbesteuervorauszahlungen zum 10. März, 10. Juni, 10. September und 10. Dezember leisten. Die Höhe basiert auf dem letzten Steuerbescheid. Es empfiehlt sich, monatlich 30–40 Prozent des Nettogewinns für Steuern und KV zurückzulegen.</p>
+
+<h3>Umsatzsteuer nicht vergessen</h3>
+<p>Dieser Rechner berechnet die Einkommensteuer auf den Gewinn. Umsatzsteuer (19 % auf Honorare und Leistungen, abzüglich Vorsteuer) wird separat über die Umsatzsteuervoranmeldung abgerechnet. Kleinunternehmer mit unter 25.000 Euro Jahresumsatz können die Kleinunternehmerregelung nach §19 UStG nutzen und keine Umsatzsteuer ausweisen.</div></section>
+<section class="faq-section"><div class="faq-inner"><h2>Häufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie unterscheidet sich die Steuer bei Freiberuflern und Gewerbetreibenden?</div><div class="faq-a">Freiberufler zahlen nur Einkommensteuer + Soli. Gewerbetreibende zahlen zusätzlich Gewerbesteuer, können aber über §35 EStG das 4-fache des Steuermessbetrags auf die Einkommensteuer anrechnen. Bei einem Hebesatz von 400 % ist die Gewerbesteuer faktisch neutral für die Gesamtsteuerbelastung.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie hoch ist die Steuer bei 60.000 Euro Gewinn?</div><div class="faq-a">Grob: Bei 60.000 Euro Gewinn, ledig, Freiberufler, GKV: ca. 7.350 Euro KV, zu versteuerndes Einkommen ca. 50.000 Euro, Einkommensteuer ca. 13.000 Euro, Soli 0 Euro (unter Freigrenze). Gesamtabgaben ca. 20.350 Euro, Netto ca. 39.650 Euro.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wann muss ich Steuervorauszahlungen leisten?</div><div class="faq-a">Sobald die Steuerschuld im Vorjahr über 400 Euro betrug. Die Vorauszahlungen sind am 10.03., 10.06., 10.09. und 10.12. fällig. Für das erste Jahr der Selbstständigkeit werden Vorauszahlungen auf Basis der Schätzung festgesetzt.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Kann ich als Selbstständiger in der GKV bleiben?</div><div class="faq-a">Ja. Selbstständige können freiwillig in der GKV versichert bleiben. Sie zahlen jedoch den vollen Beitrag (Arbeitnehmer- und Arbeitgeberanteil zusammen ca. 17,5 %). Der Mindestbeitrag gilt auf Basis des Mindestverdiensts. Bei sehr niedrigem Einkommen kann PKV günstiger sein.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Investitionsabzugsbetrag (IAB)?</div><div class="faq-a">Der IAB (§7g EStG) erlaubt, bis zu 50 % geplanter Investitionskosten vorab steuerlich abzuziehen — bis zu 200.000 Euro. Das senkt den Gewinn im Jahr der Bildung und ermöglicht erhebliche Steuerersparnis. Die Investition muss innerhalb von 3 Jahren folgen.</div></div></div></section>
+<section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/gehaltsrechner.html" class="related-link">Gehaltsrechner</a><a href="/ratgeber/steueraenderungen-2026.html" class="related-link">Steueränderungen 2026</a></div></div></section>
+</main>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>33 kostenlose Rechner für Deutschland.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">Währung</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Neu</h4><a href="/selbststaendigen-steuerrechner.html">Steuer Selbstständige</a><a href="/heiratsvorteil-rechner.html">Heiratsvorteil</a><a href="/miete-vs-kauf-rechner.html">Miete vs. Kauf</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gewähr</span></div></div></footer>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');m.classList.toggle('open');o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+function tF(el){el.parentElement.classList.toggle('open');}
+</script>
+</body>
+</html>

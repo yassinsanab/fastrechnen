@@ -20,7 +20,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Kindergeldrechner 2024</div><h1>Kindergeldrechner 2024</h1><p>Berechnen Sie Ihr monatliches Kindergeld 2024 — einheitlich 250 Euro pro Kind.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">250 € pro Kind</span><span class="calc-badge">Aktuell gepflegt</span><span class="calc-badge">Sofort</span></div></div>
   <div class="calc-section">
@@ -101,7 +121,18 @@ calc();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch ist das Kindergeld 2024?</div><div class="faq-a">Seit dem 1. Januar 2023 beträgt das Kindergeld einheitlich 250 Euro pro Kind und Monat — unabhängig von der Reihenfolge der Kinder. Die bisherige Staffelung (184 EUR für das 1. und 2. Kind, 190 EUR für das 3. und 215 EUR ab dem 4. Kind) wurde abgeschafft.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Bis zu welchem Alter wird Kindergeld gezahlt?</div><div class="faq-a">Kindergeld wird grundsätzlich bis zur Vollendung des 18. Lebensjahres gezahlt. Danach bis zur Vollendung des 25. Lebensjahres, wenn das Kind: in Berufsausbildung oder Studium ist, ein Freiwilliges Soziales/Ökologisches Jahr ableistet, bei der Agentur für Arbeit als arbeitsuchend gemeldet ist, oder einen gesetzlichen Wehr-/Bundesfreiwilligendienst leistet.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie beantrage ich Kindergeld?</div><div class="faq-a">Zuständig ist die Familienkasse der Bundesagentur für Arbeit. Der Antrag kann online unter www.arbeitsagentur.de/familie-und-kinder/kindergeld, schriftlich per Post oder persönlich in einer Familienkasse gestellt werden. Wichtig: Kindergeld wird nur rückwirkend für bis zu 6 Monate vor Antragstellung gezahlt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Günstigerprüfung?</div><div class="faq-a">Das Finanzamt prüft automatisch in der Einkommensteuererklärung, was günstiger ist: das erhaltene Kindergeld oder der Kinderfreibetrag von 8.532 Euro (2024). Bei höheren Einkommen ist der Kinderfreibetrag meist vorteilhafter. In diesem Fall wird das Kindergeld auf die Steuerersparnis durch den Kinderfreibetrag angerechnet.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Erhalten beide Elternteile Kindergeld?</div><div class="faq-a">Kindergeld wird nur an einen Berechtigten gezahlt — in der Regel an den Elternteil, bei dem das Kind lebt. Bei gemeinsamer Betreuung können die Eltern vereinbaren, wer das Kindergeld erhält. Bei Trennung zahlt die Familienkasse automatisch an den Elternteil, bei dem das Kind gemeldet ist.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gibt es Kindergeld zusätzlich zum Kinderzuschlag?</div><div class="faq-a">Ja. Neben dem Kindergeld können einkommensschwache Familien den Kinderzuschlag (bis zu 292 Euro pro Kind/Monat in 2024) beim Familienkasse beantragen. Er ist für Familien gedacht, die zwar ihren eigenen Unterhalt, aber nicht den der Kinder selbst bestreiten können.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie wird das Kindergeld für Kinder in Ausbildung beantragt?</div><div class="faq-a">Bei Kindern über 18 muss die Ausbildungssituation der Familienkasse jährlich nachgewiesen werden. Dafür reicht in der Regel eine Schulbescheinigung, Ausbildungsbescheinigung oder Immatrikulationsbescheinigung. Viele Familienkassen bitten nicht automatisch um Nachweise — bleiben Sie aktiv und melden Sie relevante Änderungen.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/lohnsteuerrechner.html" class="related-link">Lohnsteuerrechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

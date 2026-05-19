@@ -19,7 +19,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Währungsrechner</div>
@@ -218,7 +238,18 @@ loadRates();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Warum unterscheidet sich der Kurs in meiner Bank vom Rechner?</div><div class="faq-a">Unser Rechner zeigt den EZB-Referenzkurs (Mittelkurs). Banken, Wechselstuben und Kreditkartenanbieter berechnen einen Aufschlag (Spread) — typischerweise 1–3 % bei Banken, bis zu 10 % an Flughäfen. Online-Dienste wie Wise oder Revolut liegen oft näher am EZB-Kurs.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie oft werden die Kurse aktualisiert?</div><div class="faq-a">Die EZB veröffentlicht Referenzkurse an Werktagen einmal täglich gegen 16:00 Uhr MEZ. Unser Rechner ruft diese Daten über die kostenlose Frankfurter API ab. An Wochenenden und Feiertagen bleiben die zuletzt veröffentlichten Kurse gültig.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie rechne ich Dollar in Euro um?</div><div class="faq-a">Dividieren Sie den Dollar-Betrag durch den aktuellen EUR/USD-Kurs. Beispiel: 100 USD ÷ 1,09 (Kurs) = 91,74 EUR. Unser Rechner übernimmt diese Umrechnung automatisch für alle Währungspaare.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist der Unterschied zwischen Geld- und Briefkurs?</div><div class="faq-a">Der Geldkurs (Bid) ist der Kurs, zu dem eine Bank Fremdwährung kauft. Der Briefkurs (Ask) ist der Kurs, zu dem sie verkauft. Der EZB-Referenzkurs liegt dazwischen (Mittelkurs). Die Differenz zwischen Geld- und Briefkurs ist der Spread — der Gewinn des Währungshändlers.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist das günstigste Zahlungsmittel im Ausland?</div><div class="faq-a">Reisekreditkarten ohne Fremdwährungsgebühren oder Konten von Neobanken (Revolut, Wise, N26) bieten oft die günstigsten Kurse nahe am EZB-Mittelkurs. Bargeld am Geldautomaten ist günstiger als Wechselstuben. Vermeiden Sie Geldautomaten mit fest angebotener Wechseloption (DCC).</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie beeinflusst die EZB den Eurokurs?</div><div class="faq-a">Die EZB beeinflusst den Euro-Wechselkurs hauptsächlich über Zinsentscheidungen. Höhere Zinsen machen den Euro attraktiver für ausländische Investoren, was den Kurs stärkt. Niedrige Zinsen schwächen tendenziell den Euro. Auch EZB-Prognosen und Statements des Präsidenten bewegen die Märkte.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Welche Währungen sind an den Euro gebunden?</div><div class="faq-a">Einige Länder haben ihre Währung fest an den Euro gekoppelt (Pegging): der Dänische Krone (DKK) schwankt kaum um 7,46 DKK/EUR. Bosnien, Bulgarien und einige weitere Länder haben ebenfalls Eurobindungen. Viele ehemalige Franc-CFA-Länder in Afrika haben feste Wechselkurse zum Euro.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/mehrwertsteuerrechner.html" class="related-link">Mehrwertsteuerrechner</a><a href="/prozentrechner.html" class="related-link">Prozentrechner</a><a href="/rabattrechner.html" class="related-link">Rabattrechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

@@ -20,7 +20,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; Zinsrechner</div>
@@ -143,7 +163,18 @@ calc();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie hoch sind die Zinsen aktuell auf Tagesgeld?</div><div class="faq-a">Die Tagesgeldzinsen variieren je nach Bank und Marktlage stark. Nutzen Sie aktuelle Zinsvergleichsportale für den besten Überblick — die Zinsen ändern sich regelmäßig. Unser Rechner berechnet die Erträge für jeden beliebigen Zinssatz.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist die Abgeltungsteuer?</div><div class="faq-a">Die Abgeltungsteuer beträgt 25 % auf Kapitalerträge (Zinsen, Dividenden, Kursgewinne). Hinzu kommen 5,5 % Solidaritätszuschlag auf die Steuer, sodass der Gesamtsatz 26,375 % beträgt. Bis zum Freistellungsauftrag von 1.000 Euro (2.000 Euro bei Ehepaaren) sind Erträge steuerfrei.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist ein Freistellungsauftrag?</div><div class="faq-a">Mit einem Freistellungsauftrag bei Ihrer Bank bleiben Kapitalerträge bis 1.000 Euro pro Jahr (Stand 2023) steuerfrei — ohne Antrag in der Steuererklärung. Der Betrag kann auf mehrere Banken aufgeteilt werden. Ehepaare können gemeinsam bis zu 2.000 Euro freistellen lassen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ist Festgeld oder Tagesgeld besser?</div><div class="faq-a">Festgeld bietet planbare, garantierte Zinsen — gut für Geld, das Sie eine bestimmte Zeit nicht brauchen. Tagesgeld ist flexibel, aber der Zinssatz ist variabel und kann jederzeit gesenkt werden. Strategisch sinnvoll: Notgroschen auf Tagesgeld, mittelfristige Rücklagen auf Festgeld.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie unterscheidet sich einfacher Zins von Zinseszins?</div><div class="faq-a">Einfacher Zins: Zinsen werden nur auf das Startkapital berechnet. Zinseszins: Zinsen werden am Ende jeder Periode dem Kapital hinzugefügt und im nächsten Zeitraum mitverzinst. Bei kurzen Laufzeiten ist der Unterschied gering; bei langen Laufzeiten ist der Zinseszinseffekt erheblich.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was bedeutet "p.a." bei Zinssätzen?</div><div class="faq-a">P.a. steht für "per annum" (lateinisch: pro Jahr). Ein Zinssatz von 3,5 % p.a. bedeutet 3,5 % Zinsen bezogen auf ein Jahr. Bei kürzeren Anlagezeiträumen wird der Jahreszinssatz entsprechend anteilig berechnet: 3 Monate = 3,5 % × 3/12 = 0,875 %.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Sind Zinsen aus dem Ausland steuerpflichtig?</div><div class="faq-a">Ja. Auch Zinsen von ausländischen Banken sind in Deutschland steuerpflichtig und müssen in der Einkommensteuererklärung angegeben werden, wenn keine Abgeltungsteuer einbehalten wurde. Im EU-Raum funktioniert die automatische Informationsweitergabe zwischen Finanzbehörden.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/zinseszinsrechner.html" class="related-link">Zinseszins-Rechner</a><a href="/sparplanrechner.html" class="related-link">Sparplan-Rechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner f&uuml;r Deutschland. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

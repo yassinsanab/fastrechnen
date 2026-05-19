@@ -17,7 +17,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> ›  Gewicht-Rechner</div>
@@ -90,7 +110,18 @@ function setVal(unit,val){clearAll();document.getElementById(unit).value=val;con
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie viel kg sind ein Pfund?</div><div class="faq-a">1 Pfund (lbs) = 0,453592 Kilogramm. Umgekehrt: 1 kg = 2,20462 Pfund. Faustregel: 1 kg ≈ 2,2 lbs. Bei 70 kg Körpergewicht: 70 × 2,2 = 154 lbs.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist der Unterschied zwischen deutschem Pfund und britischem Pfund?</div><div class="faq-a">Das deutsche Pfund (Handelspfund) = 500 Gramm = 0,5 kg. Das britisch-amerikanische Pfund (Pound, lb) = 453,592 Gramm. Wenn eine amerikanische Rezept "1 lb Mehl" fordert, sind das ca. 454 g, nicht 500 g.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist eine Unze?</div><div class="faq-a">Eine Unze (oz, Avoirdupois) = 28,3495 Gramm. Bei Edelmetallen gilt die Feinunze (troy ounce, ozt) = 31,1035 g. Wenn Gold oder Silber in Unzen quotiert wird, ist immer die Feinunze gemeint.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie schwer ist eine Tonne?</div><div class="faq-a">1 metrische Tonne = 1.000 kg. Eine "kurze Tonne" (US) = 907,185 kg. Eine "lange Tonne" (UK) = 1.016,047 kg. In Deutschland meint "Tonne" immer die metrische Tonne von 1.000 kg.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/laengen-rechner.html" class="related-link">Längen-Rechner</a><a href="/flaechen-rechner.html" class="related-link">Flächen-Rechner</a><a href="/bmi-rechner.html" class="related-link">BMI-Rechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Beliebt</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/waehrungsrechner.html">W&auml;hrung</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de &mdash; Alle Angaben ohne Gew&auml;hr</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

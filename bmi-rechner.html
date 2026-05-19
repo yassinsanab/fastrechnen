@@ -20,7 +20,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/mehrwertsteuerrechner.html">MwSt</a><a href="/alle-rechner.html"  class="active">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero"><div class="breadcrumb"><a href="/">FastRechnen.de</a> &rsaquo; BMI-Rechner</div><h1>BMI-Rechner</h1><p>Berechnen Sie Ihren Body-Mass-Index mit vollständiger WHO-Auswertung und Idealgewicht-Angabe.</p><div class="calc-badges"><span class="calc-badge">Kostenlos</span><span class="calc-badge">WHO-Klassifikation</span><span class="calc-badge">Idealgewicht</span><span class="calc-badge">Für Erwachsene</span></div></div>
   <div class="calc-section">
@@ -120,7 +140,18 @@ calc();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist ein gesunder BMI?</div><div class="faq-a">Nach WHO-Definition gilt ein BMI zwischen 18,5 und 24,9 als Normalgewicht. Werte darunter gelten als Untergewicht, Werte ab 25 als Übergewicht und ab 30 als Adipositas. Diese Grenzen gelten für Erwachsene ab 18 Jahren und berücksichtigen keine Faktoren wie Muskelmasse oder Alter.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Ist der BMI für Sportler aussagekräftig?</div><div class="faq-a">Nein, nicht zuverlässig. Sehr muskulöse Personen haben oft einen BMI im Übergewichtsbereich, obwohl ihr Körperfettanteil gesund ist. Für Sportler sind der Körperfettanteil (gemessen per DEXA oder Hautfalten) und der Taillenumfang bessere Indikatoren für das Gesundheitsrisiko.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Wie berechnet sich das Idealgewicht?</div><div class="faq-a">Eine gängige Formel ist der modifizierte Broca-Index: Männer: (Körpergröße in cm − 100) × 0,9; Frauen: (Körpergröße in cm − 100) × 0,85. Dies ist ein Richtwert aus der Mitte des Normalgewichtsbereichs. Der WHO-Normalgewichtsbereich (BMI 18,5–24,9) gibt eine breitere gesunde Spanne an.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Gilt der BMI auch für Kinder?</div><div class="faq-a">Nein. Dieser Rechner ist für Erwachsene ab 18 Jahren. Für Kinder und Jugendliche gelten alters- und geschlechtsspezifische BMI-Perzentilen. Kinderärzte nutzen spezielle Wachstumskurven (z.B. der Kromeyer-Hauschild-Referenzwerte). Ein BMI von 22 bedeutet bei einem 10-Jährigen etwas ganz anderes als bei einem 35-Jährigen.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was ist Adipositas und wann ist sie behandlungsbedürftig?</div><div class="faq-a">Adipositas (Fettleibigkeit) liegt ab einem BMI von 30 vor. Grad I (30–34,9) erfordert Lebensstiländerungen (Ernährung, Bewegung). Grad II (35–39,9) und Grad III (über 40) sind ernsthaft behandlungsbedürftig; hier kommen auch medizinische Eingriffe (bariatrische Chirurgie) in Frage. Sprechen Sie unbedingt mit einem Arzt.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Warum ist Untergewicht (BMI unter 18,5) gefährlich?</div><div class="faq-a">Untergewicht erhöht das Risiko für Osteoporose, geschwächtes Immunsystem, Herzrhythmusstörungen, Unfruchtbarkeit und psychische Erkrankungen wie Essstörungen. Besonders ab einem BMI unter 17,5 spricht man von ernsthafter Mangelernährung, die ärztlicher Behandlung bedarf.</div></div><div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Was sagt der Taillenumfang zusätzlich zum BMI aus?</div><div class="faq-a">Der Taillenumfang misst das Bauchfett, das besonders mit Herz-Kreislauf-Erkrankungen und Typ-2-Diabetes verbunden ist. Grenzwerte: Frauen unter 80 cm (Warnbereich: 80–88 cm, erhöhtes Risiko: über 88 cm); Männer unter 94 cm (Warnbereich: 94–102 cm, erhöhtes Risiko: über 102 cm). Ein normaler BMI mit hohem Taillenumfang ist ein Risikofaktor.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/netto-brutto-rechner.html" class="related-link">Netto-Brutto-Rechner</a><a href="/rentenrechner.html" class="related-link">Rentenrechner</a><a href="/kreditrechner.html" class="related-link">Kreditrechner</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Online-Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Rechner</h4><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/lohnsteuerrechner.html">Lohnsteuer</a><a href="/kreditrechner.html">Kredit</a><a href="/rentenrechner.html">Rente</a><a href="/alle-rechner.html">Alle Rechner</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Zuletzt aktualisiert</span></div></div></footer>
 <script>function toggleFaq(el){el.parentElement.classList.toggle("open");}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>

@@ -16,7 +16,27 @@
 <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div></div></nav>
+<nav><div class="nav-inner"><a href="/" class="nav-logo"><span class="nav-logo-accent">Fast</span>Rechnen.de</a><div class="nav-links"><a href="/netto-brutto-rechner.html">Netto-Brutto</a><a href="/kreditrechner.html">Kredit</a><a href="/ratgeber/">Ratgeber</a><a href="/alle-rechner.html">Alle Rechner</a></div>
+    <button class="nav-hamburger" id="nav-ham" onclick="toggleNav()" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div></div></nav>
+<div class="nav-mobile-overlay" id="nav-overlay" onclick="toggleNav()"></div>
+<div class="nav-mobile-menu" id="nav-menu">
+  <a href="/" >Startseite</a>
+  <a href="/netto-brutto-rechner.html">Netto-Brutto-Rechner</a>
+  <a href="/lohnsteuerrechner.html">Lohnsteuerrechner</a>
+  <a href="/kreditrechner.html">Kreditrechner</a>
+  <a href="/waehrungsrechner.html">Währungsrechner</a>
+  <a href="/gehaltsrechner.html">Gehaltsrechner</a>
+  <a href="/tilgungsrechner.html">Tilgungsrechner</a>
+  <a href="/laengen-rechner.html">Längen-Rechner</a>
+  <a href="/temperatur-rechner.html">Temperatur-Rechner</a>
+  <a href="/alle-rechner.html">Alle 33 Rechner</a>
+  <a href="/ratgeber/">Finanzratgeber</a>
+  <a href="/datenschutz.html">Datenschutz</a>
+  <div class="nav-mobile-menu-footer">FastRechnen.de &mdash; 33 kostenlose Rechner</div>
+</div>
 <main>
   <div class="calc-hero">
     <div class="breadcrumb"><a href="/">FastRechnen.de</a> › Datum-Rechner</div>
@@ -173,7 +193,18 @@ setDiff(0,0,30);calcAdd();calcWT();
 <section class="faq-section"><div class="faq-inner"><h2>H&auml;ufig gestellte Fragen</h2><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie berechne ich Arbeitstage zwischen zwei Daten?</div><div class="faq-a">Zählen Sie alle Tage zwischen den Daten und subtrahieren Sie Samstage und Sonntage. Pro Woche (7 Tage) sind 5 Arbeitstage. Unsere Rechner macht das automatisch. Feiertage müssen Sie je nach Bundesland separat abziehen.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Was ist eine Kalenderwoche (KW)?</div><div class="faq-a">Kalenderwochen werden nach ISO 8601 nummeriert: Woche 1 ist die Woche mit dem ersten Donnerstag des Jahres (oder: die Woche mit dem 4. Januar). Ein Jahr hat 52 oder 53 Kalenderwochen.</div></div><div class="faq-item"><div class="faq-q" onclick="tF(this)">Wie berechnet man eine Deadline?</div><div class="faq-a">Startdatum + Anzahl Tage/Monate/Jahre = Enddatum. Bei Monatszusätzen gilt: 31. Januar + 1 Monat = 28. (oder 29.) Februar (letzter Tag des Folgemonats). Nutzen Sie unser "Datum addieren"-Tool für genaue Fristen.</div></div></div></section>
 <section class="related-section"><div class="related-inner"><h3>Weitere Rechner</h3><div class="related-grid"><a href="/altersrechner.html" class="related-link">Altersrechner</a><a href="/urlaubsrechner.html" class="related-link">Urlaubsrechner</a><a href="/pendlerpauschale.html" class="related-link">Pendlerpauschale</a></div></div></section>
 </main>
-<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechner</h4><a href="/altersrechner.html">Altersrechner</a><a href="/datum-rechner.html">Datum</a><a href="/spritkosten-rechner.html">Spritkosten</a><a href="/alle-rechner.html">Alle</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/datenschutz.html">Datenschutz</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr</span></div></div></footer>
+<footer class="site-footer"><div class="footer-inner"><div class="footer-top"><div class="footer-brand"><div class="footer-logo"><span>Fast</span>Rechnen.de</div><p>Kostenlose Rechner. Zuletzt aktualisiert.</p></div><div class="footer-col"><h4>Einheiten</h4><a href="/laengen-rechner.html">L&auml;ngen</a><a href="/temperatur-rechner.html">Temperatur</a><a href="/gewicht-rechner.html">Gewicht</a><a href="/flaechen-rechner.html">Fl&auml;che</a></div><div class="footer-col"><h4>Rechner</h4><a href="/altersrechner.html">Altersrechner</a><a href="/datum-rechner.html">Datum</a><a href="/spritkosten-rechner.html">Spritkosten</a><a href="/alle-rechner.html">Alle</a></div><div class="footer-col"><h4>Rechtliches</h4><a href="/ueber-uns.html">Über uns</a><a href="/kontakt.html">Kontakt</a><a href="/datenschutz.html">Datenschutz</a><a href="/nutzungsbedingungen.html">Nutzungsbedingungen</a><a href="/impressum.html">Impressum</a></div></div><div class="footer-bottom"><span>&copy; 2026 FastRechnen.de</span><span>Alle Angaben ohne Gew&auml;hr</span></div></div></footer>
 <script>function tF(el){el.parentElement.classList.toggle('open');}</script>
+<script>
+function toggleNav(){
+  const h=document.getElementById('nav-ham');
+  const m=document.getElementById('nav-menu');
+  const o=document.getElementById('nav-overlay');
+  h.classList.toggle('open');
+  m.classList.toggle('open');
+  o.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+</script>
 </body>
 </html>
